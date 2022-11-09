@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@react-icons/all-files": "^4.1.0",
     "antd": "^4.24.1",
     "daisyui": "^2.38.1",
     "next": "13.0.2",
