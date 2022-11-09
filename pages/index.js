@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Layout from "../components/layout/Layout";
+import Slider from "./Slider/Slider";
+import {HeartOutlined} from "@ant-design/icons";
 
 export default function Home() {
     const title = 'Rainbow | Home'
@@ -12,7 +14,20 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Layout>
-                <h1>this is home page</h1>
+                <Slider/>
+
+                 {/*<div className={'border-b border-gray-600'}>*/}
+                 {/*    <div className={'sm:w-3/5 mt-10 mx-auto w-full flex'}>*/}
+                 {/*        <div className={'sm:w-1/4 w-full'}>*/}
+                 {/*           <div className={'rounded-full border-green-600 items-center justify-center h-24 w-24 '}>*/}
+                 {/*               <HeartOutlined />*/}
+                 {/*           </div>*/}
+                 {/*        </div>*/}
+                 {/*        <div className={'p-4 text-4xl text-green-800'}><HeartOutlined /></div>*/}
+                 {/*    </div>*/}
+                 {/*</div>*/}
+
+
             </Layout>
         </div>
     )

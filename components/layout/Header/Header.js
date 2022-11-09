@@ -1,9 +1,9 @@
-import styles from './Header.module.css'
+
 
 const Header = () => {
   return (
     <>
-      <header className={styles.navbar}>
+      <header className={'text-center text-red-600'}>
         This is the header
       </header>
     </>
