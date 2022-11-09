@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700);
+
+.two {
+  background: #F6F792
+}
+
+.three {
+  background: #EA2E49;
+}
+
+.four {
+  background: #333745;
+}
+
+.search {
+  margin: auto;
+  //transform: translateY(-50%);
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  right: -175px;
+  top: -15px;
+
+  &_bar {
+    width: 280px;
+    position: relative;
+    margin: 0 auto;
+
+    input[type="text"] {
+      width: 15px;
+      background: white;
+      transition: border .3s 0s, width .2s .3s cubic-bezier(0.225, 0.010, 0.475, 1.010), text-indent .2s .3s;
+      padding: 5px;
+      text-indent: 30px;
+      outline: none;
+      border: 0 solid #b2b2b2;
+      font-size: 12px;
+      color: #b2b2b2;
+      border-radius: 5px;
+      //text-transform:uppercase;
+      font-family: 'Nunito', sans-serif;
+
+    }
+
+    ::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+      color: #b2b2b2;
+      font-weight: 400;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    input[type="checkbox"]:checked + label + input {
+      width: 230px;
+      border: 2px solid #b2b2b2;
+      text-indent: 0px;
+    }
+
+    input[type="checkbox"]:checked + label .search_icon {
+      right: 0px;
+      transform: translateY(-50%) translateX(50%) rotate(360deg) scale(0);
+      color: #b2b2b2;
+
+      &:hover {
+        //background:white;
+      }
+    }
+
+    input[type="checkbox"]:checked + label .last {
+
+      transform: translateY(-50%) rotate(360deg) scale(1);
+
+      &:hover {
+        //background:white;
+      }
+    }
+
+    input[type="checkbox"]:checked + label p {
+      top: 40%;
+      transition: all .3s .45s;
+    }
+
+    input[type="checkbox"]:not(checked) + label p {
+      top: -70%;
+      transition: all .3s 0s;
+    }
+
+
+    .search_icon {
+      position: absolute;
+      font-size: 30px;
+      top: 60%;
+      transform: translateY(-50%) translateX(50%) rotate(0deg) scale(1);
+      cursor: pointer;
+      z-index: 2;
+      margin: auto;
+      border-radius: 4px;
+      width: 56px;
+      right: 50%;
+      height: 20px;
+      background: transparent;
+      transition: right .3s .3s, transform .3s .3s, color .3s;
+      line-height: 60px;
+      color: #b2b2b2;
+
+      &:hover {
+        color: #b2b2b2;
+      }
+    }
+
+    .last {
+      top: 50%;
+      left: 200px;
+      -webkit-transform: translateY(-50%) rotate(0deg) scale(0);
+      transform: translateY(-50%) rotate(0deg) scale(0);
+    }
+
+
+    p {
+      position: absolute;
+      margin: 0;
+      right: 52px;
+      color: #b2b2b2;
+      font-weight: 700;
+      font-size: 30px;
+      top: -50%;
+      transform: translateY(-50%) rotate(0deg) scale(1);
+    }
+  }
+}
