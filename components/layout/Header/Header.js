@@ -4,6 +4,7 @@ import {FaPhoneSquareAlt} from "@react-icons/all-files/fa/FaPhoneSquareAlt";
 import SearchBox from "./searchbox/SearchBox";
 import {RiArrowDownSLine} from "@react-icons/all-files/ri/RiArrowDownSLine";
 
+import Image from 'next/image';
 const Header = () => {
   return (<>
     <header className={cls(styles.navbar)}>
@@ -12,7 +13,9 @@ const Header = () => {
           {/*logo*/}
           <div className={cls("flex items-center")}>
             <a href="#" className={cls("flex items-center")}>
-              <img src="/assets/imgs/logo.jpg" alt="logo" className={cls("h-20")}/>
+              <Image src="/assets/imgs/logo.jpg" alt="logo"
+                     width={70}
+                     height={70}/>
             </a>
           </div>
           {/*menu*/}
@@ -27,6 +30,7 @@ const Header = () => {
                   <span>Dropdown</span>
                   <RiArrowDownSLine className={cls(styles.dropdown_icon, "ml-1 w-6 h-6")}/>
                 </a>
+
                 <div className={cls("absolute container   bg-red-500", styles.dropdown_item)}>
                   <div className={cls(" container bg-white flex h-72 mx-auto rounded-b-xl")}>
                     <div className={cls("w-1/2  ml-28 mt-10 ")}>

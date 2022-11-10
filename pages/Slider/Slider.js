@@ -9,25 +9,53 @@ import "swiper/css/pagination";
 import "./Slider.module.scss";
 
 // import required modules
-import { Pagination } from "swiper";
-
-import img1 from "./Image/download.jpeg";
-
+import {Autoplay, Pagination} from "swiper";
+// import img from '../../public/assets/imgs/img.png'
+import Image from 'next/image';
 export default function Slider() {
     return (
         <>
             <Swiper
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
                 pagination={{
                     dynamicBullets: true,
                 }}
-                modules={[Pagination]}
+                modules={[Autoplay,Pagination]}
                 className="mySwiper"
             >
-                <SwiperSlide className={'h-72 w-full'}>
-                    <img  className={'h-124 w-full'} src={img1}/>
+                <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/img2.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full '}
+                    />
+
+                </SwiperSlide>
+                <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/img1.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full'}
+                    />
                 </SwiperSlide>
 
-
+                <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/img3.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full'}
+                    />
+                </SwiperSlide>
+                <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/img4.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full'}
+                    />
+                </SwiperSlide>
             </Swiper>
         </>
     );
