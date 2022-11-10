@@ -4,5 +4,10 @@
 
 * {
     box-sizing: border-box;
+}
 
+body {
+    font-family: 'Proxima Nova', Georgia, sans-serif;
+    transition: background-color 0.5s ease;
+    /*background-color: rgba(16, 16, 16, 0.5);*/
 }
