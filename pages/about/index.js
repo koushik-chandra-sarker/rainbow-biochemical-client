@@ -27,7 +27,7 @@ const Index = () => {
                          </div>
                     </div>
                     <div className={'w-9/12 bg-gray-200 text-gray-500 mt-20 h-auto pb-16'}>
-                        <h2 className={'text-center text-4xl uppercase'}>About Us</h2>
+                        <h2 className={'text-center text-2xl uppercase'}>About Us</h2>
                         <p className={'text-sm px-8 pt-8 text-justify'}>
                             Miami Associates (BD) is a well-diversified company involved in import, trading, indenting and services. Our core businesses are among the region’s market leaders.
 

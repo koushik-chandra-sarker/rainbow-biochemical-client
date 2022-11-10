@@ -5,8 +5,8 @@ import Slider from "./Slider/Slider";
 import {HeartOutlined, RightOutlined} from "@ant-design/icons";
 import Image from 'next/image';
 import CardSlider from "./Slider/CardSlider";
-import Index from "./about";
-
+// import Index from "./about";
+import Index from "./contact";
 export default function Home() {
     const title = 'Rainbow | Home'
     return (
@@ -42,6 +42,7 @@ export default function Home() {
                 {/*    ))}*/}
                 {/*</div>*/}
 
+                {/*<Index/>*/}
                 <Index/>
 
             </Layout>
