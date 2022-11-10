@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Layout from "../components/layout/Layout";
 import 'swiper/css';
-import Index from "./about";
+import Index from "./contact";
 // import Index from "./about";
 
 export default function Home() {
@@ -39,7 +39,7 @@ export default function Home() {
         {/*        </div>*/}
         {/*    ))}*/}
         {/*</div>*/}
-        
+
         <Index/>
 
       </Layout>

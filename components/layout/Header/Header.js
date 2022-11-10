@@ -11,11 +11,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dropdownOverlay = useRef();
   useEffect(() => {
-    // if (isMenuOpen) {
-    //   document.body.style.background = 'rgba(16, 16, 16, 0.5)';
-    // } else {
-    //   document.body.style.background = 'white';
-    // }
     dropdownOverlay.current.style.transform = isMenuOpen ? 'scale(1)' : 'scale(0)';
   }, [isMenuOpen]);
   return (<>
