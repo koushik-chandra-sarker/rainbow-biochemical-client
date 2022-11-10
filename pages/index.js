@@ -5,6 +5,7 @@ import Slider from "./Slider/Slider";
 import {HeartOutlined, RightOutlined} from "@ant-design/icons";
 import Image from 'next/image';
 import CardSlider from "./Slider/CardSlider";
+import Index from "./about";
 
 export default function Home() {
     const title = 'Rainbow | Home'
@@ -16,32 +17,32 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Layout>
-                <Slider/>
-                <div className={''}>
-                    <CardSlider/>
-                </div>
+                {/*<Slider/>*/}
+                {/*<div className={''}>*/}
+                {/*    <CardSlider/>*/}
+                {/*</div>*/}
 
 
-                <div className={'w-8/12 mx-auto  flex sm:px-0 px-2 my-10'}>
-                    {[1,1,1,1].map((v,i)=>(
-                        <div className="sm:w-1/4 w-full">
-                            <div className={'pl-24'}>
-                                <div className={' text-center p-3  text-5xl h-24 w-24 text-gray-300 rounded-full border-2 border-gray-300 items-center'}>
-                                    <HeartOutlined />
-                                </div>
-                            </div>
-                            <h2 className={'text-2xl text-center  py-4'}>SEBA QUALITY</h2>
-                            <p className={'text-sm w-7/12 mx-auto text-gray-400 text-center pb-4'}>The most important principle that brought Seba Kimya to today is the quality.</p>
-                            <button
-                                className="w-7/12 mx-auto rounded-3xl flex justify-center  mx-auto text-red-600 hover:text-white bg-white py-4 focus:outline-none hover:bg-red-600   text-sm">
-                                READ MORE
-                            </button>
+                {/*<div className={'w-8/12 mx-auto  flex sm:px-0 px-2 my-10'}>*/}
+                {/*    {[1,1,1,1].map((v,i)=>(*/}
+                {/*        <div className="sm:w-1/4 w-full">*/}
+                {/*            <div className={'pl-24'}>*/}
+                {/*                <div className={' text-center p-3  text-5xl h-24 w-24 text-gray-300 rounded-full border-2 border-gray-300 items-center'}>*/}
+                {/*                    <HeartOutlined />*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*            <h2 className={'text-2xl text-center  py-4'}>SEBA QUALITY</h2>*/}
+                {/*            <p className={'text-sm w-7/12 mx-auto text-gray-400 text-center pb-4'}>The most important principle that brought Seba Kimya to today is the quality.</p>*/}
+                {/*            <button*/}
+                {/*                className="w-7/12 mx-auto rounded-3xl flex justify-center  mx-auto text-red-600 hover:text-white bg-white py-4 focus:outline-none hover:bg-red-600   text-sm">*/}
+                {/*                READ MORE*/}
+                {/*            </button>*/}
 
-                        </div>
-                    ))}
-                </div>
+                {/*        </div>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
 
-
+                <Index/>
 
             </Layout>
         </div>
