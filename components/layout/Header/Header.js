@@ -4,6 +4,8 @@ import {FaPhoneSquareAlt} from "@react-icons/all-files/fa/FaPhoneSquareAlt";
 import {RiArrowDownSLine} from "@react-icons/all-files/ri/RiArrowDownSLine";
 import {useEffect, useState} from "react";
 import SearchBox from "./searchbox/SearchBox";
+import Image from 'next/image'
+import logo from "../../../public/assets/imgs/logo_h.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +23,7 @@ const Header = () => {
           {/*logo*/}
           <div className={cls("flex items-center")}>
             <a href="#" className={cls("flex items-center")}>
-              <img src="/assets/imgs/logo.jpg" alt="logo" className={cls("h-20")}/>
+              <Image src={logo} alt="Biochemical logo" className={cls("w-36")}/>
             </a>
           </div>
           {/*menu*/}
@@ -34,7 +36,7 @@ const Header = () => {
               <li onMouseOver={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}
                   className={cls(styles.dropdown, "mr-4 h-full flex items-center")}>
                 <a href="#" className={cls("text-gray-600 flex items-center ")}>
-                  <span>Dropdown</span>
+                  <span>Biochemical</span>
                   <RiArrowDownSLine className={cls(styles.dropdown_icon, "ml-1 w-6 h-6")}/>
                 </a>
                 {/*Sub Menu*/}
