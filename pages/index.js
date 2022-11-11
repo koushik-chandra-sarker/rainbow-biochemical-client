@@ -30,7 +30,7 @@ export default function Home() {
 
 
                 <div className={'bg'}>
-                    <div className={'bg-gray-100 pt-8 pb-8'}>
+                    <div className={'bg-white pt-8 pb-8'}>
                         <CardSlider/>
                         <div className={'w-8/12 mx-auto  flex sm:px-0 px-2 my-16'}>
                             {[1,1,1,1].map((v,i)=>(
@@ -43,7 +43,7 @@ export default function Home() {
                                     <h2 className={'text-2xl text-center  py-4'}>SEBA QUALITY</h2>
                                     <p className={'text-sm w-7/12 mx-auto text-gray-400 text-center pb-4'}>The most important principle that brought Seba Kimya to today is the quality.</p>
                                     <button
-                                        className="w-7/12 mx-auto rounded-3xl flex justify-center  mx-auto text-red-600 hover:text-white bg-gray-100 py-4 focus:outline-none hover:bg-red-600   text-sm">
+                                        className="w-7/12 mx-auto rounded-3xl flex justify-center  mx-auto text-red-600 hover:text-white bg-white py-4 focus:outline-none hover:bg-red-600   text-sm">
                                         READ MORE
                                     </button>
 

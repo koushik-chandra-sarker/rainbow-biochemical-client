@@ -29,3 +29,32 @@
   height: 100%;
   object-fit: cover;
 }
+
+
+//.swiper-container {
+//  position:relative;
+//  width: 90vw;
+//  height: 300px;
+//}
+//.swiper-container > .swiper-slide__content {
+//  position:absolute;
+//  top:0;
+//}
+//
+//.swiper-slide {
+//  height: 300px;
+//  display:flex;
+//  background: #eee;
+//  align-items: center;
+//  justify-content:center;
+//  transition:all 200ms linear;
+//  transform: scale(0.8);
+//
+//  &.swiper-slide-active{
+//    transform: scale(1);
+//    background: #fc0
+//  }
+//}
+//.swiper-slide__content {
+//  height: 300px;
+//}

@@ -27,33 +27,40 @@ export default function Slider() {
                 className="mySwiper"
             >
                 <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/home4.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full object-cover'}
+                    />
+
+                </SwiperSlide>
+                <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/home3.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full object-cover'}
+                    />
+                </SwiperSlide>
+
+                <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/home2.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full object-cover'}
+                    />
+                </SwiperSlide>
+                <SwiperSlide className={''}>
+                    <Image src={'/assets/imgs/home1.jpg'} alt="logo"
+                           height={2}
+                           width={1800}
+                           className={'h-screen w-full object-cover'}
+                    />
+                </SwiperSlide>
+                <SwiperSlide className={''}>
                     <Image src={'/assets/imgs/img2.jpg'} alt="logo"
                            height={2}
                            width={1800}
-                           className={'h-screen w-full '}
-                    />
-
-                </SwiperSlide>
-                <SwiperSlide className={''}>
-                    <Image src={'/assets/imgs/img1.jpg'} alt="logo"
-                           height={2}
-                           width={1800}
-                           className={'h-screen w-full'}
-                    />
-                </SwiperSlide>
-
-                <SwiperSlide className={''}>
-                    <Image src={'/assets/imgs/img3.jpg'} alt="logo"
-                           height={2}
-                           width={1800}
-                           className={'h-screen w-full'}
-                    />
-                </SwiperSlide>
-                <SwiperSlide className={''}>
-                    <Image src={'/assets/imgs/img4.jpg'} alt="logo"
-                           height={2}
-                           width={1800}
-                           className={'h-screen w-full'}
+                           className={'h-screen w-full object-cover'}
                     />
                 </SwiperSlide>
             </Swiper>
