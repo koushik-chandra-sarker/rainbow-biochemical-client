@@ -29,31 +29,31 @@ export default function ClientSlider() {
                     className="mySwiper"
                 >
                     <SwiperSlide>
-                        <Image src={'/assets/imgs/img2.jpg'} alt="logo"
-                               height={2}
+                        <Image src={'/assets/imgs/client1.jpg'} alt="logo"
+                               height={100}
                                width={1500}
-                               className={'h-128 w-full '}
+                               className={'h-128 w-full object-cover '}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Image src={'/assets/imgs/img1.jpg'} alt="logo"
-                               height={2}
+                        <Image src={'/assets/imgs/client2.jpg'} alt="logo"
+                               height={100}
                                width={1500}
-                               className={'h-128 w-full '}
+                               className={'h-128 w-full object-cover'}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Image src={'/assets/imgs/img2.jpg'} alt="logo"
-                               height={2}
+                        <Image src={'/assets/imgs/client3.jpg'} alt="logo"
+                               height={100}
                                width={1500}
-                               className={'h-128 w-full '}
+                               className={'h-128 w-full object-cover'}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Image src={'/assets/imgs/img1.jpg'} alt="logo"
-                               height={2}
+                        <Image src={'/assets/imgs/client1.jpg'} alt="logo"
+                               height={100}
                                width={1500}
-                               className={'h-128 w-full '}
+                               className={'h-128 w-full object-cover'}
                         />
                     </SwiperSlide>
                 </Swiper>
