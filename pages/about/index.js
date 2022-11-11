@@ -4,7 +4,7 @@ const Index = () => {
     return (
         <div>
               <div className="w-full bg-center bg-cover h-72 md:h-128 relative"
-                   style={{backgroundImage: "url(/assets/imgs/about.jpg)"}}>
+                   style={{backgroundImage: "url(/assets/imgs/aboutUs.jpg)"}}>
                   <div
                       className="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
                       <div className="text-center">
@@ -13,21 +13,22 @@ const Index = () => {
                       </div>
                   </div>
               </div>
-            <div className={'bg-gray-200 relative'}>
+            <div className={'bg-gray-100 relative'}>
                 <div className={'w-8/12 mx-auto flex'}>
-                    <div className={'w-3/12 -mt-20 bg-white h-96 pl-8 rounded-xl'}>
-                         <div className={'my-8 pl-8 pr-4 border-l-2 border-gray-300'}>
-                            <div className={'uppercase text-xl text-gray-400'}>
-                                <h2 className={'leading-10'}>About US</h2>
-                                <h2 className={'leading-10'}>Our Bands</h2>
-                                <h2 className={'leading-10'}>Our Documents</h2>
-                                <h2 className={'leading-10'}>press & media</h2>
-                                <h2 className={'leading-10'}>career</h2>
-                            </div>
+                    <div className={'w-3/12 -mt-20 pl-4 rounded-xl'}>
+                         <div className={'pl-10 '}>
+                             <div className={'my-8 pl-10 bg-white rounded-xl h-72 pt-10'}>
+                                 <div className={'uppercase border-l pl-4 border-gray-200 text-lg text-gray-400'}>
+                                     <h2 className={'leading-10'}>Home</h2>
+                                     <h2 className={'leading-10'}>About Us</h2>
+                                     <h2 className={'leading-10'}>Clients</h2>
+                                 </div>
+                             </div>
+
                          </div>
                     </div>
-                    <div className={'w-9/12 bg-gray-200 text-gray-500 mt-20 h-auto pb-16'}>
-                        <h2 className={'text-center text-2xl uppercase'}>About Us</h2>
+                    <div className={'w-9/12 bg-gray-100 text-gray-500 mt-20 h-auto pb-16'}>
+                        <h2 className={'text-center text-black font-semibold text-xl uppercase'}>About Us</h2>
                         <p className={'text-sm px-8 pt-8 text-justify'}>
                             Miami Associates (BD) is a well-diversified company involved in import, trading, indenting and services. Our core businesses are among the region’s market leaders.
 
