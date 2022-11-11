@@ -1,9 +1,12 @@
 import React from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 const ContactForm = () => {
     return (
+
         <div>
-            <div className={'w-8/12 mx-auto flex mt-10 '} >
+            <div className={'w-8/12 mx-auto flex mt-10'} >
                 <div className={'w-1/2 mr-4'}>
                     <input
                         type="text"  name="phone" placeholder={'RELEVANT DEPARTMENT'}
@@ -22,6 +25,7 @@ const ContactForm = () => {
                         type="text"  name="phone" placeholder={'ADDRESS'}
                         className="w-full text-sm placeholder-white placeholder   pl-8 rounded-md border border-gray-300  focus:border-black
                          text-base outline-none bg-gray-400 text-white pb-16 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                    <ReCAPTCHA className={'mt-4'} sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}/>
                 </div>
                 <div className={'w-1/2 ml-4'}>
                     <input

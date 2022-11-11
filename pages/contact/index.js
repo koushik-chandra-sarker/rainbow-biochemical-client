@@ -1,6 +1,10 @@
 import React from 'react';
 import {FlagOutlined, PhoneOutlined, RightOutlined, YahooOutlined} from "@ant-design/icons";
 import ContactForm from "./contactForm";
+import RequestsForm from "./requestsForm";
+import DealershipForm from "./dealershipForm";
+
+
 
 const Index = () => {
     return (
@@ -66,7 +70,7 @@ const Index = () => {
 
                 <div className={'w-4/12 mx-auto flex pb-4 justify-between'}>
                     <div>
-                        <button className={'text-black'}>CONTACT FORM</button>
+                        <button className={'text-black '}>CONTACT FORM</button>
                     </div>
                     <div>
                         <button className={'text-black'}>REQUESTS& SUGGESTIONS</button>
@@ -76,7 +80,11 @@ const Index = () => {
                     </div>
                 </div>
             </div>
+
             <ContactForm/>
+            <RequestsForm/>
+            <DealershipForm/>
+
         </div>
     );
 };
