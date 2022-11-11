@@ -20,17 +20,16 @@ const Index = () => {
                 </div>
             </div>
             <div className={'bg-gray-200 relative'}>
-                <div className={'w-8/12 mx-auto flex pb-20'}>
+                <div className={'w-8/12 mx-auto flex  pb-20'}>
                     <div className={'w-5/12 -mt-10 border-8 border-white h-128  rounded-xl'}>
                         <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
                                 scrolling="no"
                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.5410265202772!2d90.4217473153853!3d23.79935299282049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c760a96fcb05%3A0x5dd5c60221aedf5c!2sRainbow%20Tissue%20Paper%20Corporate%20Office!5e0!3m2!1sen!2sbd!4v1631774435189!5m2!1sen!2sbd"
-                                // src={website.data[0].contactPageMap}
                         />
                     </div>
 ￼
 
-                    <div className={'w-7/12 bg-gray-200 text-gray-900 pl-8 mt-20 h-auto pb-16'}>
+                    <div className={'w-7/12  bg-gray-200 text-gray-900 pl-8 mt-20 h-auto pb-16'}>
                         <h2 className={'text-2xl text-black pb-2'}>Seba Kimya San. Ve Tic. As.</h2>
                         <div className={'flex pb-4'}>
                             <div className={'pr-4 text-3xl text-red-600'}>
