@@ -27,9 +27,9 @@ const RequestsForm = () => {
                 </div>
                 <div className={'flex flex-wrap justify-between mobile:mx-0 mx-2'}>
                     <ReCAPTCHA className={'mt-4'} sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}/>
-                    <div className={'pt-10 '}>
+                    <div className={'pt-4 '}>
                         <button
-                          object-cover  className="w-32 rounded-3xl align-center items-center flex justify-center  text-white  bg-red-600 py-4   text-sm">
+                          object-cover  className="w-32 rounded-3xl align-center items-center flex justify-center  text-white  bg-blue-600 py-4   text-sm">
                             Send
                         </button>
                     </div>

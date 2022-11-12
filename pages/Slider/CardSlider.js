@@ -1,55 +1,43 @@
-
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 import "./cardSlider.module.scss";
-
-// import required modules
-import {Autoplay, FreeMode, Pagination} from "swiper";
+import { FreeMode, Pagination } from "swiper";
 import Image from "next/image";
 import {CaretLeftOutlined, RightOutlined} from "@ant-design/icons";
 
 export default function CardSlider() {
     return (
         <>
-            <div className={'card-slider mt-10'}>
-
+            <div className={'CardSlider text-blue-'}>
                 <Swiper
                     slidesPerView={3}
-                    spaceBetween={1}
+                    spaceBetween={30}
                     freeMode={true}
-                    centerMode={true}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    modules={[FreeMode,Autoplay, Pagination]}
+                    // pagination={{
+                    //     clickable: true,
+                    // }}
+                    modules={[FreeMode, Pagination]}
                     className="mySwiper"
                 >
                     {[1,1,1,1,1,1,1].map((v,i)=>(
                         <SwiperSlide className={''}>
-                            <div className={'flex pr-4 shadow-2xl'}>
+                            <div className={'flex'}>
                                 <div className={'w-1/2'}>
                                     <Image src={'/assets/imgs/img2.jpg'} alt={"card"} height={100} width={1500}  className={'h-72 w-full rounded-l-xl'}/>
                                 </div>
-                                <div className={'w-1/2 flex  relative'}>
-                                    <div className={'text-4xl pt-32 items-center -ml-8 text-white'}>
+                                <div className={'w-1/2 flex relative'}>
+                                    <div className={'text-4xl pt-32 items-center -ml-6 text-white'}>
                                         <CaretLeftOutlined/>
                                     </div>
-                                    <div className={'-ml-3 bg-gray-50 rounded-r-xl'}>
+                                    <div className={'-ml-3 bg-white border-y border-r border-gray-200 rounded-r-xl'}>
                                         <h2 className={'text-lg text-center pt-10 px-2'}>WE ARE WAITING FOR YOU AT OUR STAND</h2>
                                         <div className={'text-center mt-32'}>
-                                            <button className={'text-red-600 justify-center text-sm  items-center ml-4 '}>READ MORE
-                                                <RightOutlined/>
+                                            <button className={'text-red-600 justify-center text-sm font-semibold  items-center ml-4 '}>READ MORE
+                                                <span className={' font-semibold mt-0'}><RightOutlined/></span>
                                             </button>
                                         </div>
 

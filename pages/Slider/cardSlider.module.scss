@@ -1,9 +1,9 @@
-.card-slider .swiper {
+.CardSlider .swiper {
   width: 100%;
   height: 100%;
 }
 
-.card-slider .swiper-slide {
+.CardSlider .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -23,38 +23,12 @@
   align-items: center;
 }
 
-.card-slider .swiper-slide Image {
+.CardSlider .swiper-slide Image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-
-//.swiper-container {
-//  position:relative;
-//  width: 90vw;
-//  height: 300px;
-//}
-//.swiper-container > .swiper-slide__content {
-//  position:absolute;
-//  top:0;
-//}
-//
-//.swiper-slide {
-//  height: 300px;
-//  display:flex;
-//  background: #eee;
-//  align-items: center;
-//  justify-content:center;
-//  transition:all 200ms linear;
-//  transform: scale(0.8);
-//
-//  &.swiper-slide-active{
-//    transform: scale(1);
-//    background: #fc0
-//  }
-//}
-//.swiper-slide__content {
-//  height: 300px;
-//}
+.color a :hover{
+ color:RGB(255,87,51,0);
+}

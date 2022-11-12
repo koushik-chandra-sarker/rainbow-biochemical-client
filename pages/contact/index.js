@@ -1,5 +1,12 @@
 import React from 'react';
-import {FlagOutlined, PhoneOutlined, RightOutlined, YahooOutlined} from "@ant-design/icons";
+import {
+    EnvironmentTwoTone,
+    FlagOutlined,
+    HomeOutlined,
+    PhoneOutlined,
+    RightOutlined,
+    YahooOutlined
+} from "@ant-design/icons";
 import ContactForm from "./contactForm";
 import RequestsForm from "./requestsForm";
 import DealershipForm from "./dealershipForm";
@@ -32,15 +39,16 @@ const Index = () => {
                     <div className={'mobile:w-7/12 w-full bg-gray-100 text-gray-600 mobile:pl-8 mt-16 h-auto pb-16'}>
                         <h2 className={'text-2xl text-black pb-2'}>Seba Kimya San. Ve Tic. As.</h2>
                         <div className={'flex pb-4'}>
-                            <div className={'pr-4 text-3xl text-red-600'}>
-                                <FlagOutlined />
+                            <div className={'pr-4 text-3xl text-green-600'}>
+                                {/*<FlagOutlined />*/}
+                                <HomeOutlined />
                             </div>
                             <div className={'pr-24'}>
                                 <p className={'text-lg'}>Aydinli - KOSB Mah.Tuzla KImya sanayicileri O.S.B. Tuna Cad. No: 6 Aydinli-Tuzla ISTANBUL TURKEY</p>
                             </div>
                         </div>
                         <div className={'flex pb-4'}>
-                            <div className={'pr-4 text-3xl text-red-600'}>
+                            <div className={'pr-4 text-3xl text-green-600'}>
                                 <PhoneOutlined/>
                             </div>
                             <div className={'pr-24'}>
@@ -49,7 +57,7 @@ const Index = () => {
                             </div>
                         </div>
                         <div className={'flex pb-4'}>
-                            <div className={'pr-4 text-3xl text-red-600'}>
+                            <div className={'pr-4 text-3xl text-green-600'}>
                                 <YahooOutlined />
                              </div>
                             <div className={'pr-24'}>
@@ -59,7 +67,7 @@ const Index = () => {
                         </div>
                         <div className={'pt-16'}>
                             <button
-                                className="w-full font-semibold  mx-auto text-white rounded-3xl flex justify-center  text-white  bg-red-600 py-4   text-sm">
+                                className="w-full font-semibold  mx-auto text-white rounded-3xl flex justify-center  text-white  bg-blue-600 py-4   text-sm">
                                 See on navigation
                             </button>
                         </div>
@@ -82,7 +90,7 @@ const Index = () => {
 
             <ContactForm/>
             <RequestsForm/>
-            <DealershipForm/>
+            <DealershipForm/>CT
 
         </div>
     );

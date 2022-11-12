@@ -15,17 +15,21 @@ const Index = () => {
               </div>
             <div className={'bg-gray-100 relative'}>
                 <div className={'w-8/12 mx-auto flex'}>
-                    <div className={'w-3/12 -mt-20 pl-4 rounded-xl'}>
-                         <div className={'pl-10 '}>
-                             <div className={'my-8 pl-10 bg-white rounded-xl h-72 pt-10'}>
-                                 <div className={'uppercase border-l pl-4 border-gray-200 text-lg text-gray-400'}>
-                                     <h2 className={'leading-10'}>Home</h2>
-                                     <h2 className={'leading-10'}>About Us</h2>
-                                     <h2 className={'leading-10'}>Clients</h2>
-                                 </div>
-                             </div>
-
-                         </div>
+                    <div className={'w-3/12 ml-24 -mt-10 bg-white h-72  pl-4 rounded-xl'}>
+                        <ul className={"flex flex-col ml-4 mt-10 gap-4 border-l-2 cursor-pointer "}>
+                            <li
+                                className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
+                                Home
+                            </li>
+                            <li
+                                className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
+                                About us
+                            </li>
+                            <li
+                                className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
+                                Clients
+                            </li>
+                        </ul>
                     </div>
                     <div className={'w-9/12 bg-gray-100 text-gray-500 mt-20 h-auto pb-16'}>
                         <h2 className={'text-center text-black font-semibold text-xl uppercase'}>About Us</h2>

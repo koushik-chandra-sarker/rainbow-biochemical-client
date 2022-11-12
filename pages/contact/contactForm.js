@@ -45,9 +45,9 @@ const ContactForm = () => {
                         type="text"  name="phone" placeholder={'YOUR REQUEST'}
                         className="w-full text-sm placeholder-gray-400   pl-8 rounded-md border border-gray-300  focus:border-black
                           outline-none bg-gray-100 text-gray-400 pb-16 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-                    <div className={'pt-10 '}>
+                    <div className={'pt-4 justify-end flex'}>
                         <button
-                            className="w-32 rounded-3xl align-center items-center flex justify-center  text-white  bg-red-600 py-4   text-sm">
+                            className="w-32 rounded-3xl align-center items-center flex justify-center  text-white  bg-blue-600 py-4   text-sm">
                             Send
                         </button>
                     </div>
