@@ -4,8 +4,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 const DealershipForm = () => {
     return (
         <div>
-            <div className={'mobile:w-8/12 w-full mx-auto flex mt-10 '} >
-                <div className={'mobile:w-1/2 w-full mobile:mr-4 mobile:mx-0 mx-2'}>
+            <div className={'mobile:w-8/12 w-full mx-auto mobile:flex mt-10 '} >
+                <div className={'mobile:w-1/2 w-full mobile:mr-4 mobile:mx-0 mx-4'}>
                     <input
                         type="text"  name="phone" placeholder={'RELEVANT DEPARTMENT'}
                         className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400 pl-8 rounded-md border border-gray-300 global-color focus:border-black
@@ -25,7 +25,7 @@ const DealershipForm = () => {
                           outline-none bg-gray-100  pb-16 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                     <ReCAPTCHA className={'mt-4 mobile:mb-0 mb-2'} sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}/>
                 </div>
-                <div className={'mobile:w-1/2 w-full mobile:ml-4 mobile:mx-0 mx-2'}>
+                <div className={'mobile:w-1/2 w-full mobile:ml-4 mobile:mx-0 mx-4'}>
                     <input
                         type="text"  name="phone" placeholder={'CORPORATION NAME'}
                         className="w-full mb-4 text-sm text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black

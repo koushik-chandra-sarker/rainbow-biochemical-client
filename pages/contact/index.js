@@ -21,13 +21,13 @@ const Index = () => {
                 <div
                     className="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
                     <div className="text-center">
-                        <h1 className="text-6xl tracking-widest font-semibold text-white uppercase lg:text-3xl">contact</h1>
+                        <h1 className="mobile:text-6xl text-3xl tracking-widest font-semibold text-white uppercase lg:text-3xl">contact</h1>
 
                     </div>
                 </div>
             </div>
             <div className={'bg-gray-100 relative border-b border-gray-200'}>
-                <div className={'mobile:w-8/12 w-full mx-auto flex  pb-20'}>
+                <div className={'mobile:w-8/12 w-full mx-auto mobile:flex  pb-20'}>
                     <div className={'mobile:w-5/12 w-full -mt-12 border-8 border-white h-128  rounded-xl'}>
                         <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
                                 scrolling="no"
@@ -36,7 +36,7 @@ const Index = () => {
                     </div>
 ￼
 
-                    <div className={'mobile:w-7/12 w-full bg-gray-100 text-gray-600 mobile:pl-8 mt-16 h-auto pb-16'}>
+                    <div className={'mobile:w-7/12 w-full bg-gray-100 text-gray-600 mobile:pl-8 mobile:p-0 p-2 mt-16 h-auto pb-16'}>
                         <h2 className={'text-2xl text-black pb-2'}>Seba Kimya San. Ve Tic. As.</h2>
                         <div className={'flex pb-4'}>
                             <div className={'pr-4 text-3xl text-green-600'}>
@@ -90,7 +90,7 @@ const Index = () => {
 
             <ContactForm/>
             <RequestsForm/>
-            <DealershipForm/>CT
+            <DealershipForm/>
 
         </div>
     );

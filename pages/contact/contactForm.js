@@ -6,8 +6,8 @@ const ContactForm = () => {
     return (
 
         <div>
-            <div className={'mobile:w-8/12 w-full mx-auto flex  mt-10'} >
-                <div className={'mobile:w-1/2 w-full mobile:mr-4 mobile:mx-0 mx-2'}>
+            <div className={'mobile:w-8/12 w-full mx-auto mobile:flex  mt-10'} >
+                <div className={'mobile:w-1/2 w-full mobile:mr-4 mobile:mx-0 mx-4'}>
                     <input
                         type="text"  name="phone" placeholder={'RELEVANT DEPARTMENT'}
                         className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
