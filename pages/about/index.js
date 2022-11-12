@@ -8,14 +8,14 @@ const Index = () => {
                   <div
                       className="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
                       <div className="text-center">
-                          <h1 className="text-6xl tracking-widest font-semibold text-white uppercase lg:text-3xl">ABOUT US</h1>
+                          <h1 className="mobile:text-6xl text-3xl tracking-widest font-semibold text-white uppercase lg:text-3xl">ABOUT US</h1>
 
                       </div>
                   </div>
               </div>
             <div className={'bg-gray-100 relative'}>
-                <div className={'w-8/12 mx-auto flex'}>
-                    <div className={'w-3/12 ml-24 -mt-10 bg-white h-72  pl-4 rounded-xl'}>
+                <div className={'mobile:w-8/12 w-full mx-auto mobile:flex '}>
+                    <div className={'mobile:w-3/12 w-full  mobile:ml-24  mobile:-mt-10 mt-10 bg-white h-72  pl-4 rounded-xl'}>
                         <ul className={"flex flex-col ml-4 mt-10 gap-4 border-l-2 cursor-pointer "}>
                             <li
                                 className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
@@ -31,7 +31,7 @@ const Index = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className={'w-9/12 bg-gray-100 text-gray-500 mt-20 h-auto pb-16'}>
+                    <div className={'mobile:w-9/12 w-full bg-gray-100 text-gray-500 mt-20 h-auto pb-16'}>
                         <h2 className={'text-center text-black font-semibold text-xl uppercase'}>About Us</h2>
                         <p className={'text-sm px-8 pt-8 text-justify'}>
                             Miami Associates (BD) is a well-diversified company involved in import, trading, indenting and services. Our core businesses are among the region’s market leaders.
