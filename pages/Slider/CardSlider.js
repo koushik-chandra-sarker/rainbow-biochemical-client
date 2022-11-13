@@ -25,11 +25,11 @@ export default function CardSlider() {
                 >
                     {[1,1,1,1,1,1,1].map((v,i)=>(
                         <SwiperSlide className={''}>
-                            <div className={'flex'}>
-                                <div className={'w-1/2'}>
+                            <div className={'mobile:flex'}>
+                                <div className={'mobile:w-1/2 w-full'}>
                                     <Image src={'/assets/imgs/img2.jpg'} alt={"card"} height={100} width={1500}  className={'h-72 w-full rounded-l-xl'}/>
                                 </div>
-                                <div className={'w-1/2 flex relative'}>
+                                <div className={'mobile:w-1/2 w-full flex relative'}>
                                     <div className={'text-4xl pt-32 items-center -ml-6 text-white'}>
                                         <CaretLeftOutlined/>
                                     </div>

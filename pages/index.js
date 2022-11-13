@@ -25,9 +25,9 @@ export default function Home() {
                 <div className={'bg'}>
                     <div className={'bg-white pt-8 pb-8'}>
                         <CardSlider/>
-                        <div className={'w-8/12 mx-auto flex sm:px-0 px-2 my-16'}>
+                        <div className={'w-8/12  mx-auto mobile:flex sm:px-0 px-2 my-16'}>
                             {[1,1,1,1].map((v,i)=>(
-                                <div className="sm:w-1/4 w-full">
+                                <div className="mobile:w-1/4 w-full">
                                     <div className={'pl-24 '}>
                                         <div className={' text-center p-3  text-5xl h-24 w-24 text-green-600 hover:text-blue-600 rounded-full border-2 border-green-600 items-center'}>
                                             <HeartOutlined />
