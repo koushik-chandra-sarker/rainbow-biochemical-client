@@ -1,7 +1,7 @@
 import React from 'react';
 import ClientSlider from "./ClientSlider";
-
 const Index = () => {
+
     return (
         <div>
             <div className={'w-full'}>

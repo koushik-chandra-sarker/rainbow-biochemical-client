@@ -1,0 +1,3 @@
+export  const CLIENT_LOADING= 'CLIENT_LOADING';
+export  const CLIENT_SUCCESS= 'CLIENT_SUCCESS';
+export  const CLIENT_ERROR= 'CLIENT_ERROR';
