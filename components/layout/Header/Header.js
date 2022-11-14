@@ -8,6 +8,7 @@ import logo from "../../../public/assets/imgs/logo_h.jpg";
 import Search from "../../Search/Search";
 import {useProSidebar} from "react-pro-sidebar";
 import SidebarMenu from "../SidebarMenu";
+import Link from "next/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,14 +33,14 @@ const Header = () => {
             <ul
               className={cls("h-full flex  items-center justify-between uppercase font-semibold text-base space-x-16")}>
               <li className={cls("mr-4 h-full flex items-center")}>
-                <a href="#" className={cls("text-gray-600")}>Products</a>
+                <Link href="#" className={cls("text-gray-600")}>Products</Link>
               </li>
               <li onMouseOver={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}
                   className={cls(styles.dropdown, "mr-4 h-full flex items-center")}>
-                <a href="#" className={cls("text-gray-600 flex items-center ")}>
+                <Link href="#" className={cls("text-gray-600 flex items-center ")}>
                   <span>Biochemical</span>
                   <RiArrowDownSLine className={cls(styles.dropdown_icon, "ml-1 w-6 h-6")}/>
-                </a>
+                </Link>
                 {/*Sub Menu*/}
                 <div
                   className={cls("absolute container bg-white flex h-72 mx-auto rounded-b-xl shadow-2xl", styles.dropdown_item)}>
@@ -47,15 +48,15 @@ const Header = () => {
                     <ul className={cls("flex flex-col  gap-4 border-l-2 cursor-pointer ")}>
                       <li
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        Home
+                        <Link href={"/"}>Home</Link>
                       </li>
                       <li
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        About
+                        <Link href={"/about"}>About</Link>
                       </li>
                       <li
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        Clients
+                        <Link href={"/client"}>Clients</Link>
                       </li>
                     </ul>
 
@@ -66,7 +67,7 @@ const Header = () => {
                 </div>
               </li>
               <li className={cls("mr-4 h-full flex items-center")}>
-                <a href="#" className={cls("text-gray-600")}>Contact</a>
+                <Link href="/contact" className={cls("text-gray-600")}>Contact</Link>
               </li>
             </ul>
           </div>
@@ -101,9 +102,9 @@ const Header = () => {
             </label>
           </div>
           <div className={cls("flex items-center")}>
-            <a href="/" className={cls("flex items-center")}>
+            <Link href="/" className={cls("flex items-center")}>
               <Image src={logo} alt="Biochemical logo" className={cls("w-36")}/>
-            </a>
+            </Link>
           </div>
           <div className={cls("flex items-center")}>
             {/*  whatsapp and search box*/}

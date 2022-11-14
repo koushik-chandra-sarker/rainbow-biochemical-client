@@ -1,10 +1,40 @@
 import Head from 'next/head'
 import Slider from "./Slider/Slider";
-import {HeartOutlined} from "@ant-design/icons";
+import {CrownOutlined, ExperimentOutlined, HeartOutlined, HomeOutlined} from "@ant-design/icons";
 import CardSlider from "./Slider/CardSlider";
 
 import React from "react";
 
+const serviceList = [
+  {
+    id: 1,
+    title: 'Biochemical QUALITY',
+    description: "The most important principle that brought Biochemical to today is the quality.",
+    icon: <CrownOutlined/>,
+  },
+  {
+    id: 1,
+    title: 'Biochemical SAFETY',
+    description: "In Biochemical employs right persons having right qualifications in right positions.",
+    icon: <HeartOutlined/>,
+  }
+  ,
+  {
+    id: 1,
+    title: 'ENVIRONMENT',
+    description: "We follow a sensitive and environmentally friendly process in the production processes.The most important principle that brought Biochemical to today is the quality.We follow a sensitive and environmentally friendly process in the production processes.",
+    icon: <HomeOutlined/>,
+  }
+
+  ,
+  {
+    id: 1,
+    title: 'R&D',
+    description: "In Biochemical, we operate in a world-class business that recognizes the importance.",
+    icon: <ExperimentOutlined/>,
+  }
+
+]
 export default function Home() {
   const title = 'Rainbow | Home'
   return (
@@ -22,26 +52,19 @@ export default function Home() {
 
 
       <div className={'bg'}>
-        <div className={'bg-white pt-8 pb-8'}>
+        <div className={'bg-gray-100 pt-8 pb-8'}>
           <CardSlider/>
-          <div className={'w-8/12 mx-auto flex sm:px-0 px-2 my-16'}>
-            {[1, 1, 1, 1].map((v, i) => (
-              <div className="sm:w-1/4 w-full">
-                <div className={'pl-24 '}>
-                  <div
-                    className={' text-center p-3  text-5xl h-24 w-24 text-green-600 hover:text-blue-600 rounded-full border-2 border-green-600 items-center'}>
-                    <HeartOutlined/>
-                  </div>
+          <div className={'mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 sm:px-0 px-2 my-16'}>
+            {serviceList.map((value, i) => (
+              <div className="w-full flex items-center flex-col" key={i}>
+                <div
+                  className={'flex justify-center items-center text-5xl h-24 w-24 text-gray-400 rounded-full border-2 border-gray-300'}>
+                  {value.icon}
                 </div>
-                <h2 className={'text-2xl text-center  py-4'}>SEBA QUALITY</h2>
-                <p className={'text-sm w-7/12 mx-auto text-gray-400 text-center pb-4'}>The most important principle that
-                  brought Seba Kimya to today is the quality.</p>
-                <a>
-                  <button
-                    className="w-7/12 mx-auto rounded-3xl flex justify-center  mx-auto text-green-600 hover:text-white  bg-white py-4 focus:outline-none hover:bg-blue-700    text-sm">
-                    READ MORE
-                  </button>
-                </a>
+                <h2 className={'text-2xl text-center  py-4 uppercase'}>{value.title}</h2>
+                <p className={'text-sm w-7/12 mx-auto text-gray-400 text-center pb-4'}>
+                  The most important principle that
+                  brought Biochemical to today is the quality.</p>
               </div>
             ))}
           </div>

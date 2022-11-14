@@ -19,7 +19,8 @@ const Footer = () => {
     <hr className={"my-20"}/>
 
     {/*footer top portion*/}
-    <div className={"top container mx-auto grid grid-cols-3 gap-4"}>
+    <div
+      className={"top container px-4 mx-auto grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:p-4 grid-cols-1   gap-10"}>
       <div className={cls("")}>
         <div className={cls("flex items-center gap-4")}>
           <div className={cls("w-18 h-18 border-2 rounded-full text-3xl p-4   flex justify-center items-center")}>
@@ -27,7 +28,7 @@ const Footer = () => {
           </div>
           <h3 className={cls("font-bold text-xl")}>FREE CONSUMER HELPLINE</h3>
         </div>
-        <hr className={"my-8"}/>
+        <hr className={"desktop:my-8 my-3"}/>
         <p className={cls("text-gray-500 text-base")}>
           Lorem ipsum dolor sit amet, dolor consectetur adipisicing elit. Aperiam,
           asperiores atque autem consequatur cumque dolorum
@@ -43,7 +44,7 @@ const Footer = () => {
 
           <h3 className={cls("font-bold text-xl")}>SUBSCRIBE TO E-NEWS</h3>
         </div>
-        <hr className={"my-8"}/>
+        <hr className={"desktop:my-8 my-3"}/>
         <form action="">
           <div className="relative  sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
             <input type="text" id="footer-field" name="footer-field" placeholder={"Your E-mail address"}
@@ -102,11 +103,11 @@ const Footer = () => {
     </div>
     <hr className={'my-20'}/>
     {/*footer bottom portion*/}
-    <section className="bottom top w-8/12 mx-auto ">
+    <section className="bottom top tablet:w-8/12 w-11/12 mx-auto ">
       {/*Brand Intro*/}
-      <section className={"flex"}>
-        <Image src={logo} alt={"Brand Logo"} className={"w-40 border-r-2 pr-4"}/>
-        <div className={"ml-4 flex items-center"}>
+      <section className={"flex flex-wrap gap-5"}>
+        <Image src={logo} alt={"Brand Logo"} className={"w-40 tablet:border-r-2 pr-4"}/>
+        <div className={"tablet:ml-4 flex items-center"}>
           <p className={cls("text-gray-500 text-base")}>
             Lorem Chemical has been manufacturing<br/>
             innovative products in the field of industrial and retail.
@@ -114,53 +115,54 @@ const Footer = () => {
         </div>
       </section>
       {/*footer contents*/}
-      <section className={"grid grid-cols-4 gap-4 mt-20"}>
-        <section>
+      <section className={"grid desktop:grid-cols-4 tablet:grid-cols-2 grid-cols-1 gap-4 mt-20"}>
+        <section className={"tablet:block flex flex-col justify-center items-center"}>
           <h3 className={cls("font-bold text-base")}>Products</h3>
-          <hr className={"my-5"}/>
+          <hr className={"my-5 w-full"}/>
           <ul className={cls("text-gray-500 text-sm")}>
             <li className={"mb-2"}>MARKET PRODUCTS</li>
           </ul>
         </section>
-        <section>
+        <section className={"tablet:block flex flex-col justify-center items-center"}>
           <h3 className={cls("font-bold text-base")}>Biochemical</h3>
-          <hr className={"my-5"}/>
-          <ul className={cls("text-gray-500 text-sm")}>
+          <hr className={"my-5 w-full"}/>
+          <ul className={cls("text-gray-500 text-sm tablet:block flex gap-5")}>
             <li className={"mb-2"}>Home</li>
             <li className={"mb-2"}>About Us</li>
             <li className={"mb-2"}>Client</li>
           </ul>
         </section>
-        <section>
+        <section className={"tablet:block flex flex-col justify-center items-center tablet:text-left"}>
           <h3 className={cls("font-bold text-base")}>Contact</h3>
-          <hr className={"my-5"}/>
+          <hr className={"my-5 w-full"}/>
           <div className={"flex flex-col"}>
             <div className={"text-xs leading-6"}>
-              <p>
-                Ka-70/1, Progati Sharani ( 2nd & 3rd Floor), Kuril, Vatara
-                Dhaka-1229, Bangladesh, <br/>
+              <div className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
+                <p>Ka-70/1, Progati Sharani ( 2nd & 3rd Floor), Kuril, Vatara
+                  Dhaka-1229, Bangladesh,</p> <br/>
                 <b>Phone: </b> +880 2 550 00 000 <br/>
                 <b>Email: </b> demo@mail.com
-              </p>
+              </div>
               <hr className={"my-2"}/>
-              <p className={"mt-2"}>
+              <p
+                className={"mt-2 tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
                 528/545, S.K. Mujib Road , Dewanhut,
                 Chittagong , Bangladesh <br/>
                 <b>Mobile: </b> 01819 888045. <br/>
                 <b>Phone: </b>031 2510787
               </p>
               <hr className={"my-2"}/>
-              <p>
+              <p className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
                 Haque Tower, 3rd Floor, Alir Jahal, Cox’s Bazar <br/>
                 <b>Mobile: </b>+8801847166798, +8801839564836
               </p>
             </div>
           </div>
         </section>
-        <section>
+        <section className={"tablet:block flex flex-col justify-center items-center mt-5 tablet:mt-0"}>
           <h3 className={cls("font-bold text-base")}>Social Media</h3>
-          <hr className={"my-5"}/>
-          <ul className={cls("text-gray-500 text-sm")}>
+          <hr className={"my-5 w-full"}/>
+          <ul className={cls("text-gray-500 text-sm tablet:block flex gap-3")}>
             <li className={"mb-2 hover:text-indigo-500"}>
               <a href={"#"} className={"flex items-center gap-2"}>
                 <FacebookFilled className={"text-2xl"}/>
@@ -186,7 +188,7 @@ const Footer = () => {
 
     {/*  Copyright*/}
     <section className={"w-full flex justify-center items-center py-2  mt-20 bg-green-100"}>
-      <p><CopyrightOutlined/> 2021 Develop by Waysis-IT Solution</p>
+      <CopyrightOutlined className={'mr-2'}/> 2021 Develop by Waysis-IT Solution
     </section>
   </footer>);
 };
