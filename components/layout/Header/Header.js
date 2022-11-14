@@ -3,20 +3,24 @@ import cls from 'classnames';
 import {FaPhoneSquareAlt} from "@react-icons/all-files/fa/FaPhoneSquareAlt";
 import {RiArrowDownSLine} from "@react-icons/all-files/ri/RiArrowDownSLine";
 import {useEffect, useRef, useState} from "react";
-import SearchBox from "./searchbox/SearchBox";
 import Image from 'next/image'
 import logo from "../../../public/assets/imgs/logo_h.jpg";
+import Search from "../../Search/Search";
+import {useProSidebar} from "react-pro-sidebar";
+import SidebarMenu from "../SidebarMenu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dropdownOverlay = useRef();
+  const {collapseSidebar} = useProSidebar();
   useEffect(() => {
     dropdownOverlay.current.style.transform = isMenuOpen ? 'scale(1)' : 'scale(0)';
   }, [isMenuOpen]);
   return (<>
     <header className={cls(styles.navbar)}>
-      <div className={cls("container mx-auto h-full")}>
-        <div className={cls("flex items-center justify-between h-full")}>
+      {/*desktop nabvar*/}
+      <div className={cls("container hidden desktop:block mx-auto h-full")}>
+        <div className={cls("flex flex-wrap items-center justify-between h-full")}>
           {/*logo*/}
           <div className={cls("flex items-center")}>
             <a href="#" className={cls("flex items-center")}>
@@ -26,7 +30,7 @@ const Header = () => {
           {/*menu*/}
           <div className={cls("h-full flex items-center")}>
             <ul
-              className={cls("h-full flex items-center justify-between uppercase font-semibold text-base space-x-16")}>
+              className={cls("h-full flex  items-center justify-between uppercase font-semibold text-base space-x-16")}>
               <li className={cls("mr-4 h-full flex items-center")}>
                 <a href="#" className={cls("text-gray-600")}>Products</a>
               </li>
@@ -76,11 +80,47 @@ const Header = () => {
             </a>
             <div className={"relative h-full"}>
               <div className={"absolute right-0 -top-5 "}>
-                <SearchBox/>
+                <Search/>
               </div>
             </div>
           </div>
         </div>
+
+      </div>
+      {/*Mobile Navbar*/}
+      <div className={cls("tablet:container px-4 block desktop:hidden mx-auto h-full")}>
+        {/*<SidebarMenu/>*/}
+        <div className={cls("flex flex-wrap items-center justify-between h-full")}>
+          <SidebarMenu/>
+          <div className={cls(styles.hamburger)}>
+            <label htmlFor="check">
+              <input type="checkbox" id="check" onClick={() => collapseSidebar()}/>
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+          </div>
+          <div className={cls("flex items-center")}>
+            <a href="/" className={cls("flex items-center")}>
+              <Image src={logo} alt="Biochemical logo" className={cls("w-36")}/>
+            </a>
+          </div>
+          <div className={cls("flex items-center")}>
+            {/*  whatsapp and search box*/}
+            <div className={cls("flex items-center")}>
+              {/*<a href="tel:+8801711-000000" className={cls("flex items-center text-gray-400 mr-16")}>*/}
+              {/*  <FaPhoneSquareAlt className={cls("h-5 w-5 mr-2")}/>*/}
+              {/*  <span>+8801711-000000</span>*/}
+              {/*</a>*/}
+              <div className={"relative h-full"}>
+                <div className={"absolute right-0 -top-5 "}>
+                  <Search/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </header>
