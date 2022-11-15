@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {createWrapper} from "next-redux-wrapper";
-import {masterReducer} from "./reducers";
+import {combinedReducer} from "./reducers";
 
 export const makeStore = () => configureStore({
-  reducer: masterReducer,
+  reducer: combinedReducer,
 })
-export const wrapper = createWrapper(makeStore, {debug: true})
+export const wrapper = createWrapper(makeStore)

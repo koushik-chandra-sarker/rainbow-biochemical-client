@@ -31,5 +31,5 @@ module.exports = {
       desktop: "1140px",
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 }

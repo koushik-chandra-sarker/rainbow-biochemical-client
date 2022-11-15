@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Slider from "./Slider/Slider";
+import Slider from "./components/Slider/Slider";
 import {CrownOutlined, ExperimentOutlined, HeartOutlined, HomeOutlined} from "@ant-design/icons";
-import CardSlider from "./Slider/CardSlider";
+import CardSlider from "./components/Slider/CardSlider";
 
 import React from "react";
 

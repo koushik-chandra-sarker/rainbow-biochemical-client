@@ -12,10 +12,11 @@ export default function CardSlider() {
     centerMode: true,
     infinite: true,
     slidesToShow: 1,
+    centerPadding: "20%",
     speed: 500,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 1920,
@@ -51,7 +52,7 @@ export default function CardSlider() {
       <div className={'CardSlider '}>
         <Slider {...settings}>
           {[1, 1, 1, 1, 1, 1, 1].map((v, i) => (
-            <div className={''}>
+            <div className={''} key={i}>
               <div className={'mobile:flex shadow-xl rounded-lg bg-white overflow-hidden'}>
                 <div className={'mobile:w-1/2 w-full'}>
                   <Image src={'/assets/imgs/img2.jpg'} alt={"card"} height={100} width={1500}

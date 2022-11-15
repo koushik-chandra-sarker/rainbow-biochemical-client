@@ -7,8 +7,8 @@ import Image from 'next/image'
 import logo from "../../../public/assets/imgs/logo_h.jpg";
 import Search from "../../Search/Search";
 import {useProSidebar} from "react-pro-sidebar";
-import SidebarMenu from "../SidebarMenu";
 import Link from "next/link";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,6 +18,7 @@ const Header = () => {
     dropdownOverlay.current.style.transform = isMenuOpen ? 'scale(1)' : 'scale(0)';
   }, [isMenuOpen]);
   return (<>
+    <Sidebar/>
     <header className={cls(styles.navbar)}>
       {/*desktop nabvar*/}
       <div className={cls("container hidden desktop:block mx-auto h-full")}>
@@ -90,9 +91,8 @@ const Header = () => {
       </div>
       {/*Mobile Navbar*/}
       <div className={cls("tablet:container px-4 block desktop:hidden mx-auto h-full")}>
-        {/*<SidebarMenu/>*/}
+        {/*<Sidebar/>*/}
         <div className={cls("flex flex-wrap items-center justify-between h-full")}>
-          <SidebarMenu/>
           <div className={cls(styles.hamburger)}>
             <label htmlFor="check">
               <input type="checkbox" id="check" onClick={() => collapseSidebar()}/>
