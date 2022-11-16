@@ -35,3 +35,9 @@ body {
 .slick-dots {
     display: none !important;
 }
+
+.home-slider .swiper-slide img {
+    display: block;
+    object-fit: cover;
+    height: calc(100vh - 70px) !important;
+}
