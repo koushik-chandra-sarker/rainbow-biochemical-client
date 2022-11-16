@@ -19,6 +19,11 @@ module.exports = {
       mobile: "640px",
       tablet: "960px",
       desktop: "1140px",
+      padding: {
+        mobile: "20px",
+        tablet: "20px",
+        desktop: "20px",
+      }
     },
     screens: {
       mobile: "640px",
@@ -26,5 +31,5 @@ module.exports = {
       desktop: "1140px",
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 }

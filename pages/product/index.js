@@ -10,7 +10,7 @@ const Index = () => {
                 <h2 className={'text-center text-xl py-4 text-black'}>MARKET PRODUCTS</h2>
                 <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap '}>
                     {[1,1,1,1,1,1,1].map((v,i)=>(
-                        <div className={'mobile:w-1/2  w-full my-10'}>
+                        <div className={'mobile:w-1/2  w-full my-10'} key={i}>
                             <div className={'mx-8 bg-white h-124 mb-8'}>
                                 <img src={'/assets/imgs/home1.jpg'} className={'h-124 object-cover hover:border-4 border-white w-full'}/>
                                 <h2 className={'text-center bg-white text-xl  text-black py-4'}>Bio Group</h2>

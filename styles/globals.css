@@ -9,5 +9,29 @@
 body {
     font-family: 'Proxima Nova', Georgia, sans-serif;
     transition: background-color 0.5s ease;
-    /*background-color: rgba(16, 16, 16, 0.5);*/
+}
+
+.slick-slide {
+    padding: 10px;
+    opacity: .5 !important;
+    transform: scale(0.9) !important;
+    transition: all 0.3s ease !important;
+}
+
+.slick-center {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+.slick-list {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+.slick-arrow {
+    display: none !important;
+}
+
+.slick-dots {
+    display: none !important;
 }
