@@ -20,7 +20,7 @@ const Footer = () => {
 
     {/*footer top portion*/}
     <div
-      className={"top container px-4 mx-auto grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:p-4 grid-cols-1   gap-10"}>
+      className={"top tablet:w-8/12 w-11/12  mx-auto grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:py-4 grid-cols-1   gap-10"}>
       <div className={cls("")}>
         <div className={cls("flex items-center gap-4")}>
           <div className={cls("w-18 h-18 border-2 rounded-full text-3xl p-4   flex justify-center items-center")}>

@@ -4,6 +4,7 @@ import {CrownOutlined, ExperimentOutlined, HeartOutlined, HomeOutlined} from "@a
 import CardSlider from "./components/Slider/CardSlider";
 
 import React from "react";
+import Feature from "./components/Feature/Feature";
 
 const serviceList = [
   {
@@ -54,7 +55,7 @@ export default function Home() {
       <div className={'bg'}>
         <div className={'bg-gray-100 pt-8 pb-8'}>
           <CardSlider/>
-          <div className={'mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 sm:px-0 px-2 my-16'}>
+          <div className={'w-11/12 mt-20 mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 '}>
             {serviceList.map((value, i) => (
               <div className="w-full flex items-center flex-col" key={i}>
                 <div
@@ -67,6 +68,9 @@ export default function Home() {
                   brought Biochemical to today is the quality.</p>
               </div>
             ))}
+          </div>
+          <div className={"tablet:mt-20 w-11/12 mx-auto"}>
+            <Feature/>
           </div>
         </div>
       </div>

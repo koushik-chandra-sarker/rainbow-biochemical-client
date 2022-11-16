@@ -21,7 +21,7 @@ const Header = () => {
     <Sidebar/>
     <header className={cls(styles.navbar)}>
       {/*desktop nabvar*/}
-      <div className={cls("container hidden desktop:block mx-auto h-full")}>
+      <div className={cls("tablet:w-8/12 w-11/12 hidden desktop:block mx-auto h-full")}>
         <div className={cls("flex flex-wrap items-center justify-between h-full")}>
           {/*logo*/}
           <div className={cls("flex items-center")}>
