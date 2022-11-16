@@ -2,12 +2,11 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import ClientSlider from "./ClientSlider";
-import {getClient} from "../../services/Clients/ClientAction";
 const Index = () => {
     const client = useSelector(store => store.client)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getClient())
+        dispatch([])
     }, [])
     return (
         <div>

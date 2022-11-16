@@ -15,6 +15,7 @@ import {useSelector} from "react-redux";
 
 export default function ClientSlider() {
     const client = useSelector(store => store.client)
+    console.log(client)
 
     return (
         <>
