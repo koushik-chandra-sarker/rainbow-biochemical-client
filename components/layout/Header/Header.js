@@ -49,15 +49,15 @@ const Header = () => {
                     <ul className={cls("flex flex-col  gap-4 border-l-2 cursor-pointer ")}>
                       <li
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        <Link href={"/"}>Home</Link>
+                        <Link className={"block"} href={"/"}>Home</Link>
                       </li>
                       <li
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        <Link href={"/about"}>About</Link>
+                        <Link className={"block"} href={"/about"}>About</Link>
                       </li>
                       <li
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        <Link href={"/client"}>Clients</Link>
+                        <Link className={"block"} href={"/client"}>Clients</Link>
                       </li>
                     </ul>
 
