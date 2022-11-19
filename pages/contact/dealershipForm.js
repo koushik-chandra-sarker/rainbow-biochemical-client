@@ -32,7 +32,7 @@ const DealershipForm = () => {
                            outline-none bg-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
 
                     <input
-                        type="text"  name="phone" placeholder={'PHONE NUMBER'}
+                        type="text"  name="contactphone" placeholder={'PHONE NUMBER'}
                         className="w-full mb-4 text-sm text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
                            outline-none bg-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                     <input
