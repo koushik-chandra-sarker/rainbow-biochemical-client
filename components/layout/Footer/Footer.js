@@ -30,8 +30,7 @@ const Footer = () => {
         </div>
         <hr className={"desktop:my-8 my-3"}/>
         <p className={cls("text-gray-500 text-base")}>
-          Lorem ipsum dolor sit amet, dolor consectetur adipisicing elit. Aperiam,
-          asperiores atque autem consequatur cumque dolorum
+          Whenever you wish, Any complain, suggestion or thanks for Miami Associates (BD),you can forward it to us via the Free Consumer Helpline.
         </p>
       </div>
 
@@ -109,7 +108,7 @@ const Footer = () => {
         <Image src={logo} alt={"Brand Logo"} className={"w-40 tablet:border-r-2 pr-4"}/>
         <div className={"tablet:ml-4 flex items-center"}>
           <p className={cls("text-gray-500 text-base")}>
-            Lorem Chemical has been manufacturing<br/>
+            Biochemical has been manufacturing<br/>
             innovative products in the field of industrial and retail.
           </p>
         </div>

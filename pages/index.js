@@ -5,6 +5,7 @@ import CardSlider from "./components/Slider/CardSlider";
 
 import React from "react";
 import Feature from "./components/Feature/Feature";
+import AuthorizedChannelPartner from "./components/Slider/AuthorizedChannelPartner";
 
 const serviceList = [
   {
@@ -14,22 +15,22 @@ const serviceList = [
     icon: <CrownOutlined/>,
   },
   {
-    id: 1,
+    id: 2,
     title: 'Biochemical SAFETY',
     description: "In Biochemical employs right persons having right qualifications in right positions.",
     icon: <HeartOutlined/>,
   }
   ,
   {
-    id: 1,
+    id: 3,
     title: 'ENVIRONMENT',
-    description: "We follow a sensitive and environmentally friendly process in the production processes.The most important principle that brought Biochemical to today is the quality.We follow a sensitive and environmentally friendly process in the production processes.",
+    description: "We follow a sensitive and environmentally friendly process in the production processes.",
     icon: <HomeOutlined/>,
   }
 
   ,
   {
-    id: 1,
+    id: 4,
     title: 'R&D',
     description: "In Biochemical, we operate in a world-class business that recognizes the importance.",
     icon: <ExperimentOutlined/>,
@@ -64,13 +65,17 @@ export default function Home() {
                 </div>
                 <h2 className={'text-2xl text-center  py-4 uppercase'}>{value.title}</h2>
                 <p className={'text-sm w-7/12 mx-auto text-gray-400 text-center pb-4'}>
-                  The most important principle that
-                  brought Biochemical to today is the quality.</p>
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>
           <div className={"tablet:mt-20 w-11/12 mx-auto"}>
             <Feature/>
+          </div>
+          <div className={'desktop:w-8/12 mx-auto w-full'}>
+            <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
+            <AuthorizedChannelPartner/>
           </div>
         </div>
       </div>
