@@ -34,7 +34,7 @@ const Header = () => {
             <ul
               className={cls("h-full flex  items-center justify-between uppercase font-semibold text-base space-x-16")}>
               <li className={cls("mr-4 h-full flex items-center")}>
-                <Link href="#" className={cls("text-gray-600")}>Products</Link>
+                <Link href="/product-cat" className={cls("text-gray-600")}>Products</Link>
               </li>
               <li onMouseOver={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}
                   className={cls(styles.dropdown, "mr-4 h-full flex items-center")}>

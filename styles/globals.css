@@ -41,3 +41,32 @@ body {
     object-fit: cover;
     height: calc(100vh - 70px) !important;
 }
+
+.related-products-slider {
+    position: relative;
+}
+
+.tooltip {
+    /*display: inline-block;*/
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    /*visibility: hidden;*/
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    transition: all 0.5s linear;
+    position: absolute;
+    z-index: 1000;
+    top: 90%;
+    left: 0;
+    white-space: normal;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

@@ -2,10 +2,6 @@ import React from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
 // import "./Slider.scss";
 // import required modules
 import {Autoplay, Pagination} from "swiper";
@@ -30,11 +26,15 @@ export default function Slider() {
         className="mySwiper home-slider"
       >
         <SwiperSlide className={''}>
-          <Image src={img2} alt="logo"
-                 height={2}
-                 width={1800}
-                 className={'w-full'}
-          />
+          <div className={"relative"}>
+            <Image src={img2} alt="logo"
+                   height={2}
+                   width={1800}
+                   className={'w-full'}
+            />
+            <button className={"absolute top-1/4 left-1/4 z-10 "}>Details</button>
+          </div>
+
 
         </SwiperSlide>
         <SwiperSlide className={''}>

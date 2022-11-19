@@ -4,6 +4,10 @@ import "slick-carousel/slick/slick.css";
 import Layout from "../components/layout/Layout";
 import {ProSidebarProvider} from "react-pro-sidebar";
 import {wrapper} from "../services/store";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 function App({Component, pageProps}) {
   return (<ProSidebarProvider>

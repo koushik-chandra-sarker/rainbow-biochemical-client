@@ -1,7 +1,4 @@
 import React from "react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
 import Slider from "react-slick";
 import "./cardSlider.module.scss";
 import Image from "next/image";
