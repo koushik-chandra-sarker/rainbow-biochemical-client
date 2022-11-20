@@ -52,7 +52,7 @@ export default function CardSlider() {
             <div className={''} key={i}>
               <div className={'mobile:flex shadow-xl rounded-lg bg-white overflow-hidden'}>
                 <div className={'mobile:w-1/2 w-full'}>
-                  <Image src={'/assets/imgs/img2.jpg'} alt={"card"} height={100} width={1500}
+                  <Image src={'/assets/imgs/client1.jpg'} alt={"card"} height={100} width={1500}
                          className={'h-72 w-full'}/>
                 </div>
                 <div className={'mobile:w-1/2 w-full flex justify-center items-center '}>
