@@ -1,33 +1,68 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import ClientSlider from "./ClientSlider";
+import Head from "next/head";
+
 const Index = () => {
 
-    return (
-        <div>
-            <div className={'w-full'}>
-               <ClientSlider/>
-            </div>
-            <div className={'bg-blue-white py-20'}>
-                <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
-                <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
-                    {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((v,i)=>(
-                        <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
-                            <div className={'mx-2'}>
-                                <div className={'shadow bg-white'}>
-                                    <img src={'/assets/imgs/IFAD-Multi-Products-Ltd.png'} className={'h-36 p-2 scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
-                                </div>
-                            </div>
+  return (
+    <div>
+      <Head>
+        <title>Biochemical | Client</title>
+        <meta name="description"
+              content="Miami Associates (BD) started its journey in the beginning of 1990 with the objective to import, supply, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Miami Associates (BD) is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+        {/*create meta for SEO*/}
+        <meta name="keywords"
+              content="Biochemical client, client, client list of biochemical, biochemical client list, biochemical client list in Bangladesh, biochemical client list in Asia, biochemical client list in Dhaka, biochemical client list in Chittagong, biochemical client list in Cox's Bazar, biochemical client list in Bangladesh, biochemical client list in Asia, biochemical client list in Dhaka, biochemical client list in Chittagong, biochemical client list in Cox's Bazar"/>
+        <meta name="author" content="Biochemical"/>
+        <meta name="robots" content="index, follow"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="language" content="English"/>
+        <meta name="revisit-after" content="7 days"/>
+        <meta name="distribution" content="web"/>
+        <meta name="rating" content="general"/>
+        {/*create meta for facebook*/}
+        <meta property="og:title" content="Biochemical | Client"/>
+        <meta property="og:description"
+              content="Miami Associates (BD) started its journey in the beginning of 1990 with the objective to import, supply, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Miami Associates (BD) is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+        <meta property="og:image" content="https://biochemicalbd.com/images/logo.png"/>
+        <meta property="og:url" content="https://biochemicalbd.com/client"/>
+        <meta property="og:site_name" content="Biochemical | Client"/>
+        <meta property="og:type" content="website"/>
+        {/*create meta for twitter*/}
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content="Biochemical | Client"/>
+        <meta name="twitter:description"
+              content="Miami Associates (BD) started its journey in the beginning of 1990 with the objective to import, supply, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Miami Associates (BD) is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+        <meta name="twitter:image" content="https://biochemicalbd.com/images/logo.png"/>
+        <meta name="twitter:site" content="https://biochemicalbd.com/client"/>
+        <meta name="twitter:creator" content="Biochemical"/>
 
-
-                        </div>
-                    ))}
-
+      </Head>
+      <div className={'w-full'}>
+        <ClientSlider/>
+      </div>
+      <div className={'bg-blue-white py-20'}>
+        <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
+        <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
+          {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((v, i) => (
+            <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
+              <div className={'mx-2'}>
+                <div className={'shadow bg-white'}>
+                  <img src={'/assets/imgs/IFAD-Multi-Products-Ltd.png'}
+                       className={'h-36 p-2 scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
                 </div>
+              </div>
+
+
             </div>
+          ))}
 
         </div>
-    );
+      </div>
+
+    </div>
+  );
 };
 
 export default Index;
