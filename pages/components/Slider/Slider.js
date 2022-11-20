@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
@@ -7,8 +7,29 @@ import img2 from '../../../public/assets/imgs/perfume.jpg'
 import img3 from '../../../public/assets/imgs/sanitizer.jpg'
 import img4 from '../../../public/assets/imgs/cleaner.jpg'
 import Image from 'next/image';
+import cls from "classnames";
+
+const sliderContent = [
+  {
+    img: img1,
+    title: 'Perfume',
+  },
+  {
+    img: img2,
+    title: 'Perfume',
+  },
+  {
+    img: img3,
+    title: 'Sanitizer',
+  },
+  {
+    img: img4,
+    title: 'Cleaner',
+  }
+]
 
 export default function Slider() {
+  const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   return (
     <>
       <Swiper
@@ -20,55 +41,27 @@ export default function Slider() {
           dynamicBullets: true,
         }}
         modules={[Autoplay, Pagination]}
+        onSlideChange={(swiper) => setActiveSliderIndex(swiper.activeIndex)}
         className="mySwiper home-slider"
       >
-        <SwiperSlide>
-          <div className={"relative"}>
-            <Image src={img2} alt="logo"
-                   height={2}
-                   width={1800}
-                   className={'w-full'}
-            />
-            <div className={'absolute top-2/4 left-1/4 z-10 animate__bounce'}>
-              <button
-                className={" bg-blue-600 text-white rounded-3xl px-8 py-2 animate__animated animate__slideInLeft animate__slow"}>Details
-              </button>
-            </div>
-          </div>
-
-
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={'relative'}>
-            <Image src={img1} alt="logo"
-                   className={' w-full'}
-            />
-          </div>
-          <div className={'absolute top-2/4 left-1/4 z-10 animate__backInLeft'}>
-            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "}>Details</button>
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div className={'relative'}>
-            <Image src={img3} alt="logo"
-                   className={'w-full'}
-            />
-          </div>
-          <div className={'absolute top-2/4 left-1/4 z-10 animate__bounce'}>
-            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "}>Details</button>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={'relative'}>
-            <Image src={img4} alt="logo"
-                   className={' w-full'}
-            />
-          </div>
-          <div className={'absolute top-2/4 left-1/4 z-10 animate__bounce'}>
-            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "}>Details</button>
-          </div>
-        </SwiperSlide>
+        {
+          sliderContent && sliderContent.map((v, i) => (
+            <SwiperSlide key={i}>
+              <div className={"relative"}>
+                <Image src={v.img} alt={v.title}
+                       height={2}
+                       width={1800}
+                       className={'w-full'}
+                />
+                <div className={'absolute top-2/4 left-40 z-20 animate__bounce'}>
+                  <button
+                    className={cls(" bg-blue-600 text-xl text-white rounded-3xl px-12 py-2 animate__animated ", activeSliderIndex === i ? "animate__slideInLeft" : "")}>Details
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))
+        }
       </Swiper>
     </>
   );
