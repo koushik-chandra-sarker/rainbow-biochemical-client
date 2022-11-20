@@ -6,7 +6,6 @@ import {useEffect, useRef, useState} from "react";
 import Image from 'next/image'
 import logo from "../../../public/assets/imgs/logo_h.jpg";
 import Search from "../../Search/Search";
-import {useProSidebar} from "react-pro-sidebar";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
 import {useRouter} from "next/router";
@@ -15,7 +14,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [menuImage, setMenuImage] = useState();
   const dropdownOverlay = useRef();
-  const {collapseSidebar} = useProSidebar();
 
   let router = useRouter();
   useEffect(() => {

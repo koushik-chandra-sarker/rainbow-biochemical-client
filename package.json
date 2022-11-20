@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -20,17 +20,14 @@
     "next": "13.0.2",
     "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",
-    "react-animated-slider": "^2.0.0",
     "react-dom": "18.2.0",
     "react-google-recaptcha": "^2.1.0",
-    "react-pro-sidebar": "^1.0.0-alpha.7",
     "react-redux": "^8.0.5",
     "react-slick": "^0.29.0",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
     "sass": "^1.56.0",
-    "slick-carousel": "^1.8.1",
     "swiper": "^8.4.4"
   },
   "devDependencies": {

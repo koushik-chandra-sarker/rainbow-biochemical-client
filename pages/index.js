@@ -73,7 +73,7 @@ export default function Home() {
           <div className={"tablet:mt-20 w-11/12 mx-auto"}>
             <Feature/>
           </div>
-          <div className={'desktop:w-8/12 mx-auto w-full mb-20'}>
+          <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
             <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
             <AuthorizedChannelPartner/>
           </div>
