@@ -42,7 +42,7 @@ export default function Slider() {
                    className={' w-full'}
             />
           </div>
-          <div className={'absolute top-2/4 left-1/4 z-10 animate__bounce'}>
+          <div className={'absolute top-2/4 left-1/4 z-10 animate__backInLeft'}>
             <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "} >Details</button>
           </div>
         </SwiperSlide>

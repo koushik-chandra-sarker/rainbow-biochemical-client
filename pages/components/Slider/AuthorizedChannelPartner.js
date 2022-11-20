@@ -2,7 +2,7 @@ import React from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation, Pagination} from "swiper";
 import Image from "next/image";
-import img from '../../../public/assets/imgs/p2.jpg'
+import img from '../../../public/assets/imgs/radisonblue.jpg'
 
 const AuthorizedChannelPartner = () => {
     return (
@@ -43,7 +43,7 @@ const AuthorizedChannelPartner = () => {
             >
                 {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((v, i) => (
                     <SwiperSlide className={"h-full"} key={i} >
-                        <div className={'flex flex-col bg-white items-center gap-4 p-5 cursor-pointer'}>
+                        <div className={'flex flex-col border border-gray-400 items-center gap-4 p-5 cursor-pointer'}>
                             <Image src={img} className={"object-contain tablet:h-24 h-24 w-32 "}/>
                         </div>
                     </SwiperSlide>
