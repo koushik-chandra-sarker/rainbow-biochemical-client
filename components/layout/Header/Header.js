@@ -18,14 +18,14 @@ const Header = () => {
     dropdownOverlay.current.style.transform = isMenuOpen ? 'scale(1)' : 'scale(0)';
   }, [isMenuOpen]);
   return (<>
-    <Sidebar/>
+
     <header className={cls(styles.navbar)}>
       {/*desktop nabvar*/}
       <div className={cls("tablet:w-8/12 w-11/12 hidden desktop:block mx-auto h-full")}>
         <div className={cls("flex flex-wrap items-center justify-between h-full")}>
           {/*logo*/}
           <div className={cls("flex items-center")}>
-            <a href="#" className={cls("flex items-center")}>
+            <a href="/" className={cls("flex items-center")}>
               <Image src={logo} alt="Biochemical logo" className={cls("w-36")}/>
             </a>
           </div>
@@ -34,7 +34,7 @@ const Header = () => {
             <ul
               className={cls("h-full flex  items-center justify-between uppercase font-semibold text-base space-x-16")}>
               <li className={cls("mr-4 h-full flex items-center")}>
-                <Link href="/product-cat" className={cls("text-gray-600")}>Products</Link>
+                <Link href="/products" className={cls("text-gray-600")}>Products</Link>
               </li>
               <li onMouseOver={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}
                   className={cls(styles.dropdown, "mr-4 h-full flex items-center")}>
@@ -91,7 +91,7 @@ const Header = () => {
       </div>
       {/*Mobile Navbar*/}
       <div className={cls("tablet:container px-4 block desktop:hidden mx-auto h-full")}>
-        {/*<Sidebar/>*/}
+        <Sidebar/>
         <div className={cls("flex flex-wrap items-center justify-between h-full")}>
           <div className={cls(styles.hamburger)}>
             <label htmlFor="check">
@@ -121,7 +121,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
       </div>
 
     </header>

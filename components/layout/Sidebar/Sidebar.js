@@ -7,8 +7,9 @@ import SubItem from "./SubItem";
 const Sidebar = () => {
   return (
     <div className={cls(styles.sidebar,)} style={{top: "70px"}}>
-      <Item href={"/"} name={"Home"}/>
+      <Item href={"/product"} name={"Products"}/>
       <SubItem name={"Biochemical"}>
+        <Item href={"/"} name={"Home"}/>
         <Item href={"/about"} name={"About"}/>
         <Item href={"/client"} name={"Clients"}/>
       </SubItem>
