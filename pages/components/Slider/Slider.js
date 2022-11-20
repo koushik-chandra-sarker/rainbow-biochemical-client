@@ -30,7 +30,9 @@ export default function Slider() {
                    className={'w-full'}
             />
             <div className={'absolute top-2/4 left-1/4 z-10 animate__bounce'}>
-              <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "} >Details</button>
+              <button
+                className={" bg-blue-600 text-white rounded-3xl px-8 py-2 animate__animated animate__slideInLeft animate__slow"}>Details
+              </button>
             </div>
           </div>
 
@@ -43,7 +45,7 @@ export default function Slider() {
             />
           </div>
           <div className={'absolute top-2/4 left-1/4 z-10 animate__backInLeft'}>
-            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "} >Details</button>
+            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "}>Details</button>
           </div>
         </SwiperSlide>
 
@@ -54,7 +56,7 @@ export default function Slider() {
             />
           </div>
           <div className={'absolute top-2/4 left-1/4 z-10 animate__bounce'}>
-            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "} >Details</button>
+            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "}>Details</button>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -64,7 +66,7 @@ export default function Slider() {
             />
           </div>
           <div className={'absolute top-2/4 left-1/4 z-10 animate__bounce'}>
-            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "} >Details</button>
+            <button className={" bg-blue-600 text-white rounded-3xl px-8 py-2  "}>Details</button>
           </div>
         </SwiperSlide>
       </Swiper>
