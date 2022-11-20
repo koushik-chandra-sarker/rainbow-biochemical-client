@@ -9,14 +9,30 @@ import Search from "../../Search/Search";
 import {useProSidebar} from "react-pro-sidebar";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
+import {useRouter} from "next/router";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuImage, setMenuImage] = useState();
   const dropdownOverlay = useRef();
   const {collapseSidebar} = useProSidebar();
+
+  let router = useRouter();
   useEffect(() => {
+    handleMenuImage(router.pathname)
     dropdownOverlay.current.style.transform = isMenuOpen ? 'scale(1)' : 'scale(0)';
   }, [isMenuOpen]);
+
+  function handleMenuImage(pathname) {
+    if (pathname === "/") {
+      setMenuImage("/assets/imgs/menu-1.jpg")
+    } else if (pathname === "/about") {
+      setMenuImage("/assets/imgs/menu-2.jpg")
+    } else if (pathname === "/clients") {
+      setMenuImage("/assets/imgs/menu-3.jpg")
+    }
+  }
+
   return (<>
 
     <header className={cls(styles.navbar)}>
@@ -34,7 +50,7 @@ const Header = () => {
             <ul
               className={cls("h-full flex  items-center justify-between uppercase font-semibold text-base space-x-16")}>
               <li className={cls("mr-4 h-full flex items-center")}>
-                <Link href="/products" className={cls("text-gray-600")}>Products</Link>
+                <Link href="/product-categories" className={cls("text-gray-600")}>Products</Link>
               </li>
               <li onMouseOver={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}
                   className={cls(styles.dropdown, "mr-4 h-full flex items-center")}>
@@ -48,22 +64,26 @@ const Header = () => {
                   <div className={cls("w-1/2  ml-28 mt-10 ")}>
                     <ul className={cls("flex flex-col  gap-4 border-l-2 cursor-pointer ")}>
                       <li
+                        onMouseOver={() => handleMenuImage('/')}
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
                         <Link className={"block"} href={"/"}>Home</Link>
                       </li>
                       <li
+                        onMouseOver={() => handleMenuImage('/about')}
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
                         <Link className={"block"} href={"/about"}>About</Link>
                       </li>
                       <li
+                        onMouseOver={() => handleMenuImage('/clients')}
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
                         <Link className={"block"} href={"/client"}>Clients</Link>
                       </li>
                     </ul>
 
                   </div>
-                  <div className={cls(styles.right, "w-1/2 h-52 bg-blue-500")}
-                       style={{background: "url(/assets/imgs/demo1.jpg)"}}>
+                  <div
+                    className={cls(styles.right, "w-1/2 bg-cover-i bg-no-repeat bg-blue-500 rounded-br-xl transition-all ease-linear duration-100")}
+                    style={{background: `url(${menuImage})`}}>
                   </div>
                 </div>
               </li>

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ProductSlider from "../components/ProductSlider";
 import RelatedProducts from "../components/RelatedProducts";
+import {useRouter} from "next/router";
 
 const Index = () => {
+  const router = useRouter()
+  const {product_id} = router.query
+  useEffect(() => {
+    console.log(product_id)
+  }, [product_id])
   return (
     <div>
       <div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
@@ -45,8 +51,6 @@ const Index = () => {
           <h2 className={'text-center text-gray-400 uppercase pb-8'}>Other Products</h2>
           <RelatedProducts/>
         </div>
-
-
       </div>
     </div>
   );

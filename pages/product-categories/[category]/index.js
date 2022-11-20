@@ -48,7 +48,7 @@ const Index = () => {
         <div className={'w-8/12 mx-auto mt-10 flex flex-wrap py-2'}>
           {[1, 1, 1, 1, 1, 1].map((v, i) => (
             <div className={'mobile:w-1/3 w-full mt-8'} key={i}>
-              <Link href={`/products/${category}/${i}`} className={cls(styles.product, "cursor-pointer")}>
+              <Link href={`/product-categories/${category}/${i}`} className={cls(styles.product, "cursor-pointer")}>
                 <div className={'mx-4 bg-white'}>
                   <Image src={img} className={'h-80 object-contain p-8  w-full'}/>
                   <h2 className={'text-center px-8 pb-2 text-gray-500'}>Multi Surface & Odor Eliminator

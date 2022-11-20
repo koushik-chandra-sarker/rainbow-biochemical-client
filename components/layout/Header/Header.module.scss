@@ -24,12 +24,13 @@
       top: 70px;
       //opacity: 0;
       transition: all .5s;
+      padding-right: 0 !important;
       left: 50%;
       transform: translateX(-50%) scale(0);
       z-index: 10;
 
       .right {
-
+        background-size: cover !important;
         position: relative;
 
         &:before {
