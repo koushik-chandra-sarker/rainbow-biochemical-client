@@ -84,7 +84,7 @@ const Index = () => {
             <div className={'mobile:w-1/3 w-full mt-8'} key={i}>
               <Link href={`/product-categories/${category}/${i}`} className={cls(styles.product, "cursor-pointer")}>
                 <div className={'mx-4 bg-white'}>
-                  <Image src={img} className={'h-80 object-contain p-8  w-full'}/>
+                  <Image src={img} alt={"dd"} className={'h-80 object-contain p-8  w-full'}/>
                   <h2 className={'text-center px-8 pb-2 text-gray-500'}>Multi Surface & Odor Eliminator
                     Concentrated</h2>
                   <div className={'justify-center flex'}>

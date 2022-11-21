@@ -1,5 +1,5 @@
 import React from 'react';
-import about_us from '../../../public/assets/imgs/about-as.jpg'
+import about_us from '../../public/assets/imgs/about-as.jpg'
 import Image from "next/image";
 
 const Feature = () => {

@@ -1,11 +1,12 @@
 import Head from 'next/head'
-import Slider from "./components/Slider/Slider";
+import Slider from "../components/Slider/Slider";
 import {CrownOutlined, ExperimentOutlined, HeartOutlined, HomeOutlined} from "@ant-design/icons";
-import CardSlider from "./components/Slider/CardSlider";
+import CardSlider from "../components/Slider/CardSlider";
 
 import React from "react";
-import Feature from "./components/Feature/Feature";
-import AuthorizedChannelPartner from "./components/Slider/AuthorizedChannelPartner";
+import Feature from "../components/Feature/Feature";
+import AuthorizedChannelPartner from "../components/Slider/AuthorizedChannelPartner";
+import {useGetSiteDetailsQuery} from "../services/siteDetails/siteDetailsApi";
 
 const serviceList = [
   {
@@ -37,7 +38,9 @@ const serviceList = [
   }
 
 ]
-export default function Home() {
+const Home = () => {
+  const data = useGetSiteDetailsQuery();
+  console.log(data)
   const title = 'Biochemical | Home'
   return (
     <div>
@@ -108,4 +111,13 @@ export default function Home() {
       </div>
     </div>
   )
+
 }
+
+export async function getServerSideProps(context) {
+  return {
+    props: {}
+  }
+}
+
+export default Home;

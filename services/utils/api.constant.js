@@ -1,7 +1,9 @@
 export const API = {
-  baseUrl: "http://127.0.0.1:8000",
+  baseUrl: "http://localhost:8080",
   accessToken: "1e3b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b",
-  siteDetails: {
-    getDetails: "/site-details/"
-  }
+  siteDetails: "/biochemical/site-details/",
+  products: "/biochemical/products/",
+  productCategories: "/biochemical/product-categories/",
+  subscriber: "/biochemical/subscriber/",
+  messages: "/biochemical/messages/",
 }

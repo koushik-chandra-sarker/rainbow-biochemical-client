@@ -2,10 +2,10 @@ import React, {useState} from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
-import img1 from '../../../public/assets/imgs/prfume_3_generated.jpg'
-import img2 from '../../../public/assets/imgs/perfume.jpg'
-import img3 from '../../../public/assets/imgs/sanitizer.jpg'
-import img4 from '../../../public/assets/imgs/cleaner.jpg'
+import img1 from '../../public/assets/imgs/prfume_3_generated.jpg'
+import img2 from '../../public/assets/imgs/perfume.jpg'
+import img3 from '../../public/assets/imgs/sanitizer.jpg'
+import img4 from '../../public/assets/imgs/cleaner.jpg'
 import Image from 'next/image';
 import cls from "classnames";
 

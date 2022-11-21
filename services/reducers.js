@@ -1,18 +1,23 @@
 import {combineReducers} from "@reduxjs/toolkit";
-import siteDetails from "./siteDetails/siteDetailsSlice";
+import {siteDetailsApi} from "./siteDetails/siteDetailsApi";
 
 export const combinedReducer = combineReducers({
-  siteDetails: siteDetails
+  [siteDetailsApi.reducerPath]: siteDetailsApi.reducer,
 });
 
-
+//
 // export const masterReducer = (state, action) => {
+//   // console.log("actionType", action.type);
+//   // console.log("preState", state);
 //   if (action.type === HYDRATE) {
-//     const nextState = {
-//       ...state,
-//       siteDetails: [...action.payload, ...state.payload]
-//     };
-//     return nextState;
+//     console.log("HYDRATE--------", action);
+//     // const nextState = {
+//     //   ...state,
+//     //   ...action.payload
+//     // };
+//     // console.log("nextState", nextState);
+//     // return action.payload;
 //   }
+//   // return action.payload
 //   return combinedReducer(state, action);
 // }

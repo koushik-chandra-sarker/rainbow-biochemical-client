@@ -39,9 +39,9 @@ const Header = () => {
         <div className={cls("flex flex-wrap items-center justify-between h-full")}>
           {/*logo*/}
           <div className={cls("flex items-center")}>
-            <a href="/" className={cls("flex items-center")}>
+            <Link href="/" className={cls("flex items-center")}>
               <Image src={logo} alt="Biochemical logo" className={cls("w-36")}/>
-            </a>
+            </Link>
           </div>
           {/*menu*/}
           <div className={cls("h-full flex items-center")}>

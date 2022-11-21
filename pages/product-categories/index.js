@@ -3,9 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 import img from '../../public/assets/imgs/dishwasher-cat.png'
 import Head from "next/head";
+import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 
 const Index = () => {
+  const [isDataLoaded, setIsDataLoaded] = React.useState(false);
+  // const [data, setData] = React.useState(null);
   const category = 'Biochemical'
+  const data = useGetSiteDetailsQuery();
+
+  console.log(data);
   return (
     <div>
       <Head>
@@ -47,7 +53,7 @@ const Index = () => {
             <div className={'mobile:w-1/2 my-10 w-full '} key={i}>
               <Link href={`/product-categories/${category}`}>
                 <div className={'mx-4 bg-white h-124 mb-8'}>
-                  <Image src={img}
+                  <Image src={img} alt={"aa"}
                          className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
                   <h2 className={'text-center bg-white text-xl  text-black py-4'}>Bio Group</h2>
                 </div>
