@@ -4,6 +4,6 @@ export const API = {
   siteDetails: "/biochemical/site-details/",
   products: "/biochemical/products/",
   productCategories: "/biochemical/product-categories/",
-  subscriber: "/biochemical/subscriber/",
+  subscriber: "/biochemical/subscribers/",
   messages: "/biochemical/messages/",
 }
