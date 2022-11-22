@@ -6,7 +6,9 @@ import CardSlider from "../components/Slider/CardSlider";
 import React from "react";
 import Feature from "../components/Feature/Feature";
 import AuthorizedChannelPartner from "../components/Slider/AuthorizedChannelPartner";
-import {useGetSiteDetailsQuery} from "../services/siteDetails/siteDetailsApi";
+import {getRunningQueriesThunk, getSiteDetails, useGetSiteDetailsQuery} from "../services/siteDetails/siteDetailsApi";
+import {useRouter} from "next/router";
+import {wrapper} from "../services/store";
 
 const serviceList = [
   {
@@ -38,7 +40,8 @@ const serviceList = [
   }
 
 ]
-const Home = () => {
+const Home = ({}) => {
+  const router = useRouter();
   const data = useGetSiteDetailsQuery();
   console.log(data)
   const title = 'Biochemical | Home'
@@ -53,7 +56,6 @@ const Home = () => {
               content="Biochemical, Chemical, Chemicals, Chemical Company, Chemical Companies, Chemical Industry, Chemical Industry Companies, Chemical Industry Company, Chemical Industry in Dhaka, Chemical Industry in Bangladesh, Chemical Industry in Asia, Chemical Industry`"/>
         <meta name="author" content="Biochemical"/>
         <meta name="robots" content="index, follow"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="language" content="English"/>
         <meta name="revisit-after" content="7 days"/>
         <meta name="distribution" content="web"/>
@@ -84,6 +86,7 @@ const Home = () => {
 
 
       <div className={'bg'}>
+        <div className={"kdkdkdkd"}>{data && data.data && data.data[0].facebook}</div>
         <div className={'bg-gray-100 pt-8 pb-8'}>
           <CardSlider/>
           <div className={'w-11/12 mt-20 mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 '}>
@@ -113,11 +116,15 @@ const Home = () => {
   )
 
 }
-
-export async function getServerSideProps(context) {
-  return {
-    props: {}
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({dispatch}) => async (context) => {
+    dispatch(getSiteDetails.initiate());
+    await Promise.all(dispatch(getRunningQueriesThunk()));
+    return {
+      props: {},
+    };
   }
-}
+);
+
 
 export default Home;

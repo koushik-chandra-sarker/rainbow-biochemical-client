@@ -5,8 +5,9 @@ import {setupListeners} from "@reduxjs/toolkit/query";
 import {productApi} from "./product/productApi";
 import {messageApi} from "./message/messageApi";
 import {subscriberApi} from "./subsciber/subscriberApi";
+import {createWrapper} from "next-redux-wrapper";
 
-export const store = configureStore({
+export const makeStore = () => configureStore({
   reducer: {
     [siteDetailsApi.reducerPath]: siteDetailsApi.reducer,
     [productApi.reducerPath]: productApi.reducer,
@@ -21,4 +22,5 @@ export const store = configureStore({
       .concat(messageApi.middleware),
 
 })
-setupListeners(store.dispatch)
+setupListeners(makeStore().dispatch)
+export const wrapper = createWrapper(makeStore);

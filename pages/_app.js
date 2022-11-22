@@ -7,20 +7,20 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import 'animate.css';
-import {Provider} from "react-redux";
-import {store} from "../services/store";
+import {wrapper} from "../services/store";
 
 function App({Component, pageProps}) {
   return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+    // <Provider store={store}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    // </Provider>
   )
 }
 
-export default App;
+export default wrapper.withRedux(App);
+// export default App;
 //
 // function App({Component, pageProps}) {
 //   ;
