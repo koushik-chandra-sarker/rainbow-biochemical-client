@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import ProductSlider from "../components/ProductSlider";
-import RelatedProducts from "../components/RelatedProducts";
+import ProductSlider from "../../components/ProductSlider";
+import RelatedProducts from "../../components/RelatedProducts";
 import {useRouter} from "next/router";
 import Head from "next/head";
 

@@ -7,11 +7,19 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import 'animate.css';
+import 'aos/dist/aos.css';
 import {wrapper} from "../services/store";
+import AOS from 'aos';
+import {useEffect} from "react";
 
 function App({Component, pageProps}) {
-  return (
-    // <Provider store={store}>
+
+  useEffect(() => {
+    AOS.init({ones: false});
+  }, []);
+
+
+  return (// <Provider store={store}>
     <Layout>
       <Component {...pageProps} />
     </Layout>

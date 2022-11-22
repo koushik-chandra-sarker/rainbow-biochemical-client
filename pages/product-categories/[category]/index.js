@@ -1,108 +1,76 @@
-import React, {useEffect} from 'react';
-import {useRouter} from "next/router";
+import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import img from '../../../public/assets/imgs/p2.jpg'
-import styles from '../Product.module.scss'
-import cls from "classnames";
+import img from '../../../public/assets/imgs/dishwasher-cat.png'
 import Head from "next/head";
+import {useRouter} from "next/router";
 
 const Index = () => {
-  const router = useRouter()
-  const {category} = router.query
-  useEffect(() => {
-    console.log(category)
-  }, [category])
-  return (<div>
-    <Head>
-      <title>Biochemical | Product Category - {category}</title>
-      <meta name="description"
-            content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-      {/*create meta for SEO*/}
-      <meta name="keywords"
-            content="Product Categories, Biochemical Product Categories, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar"/>
-      <meta name="author" content="Biochemical"/>
-      <meta name="robots" content="index, follow"/>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <meta name="language" content="English"/>
-      <meta name="revisit-after" content="7 days"/>
-      <meta name="distribution" content="web"/>
-      <meta name="rating" content="general"/>
-      {/*create meta for facebook*/}
-      <meta property="og:title" content="Biochemical | Product Category - {category}"/>
-      <meta property="og:description"
-            content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-      <meta property="og:image" content="https://biochemicalbd.com/assets/imgs/p2.jpg"/>
-      <meta property="og:url" content="https://biochemicalbd.com/product-categories/{category}"/>
-      <meta property="og:site_name" content="Biochemical"/>
-      <meta property="og:type" content="website"/>
-      {/*create meta for twitter*/}
-      <meta name="twitter:card" content="summary"/>
-      <meta name="twitter:title" content="Biochemical | Product Category - {category}"/>
-      <meta name="twitter:description"
-            content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-      <meta name="twitter:image" content="https://biochemicalbd.com/assets/imgs/p2.jpg"/>
-      <meta name="twitter:site" content="@biochemicalbd"/>
-      <meta name="twitter:creator" content="@biochemicalbd"/>
+  const router = useRouter();
+  const {category} = router.query;
+  const subCategory = "sub-category";
 
+  function isEven(n) {
+    return n % 2 == 0;
+  }
 
-    </Head>
-    <div className={'bg-gray-100 py-10'}>
-      <div className={'mobile:w-8/12 mx-auto w-full flex  my-10'}>
-        <div className={'mobile:w-1/4 w-full px-2'}>
-          <input
-            type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-            className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-white py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-        </div>
-        <div className={'mobile:w-1/4 w-full px-2'}>
-          <input
-            type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-            data-dropdown-toggle="dropdownDefaultCheckbox"
-            className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-white py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-        </div>
-        <div className={'mobile:w-1/4 w-full px-2'}>
-          <input
-            type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-            className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-white py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-        </div>
-        <div className={'mobile:w-1/4 w-full px-2'}>
-          <button
-            type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-            className="w-full text-sm mb-4 text-white  bg-red-600 pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">Search
-          </button>
-        </div>
+  return (
+    <div>
+      <Head>
+        <title>Biochemical | Product Categories</title>
+        <meta name="description"
+              content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+        {/*create meta for SEO*/}
+        <meta name="keywords"
+              content="Product Categories, Biochemical Product Categories, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar"/>
+        <meta name="author" content="Biochemical"/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="language" content="English"/>
+        <meta name="revisit-after" content="7 days"/>
+        <meta name="distribution" content="web"/>
+        <meta name="rating" content="general"/>
+        {/*create meta for facebook*/}
+        <meta property="og:title" content={category}/>
+        <meta property="og:description"
+              content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+        <meta property="og:image" content="https://www.biochemical.com.bd/images/logo.png"/>
+        <meta property="og:url" content="https://www.biochemical.com.bd/"/>
+        <meta property="og:site_name" content="Biochemical | Product Categories"/>
+        <meta property="og:type" content="website"/>
+        {/*create meta for twitter*/}
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content={category}/>
+        <meta name="twitter:description"
+              content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+        <meta name="twitter:image" content="https://www.biochemical.com.bd/images/logo.png"/>
+        <meta name="twitter:site" content="https://www.biochemical.com.bd/"/>
+        <meta name="twitter:creator" content="Biochemical"/>
 
-      </div>
-
-      <div className={'pb-16'}>
-        <div className={'w-8/12 mx-auto mt-10 flex flex-wrap py-2'}>
-          {[1, 1, 1, 1, 1, 1].map((v, i) => (
-            <div className={'mobile:w-1/3 w-full mt-8'} key={i}>
-              <Link href={`/product-categories/${category}/${i}`} className={cls(styles.product, "cursor-pointer")}>
-                <div className={'mx-4 bg-white'}>
-                  <Image src={img} alt={"dd"} className={'h-80 object-contain p-8  w-full'}/>
-                  <h2 className={'text-center px-8 pb-2 text-gray-500'}>Multi Surface & Odor Eliminator
-                    Concentrated</h2>
-                  <div className={'justify-center flex'}>
-                    <button
-                      className={cls(styles.button, "w-32 uppercase font-semibold align-center items-center flex justify-center  text-gray-500  bg-white py-4 text-sm")}>
-                      Details
-                    </button>
-                  </div>
+      </Head>
+      <div className={'bg-gray-100'}>
+        <div className={'mobile:w-8/12 mx-auto px-4 text-center text-xl text-black pt-10 '}>
+          <h2 className={'w-full border py-5 tablet:text-3xl text-xl uppercase font-bold text-gray-500'}>{category}</h2>
+        </div>
+        <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
+          {[1, 1, 1, 1, 1, 1, 1].map((v, i) => (
+            <div className={'mobile:w-1/2 my-10 w-full '} key={i}
+                 data-aos={isEven(i) ? "fade-right" : "fade-left"}
+                 data-aos-offset="100"
+                 data-aos-easing="ease-in-sine">
+              <Link href={`${router.asPath}/${subCategory}`}>
+                <div className={'mx-4 bg-white h-124 mb-8'}>
+                  <Image src={img} alt={"aa"}
+                         className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
+                  <h2 className={'text-center bg-white text-xl  text-black py-4'}>Bio Group</h2>
                 </div>
               </Link>
-            </div>
 
-          ))}
+            </div>))}
 
         </div>
       </div>
     </div>
-  </div>);
+  );
 };
 
 export default Index;
