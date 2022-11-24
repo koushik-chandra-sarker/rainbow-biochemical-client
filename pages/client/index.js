@@ -2,8 +2,10 @@ import React from 'react';
 
 import ClientSlider from "./ClientSlider";
 import Head from "next/head";
+import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 
 const Index = () => {
+  const {data} = useGetSiteDetailsQuery();
 
   return (
     <div>
@@ -45,11 +47,13 @@ const Index = () => {
       <div className={'bg-blue-white py-20'}>
         <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
         <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
-          {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((v, i) => (
+
+          {
+            data && data[0].client.map((v, i) => (
             <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
               <div className={'mx-2'}>
                 <div className={'shadow bg-white'}>
-                  <img src={'/assets/imgs/IFAD-Multi-Products-Ltd.png'}
+                  <img src={v.image}
                        className={'h-36 p-2 scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
                 </div>
               </div>

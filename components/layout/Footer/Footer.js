@@ -12,9 +12,11 @@ import logo from "../../../public/assets/imgs/logo_h.jpg";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from "swiper";
 import {CopyrightOutlined, FacebookFilled, InstagramFilled, TwitterSquareFilled} from "@ant-design/icons";
+import {useGetSiteDetailsQuery} from "../../../services/siteDetails/siteDetailsApi";
 
 
 const Footer = () => {
+  const {data} = useGetSiteDetailsQuery();
   return (<footer className={cls("")}>
     <hr className={"my-20"}/>
 
@@ -75,26 +77,40 @@ const Footer = () => {
           modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className={"h-32 w-32"}>
-              <Image src={p1} alt={"p1"} className={"w-full h-full object-contain"}/>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={"h-32 w-32"}>
-              <Image src={p2} alt={"p1"} className={"w-full h-full object-contain"}/>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={"h-32 w-32"}>
-              <Image src={p3} alt={"p1"} className={"w-full h-full object-contain"}/>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={"h-32 w-32"}>
-              <Image src={p4} alt={"p1"} className={"w-full h-full object-contain"}/>
-            </div>
-          </SwiperSlide>
+          {
+            // {data && data.data && data.data[0].facebook}
+
+              data && data[0].footerSlider.map((v, i) => (
+                  <SwiperSlide key={i}>
+                    <div className={"h-32 w-32"}>
+                      <img src={v.image} alt={'p1'}
+                             // height={2}
+                             // width={1800}
+                             className={"w-full h-full object-contain"}
+                      />
+                    </div>
+                  </SwiperSlide>
+              ))}
+          {/*// <SwiperSlide>*/}
+          {/*//   <div className={"h-32 w-32"}>*/}
+          {/*//     <Image src={p1} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
+          {/*//   </div>*/}
+          {/*// </SwiperSlide>*/}
+          {/*// <SwiperSlide>*/}
+          {/*//   <div className={"h-32 w-32"}>*/}
+          {/*//     <Image src={p2} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
+          {/*//   </div>*/}
+          {/*// </SwiperSlide>*/}
+          {/*// <SwiperSlide>*/}
+          {/*//   <div className={"h-32 w-32"}>*/}
+          {/*//     <Image src={p3} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
+          {/*//   </div>*/}
+          {/*// </SwiperSlide>*/}
+          {/*// <SwiperSlide>*/}
+          {/*//   <div className={"h-32 w-32"}>*/}
+          {/*//     <Image src={p4} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
+          {/*//   </div>*/}
+          {/*// </SwiperSlide>*/}
 
         </Swiper>
 

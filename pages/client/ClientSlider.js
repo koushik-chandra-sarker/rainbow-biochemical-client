@@ -12,11 +12,10 @@ import "./clientSlider.module.scss";
 import {Autoplay, Pagination} from "swiper";
 import Image from "next/image";
 import {useSelector} from "react-redux";
+import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 
 export default function ClientSlider() {
-    const client = useSelector(store => store.client)
-    console.log(client)
-
+    const {data} = useGetSiteDetailsQuery();
     return (
         <>
                         <div className={'clientSlider'}>
@@ -32,9 +31,10 @@ export default function ClientSlider() {
                                 modules={[Autoplay,Pagination]}
                                 className="mySwiper"
                             >
-                                {[1,1,1].map((v,i)=>(
+                                {
+                                    data && data[0].careerSlider.map((v,i)=>(
                                     <SwiperSlide key={i}>
-                                        <Image src={'/assets/imgs/client1.jpg'} alt="logo"
+                                        <Image src={v.image} alt="logo"
                                                height={100}
                                                width={1500}
                                                className={'h-128 w-full object-cover '}

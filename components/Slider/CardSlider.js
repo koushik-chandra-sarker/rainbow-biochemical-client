@@ -2,8 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import "./cardSlider.module.scss";
 import Image from "next/image";
+import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 
 export default function CardSlider() {
+  const {data} = useGetSiteDetailsQuery();
   const settings = {
     className: "center",
     centerMode: true,
@@ -48,16 +50,17 @@ export default function CardSlider() {
     <>
       <div className={'CardSlider '}>
         <Slider {...settings}>
-          {[1, 1, 1, 1, 1, 1, 1].map((v, i) => (
+          {
+          data && data[0].homeCardSlider.map((v, i) => (
             <div className={''} key={i}>
               <div className={'mobile:flex shadow-xl rounded-lg bg-white overflow-hidden'}>
                 <div className={'mobile:w-1/2 w-full'}>
-                  <Image src={'/assets/imgs/client1.jpg'} alt={"card"} height={100} width={1500}
+                  <Image src={v.image} alt={"card"} height={100} width={1500}
                          className={'h-72 w-full'}/>
                 </div>
                 <div className={'mobile:w-1/2 w-full flex justify-center items-center '}>
                   <div className={'p-20'}>
-                    <h2 className={'text-lg text-center'}>WE ARE WAITING FOR YOU AT OUR STAND</h2>
+                    <h2 className={'text-lg text-center'}>{v.title}</h2>
                   </div>
                 </div>
 
