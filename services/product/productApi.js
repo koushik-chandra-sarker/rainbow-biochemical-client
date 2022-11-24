@@ -1,10 +1,16 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {customBaseQuery} from "../utils/customBaseQuery";
 import {API} from "../utils/api.constant";
+import {HYDRATE} from "next-redux-wrapper";
 
 export const productApi = createApi({
   reducerPath: "productApi",
   baseQuery: customBaseQuery,
+  extractRehydrationInfo(action, {reducerPath}) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath];
+    }
+  },
   endpoints: (builder) => ({
     getProductCategories: builder.query({
       query: () => ({
@@ -36,5 +42,6 @@ export const {
   useGetProductCategoriesQuery,
   useGetProductsQuery,
   useGetProductByIdQuery,
-  useGetProductsByCategoryQuery
+  useGetProductsByCategoryQuery,
+  util: {getRunningQueriesThunk},
 } = productApi;

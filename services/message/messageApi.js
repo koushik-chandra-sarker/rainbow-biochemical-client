@@ -1,10 +1,16 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {customBaseQuery} from "../utils/customBaseQuery";
 import {API} from "../utils/api.constant";
+import {HYDRATE} from "next-redux-wrapper";
 
 export const messageApi = createApi({
   reducerPath: "messageApi",
   baseQuery: customBaseQuery,
+  extractRehydrationInfo(action, {reducerPath}) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath];
+    }
+  },
   endpoints: (builder) => ({
     getMessages: builder.query({
       query: () => ({
@@ -24,5 +30,6 @@ export const messageApi = createApi({
 
 export const {
   useGetMessagesQuery,
-  useCreateMessageMutation
+  useCreateMessageMutation,
+  util: {getRunningQueriesThunk},
 } = messageApi;
