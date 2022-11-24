@@ -86,7 +86,7 @@ const Home = ({}) => {
 
 
       <div className={'bg'}>
-        <div className={"kdkdkdkd"}>{data && data.data && data.data[0].facebook}</div>
+
         <div className={'bg-gray-100 pt-8 pb-8'}>
           <CardSlider/>
           <div className={'w-11/12 mt-20 mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 '}>
@@ -101,7 +101,7 @@ const Home = ({}) => {
                   {value.description}
                 </p>
               </div>
-            ))}
+            ))}{data && data.data && data.data[0].facebook}
           </div>
           <div className={"tablet:mt-20 w-11/12 mx-auto"}>
             <Feature/>
