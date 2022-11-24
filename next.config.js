@@ -2,7 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['file.rainbowgroup-bd.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'file.rainbowgroup-bd.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 }
 
