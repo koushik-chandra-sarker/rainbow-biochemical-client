@@ -57,8 +57,6 @@ const Index = () => {
                        className={'h-36 p-2 scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
                 </div>
               </div>
-
-
             </div>
           ))}
 

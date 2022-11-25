@@ -83,34 +83,15 @@ const Footer = () => {
               data && data[0].footerSlider.map((v, i) => (
                   <SwiperSlide key={i}>
                     <div className={"h-32 w-32"}>
-                      <img src={v.image} alt={'p1'}
-                             // height={2}
-                             // width={1800}
+                      <Image src={v.image} alt={'p1'}
+                             height={2}
+                             width={1800}
                              className={"w-full h-full object-contain"}
                       />
                     </div>
                   </SwiperSlide>
               ))}
-          {/*// <SwiperSlide>*/}
-          {/*//   <div className={"h-32 w-32"}>*/}
-          {/*//     <Image src={p1} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
-          {/*//   </div>*/}
-          {/*// </SwiperSlide>*/}
-          {/*// <SwiperSlide>*/}
-          {/*//   <div className={"h-32 w-32"}>*/}
-          {/*//     <Image src={p2} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
-          {/*//   </div>*/}
-          {/*// </SwiperSlide>*/}
-          {/*// <SwiperSlide>*/}
-          {/*//   <div className={"h-32 w-32"}>*/}
-          {/*//     <Image src={p3} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
-          {/*//   </div>*/}
-          {/*// </SwiperSlide>*/}
-          {/*// <SwiperSlide>*/}
-          {/*//   <div className={"h-32 w-32"}>*/}
-          {/*//     <Image src={p4} alt={"p1"} className={"w-full h-full object-contain"}/>*/}
-          {/*//   </div>*/}
-          {/*// </SwiperSlide>*/}
+
 
         </Swiper>
 
@@ -153,23 +134,23 @@ const Footer = () => {
           <div className={"flex flex-col"}>
             <div className={"text-xs leading-6"}>
               <div className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                <p>Ka-70/1, Progati Sharani ( 2nd & 3rd Floor), Kuril, Vatara
-                  Dhaka-1229, Bangladesh,</p> <br/>
-                <b>Phone: </b> +880 2 550 00 000 <br/>
-                <b>Email: </b> demo@mail.com
+                <p>{data && data[0].contact[0].address}<br/>
+                    <b>Phone: </b> {data && data[0].contact[0].phone}<br/>
+                    <b>Email: </b> {data && data[0].contact[0].email}
+                </p>
               </div>
               <hr className={"my-2"}/>
               <p
                 className={"mt-2 tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                528/545, S.K. Mujib Road , Dewanhut,
-                Chittagong , Bangladesh <br/>
-                <b>Mobile: </b> 01819 888045. <br/>
-                <b>Phone: </b>031 2510787
+                {data && data[0].contact[1].address}<br/>
+                <b>Mobile: </b> {data && data[0].contact[1].phone}. <br/>
+                <b>Email: </b> {data && data[0].contact[1].email}
               </p>
               <hr className={"my-2"}/>
               <p className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                Haque Tower, 3rd Floor, Alir Jahal, Cox’s Bazar <br/>
-                <b>Mobile: </b>+8801847166798, +8801839564836
+                {data && data[0].contact[2].address}<br/>
+                <b>Mobile: </b>{data && data[0].contact[2].phone}.<br/>
+                <b>Email: </b> {data && data[0].contact[2].email}
               </p>
             </div>
           </div>

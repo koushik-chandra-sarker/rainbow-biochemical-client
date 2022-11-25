@@ -2,6 +2,7 @@ import {createApi} from "@reduxjs/toolkit/query/react";
 import {customBaseQuery} from "../utils/customBaseQuery";
 import {API} from "../utils/api.constant";
 import {HYDRATE} from "next-redux-wrapper";
+import {siteDetailsApi} from "../siteDetails/siteDetailsApi";
 
 export const messageApi = createApi({
   reducerPath: "messageApi",
@@ -33,3 +34,5 @@ export const {
   useCreateMessageMutation,
   util: {getRunningQueriesThunk},
 } = messageApi;
+
+export const {createMessage} = messageApi.endpoints;

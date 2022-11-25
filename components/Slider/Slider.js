@@ -66,23 +66,6 @@ export default function Slider() {
                   </div>
                 </SwiperSlide>
             ))
-
-          // sliderContent && sliderContent.map((v, i) => (
-          //   <SwiperSlide key={i}>
-          //     <div className={"relative"}>
-          //       <Image src={v.img} alt={v.title}
-          //              height={2}
-          //              width={1800}
-          //              className={'w-full'}
-          //       />
-          //       <div className={'absolute top-2/4 left-40 z-20 animate__bounce'}>
-          //         <button
-          //           className={cls(" bg-blue-600 text-xl text-white rounded-3xl px-12 py-2 animate__animated ", activeSliderIndex === i ? "animate__slideInLeft" : "")}>Details
-          //         </button>
-          //       </div>
-          //     </div>
-          //   </SwiperSlide>
-          // ))
         }
       </Swiper>
     </>

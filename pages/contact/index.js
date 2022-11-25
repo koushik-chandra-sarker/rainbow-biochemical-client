@@ -2,9 +2,12 @@ import React from 'react';
 import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
 import ContactForm from "./contactForm";
 import Head from "next/head";
+import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 
 
 const Index = () => {
+  const {data} = useGetSiteDetailsQuery();
+
   return (
     <div>
       <Head>
@@ -38,7 +41,7 @@ const Index = () => {
           <div className={'mobile:w-5/12 w-full mobile:-mt-12 mt-10 border-8 border-white h-128  rounded-xl'}>
             <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
                     scrolling="no"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.5410265202772!2d90.4217473153853!3d23.79935299282049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c760a96fcb05%3A0x5dd5c60221aedf5c!2sRainbow%20Tissue%20Paper%20Corporate%20Office!5e0!3m2!1sen!2sbd!4v1631774435189!5m2!1sen!2sbd"
+                    src={data && data[0].contact[0].map_url}
             />
           </div>
 
@@ -50,8 +53,7 @@ const Index = () => {
                 <HomeOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Ka-70/1, Progati Sharani ( 2nd & 3rd Floor), Kuril, Vatara
-                  Dhaka- 1229, Bangladesh,</p>
+                <p className={'text-lg'}>{data && data[0].contact[0].address}</p>
               </div>
             </div>
             <div className={'flex pb-4 items-center'}>
@@ -59,8 +61,8 @@ const Index = () => {
                 <PhoneOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Mobile: +8801-71606-7146</p>
-                <p className={'text-lg'}>Phone: +8801-71776-7731</p>
+                <p className={'text-lg'}>Mobile: {data && data[0].contact[0].mobile}</p>
+                <p className={'text-lg'}>Phone: {data && data[0].contact[0].phone}</p>
               </div>
             </div>
             <div className={'flex pb-4 items-center'}>
@@ -90,8 +92,7 @@ const Index = () => {
                 <HomeOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Chittagong: 528/545, S.K. Mujib Road , Dewanhut,
-                  Chittagong , Bangladesh</p>
+                <p className={'text-lg'}>{data && data[0].contact[1].address}</p>
               </div>
             </div>
             <div className={'flex pb-4 items-center'}>
@@ -99,8 +100,8 @@ const Index = () => {
                 <PhoneOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Mobile: +01819 888045</p>
-                <p className={'text-lg'}>Phone: 031 2510787</p>
+                <p className={'text-lg'}>Mobile: {data && data[0].contact[1].mobile}</p>
+                <p className={'text-lg'}>Phone: {data && data[0].contact[1].phone}</p>
               </div>
             </div>
             <div className={'flex pb-4 items-center'}>
@@ -108,7 +109,8 @@ const Index = () => {
                 <MailOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Email: info@miamidemo@gmail.com</p>
+                <p className={'text-lg'}>Email: {data && data[0].contact[1].email}</p>
+                <p className={'text-lg'}>Email: {data && data[0].contact[1].email}</p>
               </div>
             </div>
             <div className={'pt-16'}>
@@ -122,7 +124,7 @@ const Index = () => {
           <div className={'mobile:w-5/12 w-full  border-8 border-white h-128  rounded-xl'}>
             <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
                     scrolling="no"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.5410265202772!2d90.4217473153853!3d23.79935299282049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c760a96fcb05%3A0x5dd5c60221aedf5c!2sRainbow%20Tissue%20Paper%20Corporate%20Office!5e0!3m2!1sen!2sbd!4v1631774435189!5m2!1sen!2sbd"
+                    src={data && data[0].contact[1].map_url}
             />
           </div>
         </div>
@@ -130,7 +132,7 @@ const Index = () => {
           <div className={'mobile:w-5/12 w-full  border-8 border-white h-128  rounded-xl'}>
             <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
                     scrolling="no"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.5410265202772!2d90.4217473153853!3d23.79935299282049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c760a96fcb05%3A0x5dd5c60221aedf5c!2sRainbow%20Tissue%20Paper%20Corporate%20Office!5e0!3m2!1sen!2sbd!4v1631774435189!5m2!1sen!2sbd"
+                    src={data && data[0].contact[2].map_url}
             />
           </div>
 
@@ -142,17 +144,19 @@ const Index = () => {
                 <HomeOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg pt-2'}>Cox's Bazar: Haque Tower, 3rd Floor,
-                  Alir Jahal, Cox’s Bazar</p>
+                <p className={'text-lg pt-2'}>{data && data[0].contact[2].address}</p>
               </div>
             </div>
+￼￼￼￼
+￼Send
+
             <div className={'flex pb-4 items-center'}>
               <div className={'pr-4 text-2xl text-gray-500'}>
                 <PhoneOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Mobile : +8801847166798</p>
-                <p className={'text-lg'}>Mobile : +8801839564836</p>
+                <p className={'text-lg'}>Mobile: {data && data[0].contact[2].mobile}</p>
+                <p className={'text-lg'}>Phone: {data && data[0].contact[2].phone}</p>
               </div>
             </div>
             <div className={'flex pb-4 items-center'}>
@@ -160,7 +164,8 @@ const Index = () => {
                 <MailOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Email: info@miamidemo@gmail.com</p>
+                <p className={'text-lg'}>Email: {data && data[0].contact[2].email}</p>
+                <p className={'text-lg'}>Email: {data && data[0].contact[2].email}</p>
               </div>
             </div>
             <div className={'pt-16'}>
