@@ -1,22 +1,15 @@
 import React, {useState} from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
-import {createMessage, useCreateMessageMutation} from "../../services/message/messageApi";
-
+import {useCreateMessageMutation} from "../../services/message/messageApi";
 
 const ContactForm = () => {
-    const {data} = useCreateMessageMutation();
+    const [createMessage, data] = useCreateMessageMutation();
+    console.log(data)
     const [text, setText] = useState({
         firstName:"", lastName:"", companyName:"", phoneNumber:"", subject:"", email:"", address:"", message:""
     })
-    function sendMessage(){
-        createMessage(text).then(r=>{
-            if (r.status){
-                toast(r.data.createMessage);
-                setText({...text,  firstName:"", lastName:"", companyName:"", phoneNumber:"", subject:"", email:"", address:"", message:"" })
-            }
-        }).catch(reason =>
-            toast("Something went wrong!")
-        )
+    const sendMessage= (e)=>{
+        e.preventDefault();
+        createMessage(text);
     }
 
     return (

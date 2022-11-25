@@ -35,4 +35,4 @@ export const {
   util: {getRunningQueriesThunk},
 } = messageApi;
 
-export const {createMessage} = messageApi.endpoints;
+export const {createMessage} = messageApi;
