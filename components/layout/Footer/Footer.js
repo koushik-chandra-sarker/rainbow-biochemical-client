@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import cls from "classnames";
 import Image from "next/image";
 import iconPhone from "../../../public/assets/icons/icon-phone.png";
@@ -13,10 +13,23 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from "swiper";
 import {CopyrightOutlined, FacebookFilled, InstagramFilled, TwitterSquareFilled} from "@ant-design/icons";
 import {useGetSiteDetailsQuery} from "../../../services/siteDetails/siteDetailsApi";
+import {useCreateSubscriberMutation} from "../../../services/subsciber/subscriberApi";
 
 
 const Footer = () => {
   const {data} = useGetSiteDetailsQuery();
+  const [createEmail] = useCreateSubscriberMutation();
+  const [state, setState] = useState({
+    email:""
+  })
+  // const handle = (e) => {
+  //   setState({...state, [e.target.email]: e.target.value});
+  // }
+  const sendEmail= (e)=>{
+    e.preventDefault();
+    createEmail(state);
+
+  }
   return (<footer className={cls("")}>
     <hr className={"my-20"}/>
 
@@ -42,20 +55,23 @@ const Footer = () => {
           <div className={cls("w-18 h-18 border-2 rounded-full text-3xl p-4 flex justify-center items-center")}>
             <Image src={iconMail} alt="Phone Icon"/>
           </div>
-
           <h3 className={cls("font-bold text-xl")}>SUBSCRIBE TO E-NEWS</h3>
         </div>
+        {/*"footer-field"*/}
         <hr className={"desktop:my-8 my-3"}/>
-        <form action="">
+        {/*<form action="" onSubmit={sendEmail}>*/}
           <div className="relative  sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-            <input type="text" id="footer-field" name="footer-field" placeholder={"Your E-mail address"}
+            <input
+                onChange={event=>{
+                  setState({...state, email: event.target.value})}} value={state.email} type="text" id="footer-field" name="email" placeholder={"Your E-mail address"}
                    className="w-full  bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-green-600 focus:border-green-600 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
             <button
+                onClick={sendEmail}
               className="mt-5 flex-shrink-0 inline-flex tracking-widest transition-all text-gray-50 hover:text-gray-700 font-bold uppercase bg-gray-400 hover:bg-green-500 border-0 py-2 px-6 focus:outline-none  rounded-badge">
               Register
             </button>
           </div>
-        </form>
+        {/*</form>*/}
       </div>
 
 

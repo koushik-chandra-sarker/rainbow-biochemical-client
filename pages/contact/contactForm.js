@@ -13,7 +13,6 @@ const ContactForm = () => {
     }
 
     return (
-
         <div>
             <div className={'mobile:w-8/12 w-full mx-auto mobile:flex  mt-10'} >
                 <div className={'mobile:w-1/2 w-full mobile:mr-4 mobile:mx-0 mx-4'}>
