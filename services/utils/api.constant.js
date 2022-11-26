@@ -5,6 +5,7 @@ export const API = {
   products: "/biochemical/products/",
   // productCategories: "/biochemical/product-categories/",
   productCategories: "/biochemical/categories/",
+  subCategories: "/biochemical/sub-categories/",
   subscriber: "/biochemical/subscribers/",
   messages: "/biochemical/messages/",
 }

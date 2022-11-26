@@ -6,13 +6,16 @@ import img from '../../../../public/assets/imgs/p2.jpg'
 import styles from '../../Product.module.scss'
 import cls from "classnames";
 import Head from "next/head";
+import {useGetProductByIdQuery, useGetProductsByCategoryQuery} from "../../../../services/product/productApi";
+import {console} from "next/dist/compiled/@edge-runtime/primitives/console";
 
 const Index = () => {
   const router = useRouter()
   const {sub_category} = router.query
   const currentPath = router.pathname
   console.log(router.asPath)
-
+ // const {data} = useGetProductsByCategoryQuery(sub_category)
+  console.log(data)
   return (<div>
     <Head>
       <title>Biochemical | Product Category - {sub_category}</title>

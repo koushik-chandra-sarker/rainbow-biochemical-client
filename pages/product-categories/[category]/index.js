@@ -4,11 +4,18 @@ import Image from "next/image";
 import img from '../../../public/assets/imgs/dishwasher-cat.png'
 import Head from "next/head";
 import {useRouter} from "next/router";
+import {
+  useGetCategoryByNameQuery,
+  useGetProductCategoriesQuery,
+  useGetProductsByCategoryQuery
+} from "../../../services/product/productApi";
 
 const Index = () => {
   const router = useRouter();
   const {category} = router.query;
   const subCategory = "sub-category";
+  const {data} = useGetCategoryByNameQuery(category);
+  console.log(data);
 
   function isEven(n) {
     return n % 2 == 0;
@@ -52,16 +59,17 @@ const Index = () => {
           <h2 className={'w-full border py-5 tablet:text-3xl text-xl uppercase font-bold text-gray-500'}>{category}</h2>
         </div>
         <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
-          {[1, 1, 1, 1, 1, 1, 1].map((v, i) => (
+          {
+            data && data[0].sub_category.map((v, i) => (
             <div className={'mobile:w-1/2 my-10 w-full '} key={i}
                  data-aos={isEven(i) ? "fade-right" : "fade-left"}
                  data-aos-offset="100"
                  data-aos-easing="ease-in-sine">
               <Link href={`${router.asPath}/${subCategory}`}>
                 <div className={'mx-4 bg-white h-124 mb-8'}>
-                  <Image src={img} alt={"aa"}
+                  <Image src={v.thumbnail} alt={"aa"} height={2} width={1500}
                          className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
-                  <h2 className={'text-center bg-white text-xl  text-black py-4'}>Bio Group</h2>
+                  <h2 className={'text-center bg-white text-xl  text-black py-4'}>{v.name}</h2>
                 </div>
               </Link>
 
