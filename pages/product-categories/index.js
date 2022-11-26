@@ -29,12 +29,13 @@ const category = [
 
 const Index = () => {
   const {data} = useGetProductCategoriesQuery();
+  console.log(data);
+
   const [isDataLoaded, setIsDataLoaded] = React.useState(false);
   const [selectedCategory, setSelectedCategory] = React.useState(null);
   // const [data, setData] = React.useState(null);
   // const data = useGetSiteDetailsQuery();
   const router = useRouter();
-  console.log(data);
 
   function isEven(n) {
     return n % 2 == 0;
@@ -46,13 +47,13 @@ const Index = () => {
         <title>Biochemical | Product Categories</title>
         <meta name="description"
               content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-        {/*create meta for SEO*/}
+        {/*create meta for SEO*/}https://file.rainbowgroup-bd.com/biochemical/images/chennel-1.png
         <meta name="keywords"
               content="Product Categories, Biochemical Product Categories, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar"/>
         <meta name="author" content="Biochemical"/>
         <meta name="robots" content="index, follow"/>
         <meta name="language" content="English"/>
-        <meta name="revisit-after" content="7 days"/>
+        <meta name="revisit-after" content="thumbnail7 days"/>
         <meta name="distribution" content="web"/>
         <meta name="rating" content="general"/>
         {/*create meta for facebook*/}
@@ -77,7 +78,7 @@ const Index = () => {
         <h2 className={'text-center text-xl text-black pt-10 '}>MARKET PRODUCTS</h2>
         <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
           {
-             data && data[0].map((v, i) => (
+             data && data.map((v, i) => (
             <div className={'mobile:w-1/2 my-10 w-full'} key={i}
                  data-aos={isEven(i) ? "fade-right" : "fade-left"}
                  data-aos-offset="100"
@@ -85,7 +86,7 @@ const Index = () => {
             >
               <Link href={`${router.asPath}/${v.name}`}>
                 <div className={'mx-4 bg-white h-124 mb-8'}>
-                  <Image src={v.image} alt={"aa"}
+                  <Image src={v.thumbnail} alt={"aa"} height={2} width={100}
                          className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
                   <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{v.name}</h2>
                 </div>

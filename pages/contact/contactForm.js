@@ -9,7 +9,7 @@ const ContactForm = () => {
     })
     const sendMessage= (e)=>{
         e.preventDefault();
-        createMessage(text);
+        createMessage(text)
     }
 
     return (

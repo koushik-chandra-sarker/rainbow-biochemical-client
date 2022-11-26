@@ -147,9 +147,6 @@ const Index = () => {
                 <p className={'text-lg pt-2'}>{data && data[0].contact[2].address}</p>
               </div>
             </div>
-￼￼￼￼
-￼Send
-
             <div className={'flex pb-4 items-center'}>
               <div className={'pr-4 text-2xl text-gray-500'}>
                 <PhoneOutlined/>

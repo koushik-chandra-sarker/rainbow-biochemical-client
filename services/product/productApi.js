@@ -46,4 +46,4 @@ export const {
   util: {getRunningQueriesThunk},
 } = productApi;
 
-export const {getProductsByCategory} = productApi.endpoints;
+// export const {getProductsByCategory} = productApi.endpoints;
