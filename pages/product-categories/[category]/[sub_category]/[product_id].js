@@ -12,7 +12,7 @@ const Index = () => {
     // console.log(product_id)
   }, [product_id])
   const {data} = useGetProductByIdQuery(product_id)
-  console.log(data)
+   console.log(data)
   return (
     <div>
       <Head>
@@ -50,8 +50,8 @@ const Index = () => {
       <div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
         <div className={'desktop:w-8/12 mx-auto w-full flex flex-wrap bg-white my-10'}>
           <div className={'tablet:w-1/2 w-full p-10'}>
-            {/*<img src={'/assets/imgs/p2.jpg'}className={'h-96 w-full'}/>*/}
-            <ProductSlider/>
+            {/*<img src={data && data.images[0].url}className={'h-96 w-full'}/>*/}
+            <ProductSlider img={data && data.images[0].url}/>
           </div>
           <div className={'tablet:w-1/2 w-full px-2 py-8'}>
             <div className={'py-4 px-8 border-l border-gray-200'}>
@@ -60,14 +60,14 @@ const Index = () => {
                 {data && data.description}
               </p>
               <div className={'flex text-sm justify-between mt-8'}>
-                <h2 className={'text-gray-400'}>Weight: <span className={'font-semibold text-black'}>500 Kg</span></h2>
+                <h2 className={'text-gray-400'}>Weight: <span className={'font-semibold text-black'}>{data && data.specification[0].value}</span></h2>
                 <h2 className={'text-gray-400'}>Barcode Number: <span
-                  className={'font-semibold text-black'}>908987656</span></h2>
+                  className={'font-semibold text-black'}>{data && data.specification[0].name}</span></h2>
 
               </div>
               <div className={'flex text-sm justify-between mt-4'}>
-                <h2 className={'text-gray-400'}>Brand: <span className={'font-semibold text-black'}>Miami</span></h2>
-                <h2 className={'text-gray-400'}>Using Area: <span className={'font-semibold text-black'}>Home</span>
+                <h2 className={'text-gray-400'}>Brand: <span className={'font-semibold text-black'}>{data && data.specification[1].name}</span></h2>
+                <h2 className={'text-gray-400'}>Using Area: <span className={'font-semibold text-black'}>{data && data.specification[1].value}</span>
                 </h2>
 
               </div>

@@ -96,7 +96,7 @@ const Index = () => {
                       Details
                     </button>
                   </div>
-                </div>
+                </div>8
               </Link>
             </div>
 
