@@ -18,7 +18,7 @@ const ProductSlider = () => {
         thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
-      >
+      >Category
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-1.jpg"/>
         </SwiperSlide>

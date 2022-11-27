@@ -3,13 +3,16 @@ import ProductSlider from "../../components/ProductSlider";
 import RelatedProducts from "../../components/RelatedProducts";
 import {useRouter} from "next/router";
 import Head from "next/head";
+import {useGetProductByIdQuery} from "../../../../services/product/productApi";
 
 const Index = () => {
   const router = useRouter()
   const {product_id} = router.query
   useEffect(() => {
-    console.log(product_id)
+    // console.log(product_id)
   }, [product_id])
+  const {data} = useGetProductByIdQuery(product_id)
+  console.log(data)
   return (
     <div>
       <Head>
@@ -24,7 +27,7 @@ const Index = () => {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="language" content="English"/>
         <meta name="revisit-after" content="7 days"/>
-        <meta name="distribution" content="web"/>
+        <meta name="distribution" content="web"/>product_id
         <meta name="rating" content="general"/>
         {/*create meta for facebook*/}
         <meta property="og:title" content="Biochemical | Product - {product_id}"/>
@@ -52,16 +55,9 @@ const Index = () => {
           </div>
           <div className={'tablet:w-1/2 w-full px-2 py-8'}>
             <div className={'py-4 px-8 border-l border-gray-200'}>
-              <h2 className={'text-black font-semibold pb-2'}>Dishwasher Gel Detergent</h2>
+              <h2 className={'text-black font-semibold pb-2'}category> {data && data.name}</h2>
               <p>
-                Sır Bio Dishwasher Gel Detergent is formulated with plant based ingredients to provide an excellent
-                cleaning without leaving any residue.
-                The gel form, designed with inspiration from the unique structure of nature, does not contain harmful
-                chemicals, dissolves easily in water
-                and offers a sparkling and high-performance cleaning without scratching your dishes. Thanks to the
-                biopolymer it contains, it gives natural
-                and perfect results on your dishes with glass protection, steel shine, low temperature effect, and
-                removes stubborn oils and tough dirt.
+                {data && data.description}
               </p>
               <div className={'flex text-sm justify-between mt-8'}>
                 <h2 className={'text-gray-400'}>Weight: <span className={'font-semibold text-black'}>500 Kg</span></h2>

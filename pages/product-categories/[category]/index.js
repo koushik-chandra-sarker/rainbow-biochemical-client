@@ -15,7 +15,6 @@ const Index = () => {
   const {category} = router.query;
   const subCategory = "sub-category";
   const {data} = useGetCategoryByNameQuery(category);
-  console.log(data);
 
   function isEven(n) {
     return n % 2 == 0;
@@ -65,7 +64,7 @@ const Index = () => {
                  data-aos={isEven(i) ? "fade-right" : "fade-left"}
                  data-aos-offset="100"
                  data-aos-easing="ease-in-sine">
-              <Link href={`${router.asPath}/${subCategory}`}>
+              <Link href={`${router.asPath}/${v.name}`}>
                 <div className={'mx-4 bg-white h-124 mb-8'}>
                   <Image src={v.thumbnail} alt={"aa"} height={2} width={1500}
                          className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
