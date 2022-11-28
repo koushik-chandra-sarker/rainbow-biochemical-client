@@ -77,16 +77,17 @@ const Home = ({}) => {
         <meta name="twitter:image" content="https://www.biochemical.com.bd/images/logo.png"/>
         <meta name="twitter:url" content="https://www.biochemical.com.bd/"/>
       </Head>
+      {/*{data && data[0].homeSlider}*/}
       <div className={''}>
         <div className={''}>
-          <Slider img={data && data[0].homeSlider}/>
+          <Slider slider={data}/>
         </div>
       </div>
-
+      {/*data && data[0].homeCardSlider}/*/}
 
       <div className={'bg'}>
         <div className={'bg-gray-100 pt-8 pb-8'}>
-          <CardSlider img={ data && data[0].homeCardSlider}/>
+          <CardSlider slider={data}/>
           <div className={'w-11/12 mt-20 mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 '}>
             {serviceList.map((value, i) => (
               <div className="w-full flex items-center flex-col" key={i}>
@@ -106,7 +107,7 @@ const Home = ({}) => {
           </div>
           <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
             <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
-            <AuthorizedChannelPartner img={data && data[0].authorizedSlider}/>
+            <AuthorizedChannelPartner slider={data}/>
           </div>
         </div>
       </div>

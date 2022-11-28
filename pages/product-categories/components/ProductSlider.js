@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {FreeMode, Navigation, Thumbs} from "swiper";
+import _ from "lodash";
+import Image from 'next/image';
 
 const ProductSlider = (props) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -19,15 +21,19 @@ const ProductSlider = (props) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 "
       >
-        <SwiperSlide className={'flex flex-col items-center'}>
-          <img className={'object-center'} src={props.img}/>
-        </SwiperSlide>
-        {/*<SwiperSlide>*/}
-        {/*  <img src="https://swiperjs.com/demos/images/nature-2.jpg"/>*/}
-        {/*</SwiperSlide>*/}
-        {/*<SwiperSlide>*/}
-        {/*  <img src="https://swiperjs.com/demos/images/nature-3.jpg"/>*/}
-        {/*</SwiperSlide>*/}
+      {
+          !_.isEmpty(props.images)?
+              props.images.map((image,i)=>(
+                  <SwiperSlide key={i}>
+                      <Image className={'object-content'} src={image.url} height={10} width={100}/>
+                  </SwiperSlide>
+              )):
+                  <SwiperSlide>
+                      <Image className={'object-center'} src={''}/>
+                  </SwiperSlide>
+
+
+      }
 
       </Swiper>
       <Swiper
@@ -40,19 +46,17 @@ const ProductSlider = (props) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper mt-2"
       >
-        <SwiperSlide>
-            <img className={'object-center'} src={props.img}/>
-        </SwiperSlide>
-          <SwiperSlide>
-              <img className={'object-center'} src={props.img}/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className={'object-center'} src={props.img}/>
-        </SwiperSlide>
-        {/*<SwiperSlide>*/}
-        {/*  <img src="https://swiperjs.com/demos/images/nature-4.jpg"/>*/}
-        {/*</SwiperSlide>*/}
-        {/*<SwiperSlide>*/}
+          {
+              !_.isEmpty(props.images)?
+                  props.images.map((image,i)=>(
+                      <SwiperSlide key={i}>
+                          <Image className={'object-center'} src={image.url} height={2} width={100}/>
+                      </SwiperSlide>
+                  )):
+                  <SwiperSlide>
+                      <Image className={'object-center'} src={''}/>
+                  </SwiperSlide>
+          }
       </Swiper>
     </div>
   );

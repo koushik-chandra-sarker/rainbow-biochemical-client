@@ -49,7 +49,7 @@ const Index = () => {
         <div className={'desktop:w-8/12 mx-auto w-full flex flex-wrap bg-white my-10'}>
           <div className={'tablet:w-1/2 w-full p-10'}>
             {/*<img src={data && data.images[0].url}className={'h-96 w-full'}/>*/}
-            <ProductSlider img={data && data.images[0].url}/>
+            <ProductSlider images={data?.images}/>
           </div>
           <div className={'tablet:w-1/2 w-full px-2 py-8'}>
             <div className={'py-4 px-8 border-l border-gray-200'}>

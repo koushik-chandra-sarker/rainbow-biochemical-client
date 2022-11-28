@@ -39,10 +39,10 @@ const Index = () => {
         <meta name="twitter:image" content="https://biochemicalbd.com/images/logo.png"/>
         <meta name="twitter:site" content="https://biochemicalbd.com/client"/>
         <meta name="twitter:creator" content="Biochemical"/>
-
+        {/*{data && data[0].careerSlider}*/}
       </Head>
       <div className={'w-full'}>
-        <ClientSlider img={data && data[0].careerSlider}/>
+        <ClientSlider slider={data}/>
       </div>
       <div className={'bg-blue-white py-20'}>
         <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>

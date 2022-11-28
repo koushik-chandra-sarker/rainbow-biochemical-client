@@ -3,7 +3,6 @@ import {useCreateMessageMutation} from "../../services/message/messageApi";
 
 const ContactForm = () => {
     const [createMessage, data] = useCreateMessageMutation();
-    console.log(data)
     const [text, setText] = useState({
         firstName:"", lastName:"", companyName:"", phoneNumber:"", subject:"", email:"", address:"", message:""
     })
