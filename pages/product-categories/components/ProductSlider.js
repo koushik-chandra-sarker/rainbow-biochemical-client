@@ -1,11 +1,14 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {FreeMode, Navigation, Thumbs} from "swiper";
 import _ from "lodash";
 import Image from 'next/image';
 
 const ProductSlider = (props) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState();
+  useEffect(() => {
+    console.log(thumbsSwiper)
+  }, [thumbsSwiper])
   return (
     <div>
       <Swiper
@@ -19,44 +22,43 @@ const ProductSlider = (props) => {
         navigation={true}
         thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2 "
+        className="product_slider"
       >
-      {
-          !_.isEmpty(props.images)?
-              props.images.map((image,i)=>(
-                  <SwiperSlide key={i}>
-                      <Image className={'object-content'} src={image.url} height={10} width={100}/>
-                  </SwiperSlide>
-              )):
-                  <SwiperSlide>
-                      <Image className={'object-center'} src={''}/>
-                  </SwiperSlide>
+        {
+          !_.isEmpty(props.images) ?
+            props.images.map((image, i) => (
+              <SwiperSlide key={i}>
+                <Image className={'object-content'} src={image.url} height={100} width={530}/>
+              </SwiperSlide>
+            )) :
+            <SwiperSlide>
+              <Image className={'object-center'} src={''}/>
+            </SwiperSlide>
 
 
-      }
+        }
 
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
-        loop={true}
-        spaceBetween={2}
+        spaceBetween={5}
         slidesPerView={6}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper mt-2"
+        className="product_slider_thumb"
       >
-          {
-              !_.isEmpty(props.images)?
-                  props.images.map((image,i)=>(
-                      <SwiperSlide key={i}>
-                          <Image className={'object-center'} src={image.url} height={2} width={100}/>
-                      </SwiperSlide>
-                  )):
-                  <SwiperSlide>
-                      <Image className={'object-center'} src={''}/>
-                  </SwiperSlide>
-          }
+        {
+          !_.isEmpty(props.images) ?
+            props.images.map((image, i) => (
+              <SwiperSlide key={i} className={i === 0 ? "swiper-slide-thumb-active" : ""}>
+                <Image className={'object-center'} src={image.url} height={2} width={100}/>
+              </SwiperSlide>
+            )) :
+            <SwiperSlide>
+              <Image className={'object-center'} src={''}/>
+            </SwiperSlide>
+        }
       </Swiper>
     </div>
   );

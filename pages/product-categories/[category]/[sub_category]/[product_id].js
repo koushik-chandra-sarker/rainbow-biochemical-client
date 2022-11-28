@@ -25,7 +25,8 @@ const Index = () => {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="language" content="English"/>
         <meta name="revisit-after" content="7 days"/>
-        <meta name="distribution" content="web"/>product_id
+        <meta name="distribution" content="web"/>
+        product_id
         <meta name="rating" content="general"/>
         {/*create meta for facebook*/}
         <meta property="og:title" content="Biochemical | Product - {product_id}"/>
@@ -53,19 +54,20 @@ const Index = () => {
           </div>
           <div className={'tablet:w-1/2 w-full px-2 py-8'}>
             <div className={'py-4 px-8 border-l border-gray-200'}>
-              <h2 className={'text-black font-semibold pb-2'}category> {data && data.name}</h2>
-              <p>
-                {data && data.description}
-              </p>
+              <h2 className={'text-black font-semibold pb-2'}> {data && data.name}</h2>
+              <div dangerouslySetInnerHTML={{__html: data?.description}}/>
               <div className={'flex text-sm justify-between mt-8'}>
-                <h2 className={'text-gray-400'}>Weight: <span className={'font-semibold text-black'}>{data && data.specification[0].value}</span></h2>
+                <h2 className={'text-gray-400'}>Weight: <span
+                  className={'font-semibold text-black'}>{data && data.specification[0].value}</span></h2>
                 <h2 className={'text-gray-400'}>Barcode Number: <span
                   className={'font-semibold text-black'}>{data && data.specification[0].name}</span></h2>
 
               </div>
               <div className={'flex text-sm justify-between mt-4'}>
-                <h2 className={'text-gray-400'}>Brand: <span className={'font-semibold text-black'}>{data && data.specification[1].name}</span></h2>
-                <h2 className={'text-gray-400'}>Using Area: <span className={'font-semibold text-black'}>{data && data.specification[1].value}</span>
+                <h2 className={'text-gray-400'}>Brand: <span
+                  className={'font-semibold text-black'}>{data && data.specification[1].name}</span></h2>
+                <h2 className={'text-gray-400'}>Using Area: <span
+                  className={'font-semibold text-black'}>{data && data.specification[1].value}</span>
                 </h2>
 
               </div>
