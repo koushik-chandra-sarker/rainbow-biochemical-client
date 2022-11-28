@@ -65,13 +65,12 @@ const Index = () => {
                 <p className={'text-lg'}>Phone: {data && data[0].contact[0].phone}</p>
               </div>
             </div>
-            <div className={'flex pb-4 items-center'}>
+            <div className={'flex pb-4  items-center'}>
               <div className={'pr-4 text-2xl text-gray-500'}>
                 <MailOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>E-Mail: miami@dhaka.net</p>
-                <p className={'text-lg'}>E-Mail: miami@dhaka.net</p>
+                <p className={'text-lg'}>E-Mail: {data && data[0].contact[0].email}</p>
               </div>
             </div>
             <div className={'pt-16'}>
@@ -109,7 +108,6 @@ const Index = () => {
                 <MailOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Email: {data && data[0].contact[1].email}</p>
                 <p className={'text-lg'}>Email: {data && data[0].contact[1].email}</p>
               </div>
             </div>
@@ -161,7 +159,6 @@ const Index = () => {
                 <MailOutlined/>
               </div>
               <div className={'pr-24'}>
-                <p className={'text-lg'}>Email: {data && data[0].contact[2].email}</p>
                 <p className={'text-lg'}>Email: {data && data[0].contact[2].email}</p>
               </div>
             </div>
