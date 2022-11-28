@@ -8,9 +8,10 @@ import "./clientSlider.module.scss";
 
 import {Autoplay, Pagination} from "swiper";
 import Image from "next/image";
+import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 
 export default function ClientSlider(props) {
-    // const {data} = useGetSiteDetailsQuery();
+    const {data} = useGetSiteDetailsQuery();
 
     return (
         <>
@@ -29,7 +30,7 @@ export default function ClientSlider(props) {
                 >
                     {/*{data && data[0].careerSlider}*/}
                     {
-                        props.slider[0].careerSlider.map((v,i)=>(
+                        data && data[0].careerSlider.map((v,i)=>(
                         <SwiperSlide key={i}>
                             <Image src={v.image} alt="logo"
                                    height={100}

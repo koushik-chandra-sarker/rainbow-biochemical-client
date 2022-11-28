@@ -49,7 +49,7 @@ export default function CardSlider(props) {
       <div className={'CardSlider '}>
         <Slider {...settings}>
           {
-               props.slider[0].homeCardSlider.map((v, i) => (
+               props.slider.map((v, i) => (
                   <div className={''} key={i}>
                     <div className={'mobile:flex shadow-xl rounded-lg bg-white overflow-hidden'}>
                       <div className={'mobile:w-1/2 w-full'}>

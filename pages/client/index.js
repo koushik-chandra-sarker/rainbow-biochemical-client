@@ -42,7 +42,7 @@ const Index = () => {
         {/*{data && data[0].careerSlider}*/}
       </Head>
       <div className={'w-full'}>
-        <ClientSlider slider={data?.image}/>
+        <ClientSlider/>
       </div>
       <div className={'bg-blue-white py-20'}>
         <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
@@ -54,7 +54,7 @@ const Index = () => {
               <div className={'mx-2'}>
                 <div className={'shadow bg-white'}>
                   <img src={v.image}
-                       className={'h-36 p-2 scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
+                       className={'h-36 p-2 object-contain scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
                 </div>
               </div>
             </div>
