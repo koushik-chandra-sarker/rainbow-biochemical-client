@@ -1,12 +1,9 @@
 import React from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation, Pagination} from "swiper";
-import Image from "next/image";
 import img from '../../public/assets/imgs/radisonblue.jpg'
-import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 
-const AuthorizedChannelPartner = () => {
-  const {data} = useGetSiteDetailsQuery();
+const AuthorizedChannelPartner = (props) => {
   return (
     <div>
       <Swiper
@@ -46,7 +43,7 @@ const AuthorizedChannelPartner = () => {
       >
 
         {
-          data && data[0].authorizedSlider.map((v, i) => (
+          props.img.map((v, i) => (
           <SwiperSlide className={"h-full"} key={i}>
             <div
               className={' bg-white flex justify-center items-center border border-gray-400 gap-4 p-5 cursor-pointer'}>

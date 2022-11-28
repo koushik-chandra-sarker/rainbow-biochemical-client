@@ -29,9 +29,8 @@ const sliderContent = [
   }
 ]
 
-export default function Slider() {
+export default function Slider(props) {
   const {data} = useGetSiteDetailsQuery();
-  console.log(data)
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
   return (
     <>
@@ -50,7 +49,7 @@ export default function Slider() {
         {
           // {data && data.data && data.data[0].facebook}
 
-            data && data[0].homeSlider.map((v, i) => (
+            props.img.map((v, i) => (
                 <SwiperSlide key={i}>
                   <div className={"relative"}>
                     <Image src={v.image} alt={v.title}

@@ -42,7 +42,7 @@ const Index = () => {
 
       </Head>
       <div className={'w-full'}>
-        <ClientSlider/>
+        <ClientSlider img={data && data[0].careerSlider}/>
       </div>
       <div className={'bg-blue-white py-20'}>
         <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>

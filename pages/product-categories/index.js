@@ -2,7 +2,6 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
 import sebaLogo from '../../public/assets/imgs/seba_logo.png'
 import diversyLogo from '../../public/assets/imgs/diversy_logo.png'
 import logo from '../../public/assets/imgs/logo.jpg'

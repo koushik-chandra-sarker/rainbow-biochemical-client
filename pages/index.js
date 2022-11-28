@@ -42,8 +42,7 @@ const serviceList = [
 ]
 const Home = ({}) => {
   const router = useRouter();
-  const data = useGetSiteDetailsQuery();
-  console.log(data)
+  const {data} = useGetSiteDetailsQuery();
   const title = 'Biochemical | Home'
   return (
     <div>
@@ -80,14 +79,14 @@ const Home = ({}) => {
       </Head>
       <div className={''}>
         <div className={''}>
-          <Slider/>
+          <Slider img={data && data[0].homeSlider}/>
         </div>
       </div>
 
 
       <div className={'bg'}>
         <div className={'bg-gray-100 pt-8 pb-8'}>
-          <CardSlider/>
+          <CardSlider img={ data && data[0].homeCardSlider}/>
           <div className={'w-11/12 mt-20 mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 '}>
             {serviceList.map((value, i) => (
               <div className="w-full flex items-center flex-col" key={i}>
@@ -100,14 +99,14 @@ const Home = ({}) => {
                   {value.description}
                 </p>
               </div>
-            ))}{data && data.data && data.data[0].facebook}
+            ))}
           </div>
           <div className={"tablet:mt-20 w-11/12 mx-auto"}>
             <Feature/>
           </div>
           <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
             <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
-            <AuthorizedChannelPartner/>
+            <AuthorizedChannelPartner img={data && data[0].authorizedSlider}/>
           </div>
         </div>
       </div>

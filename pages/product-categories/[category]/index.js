@@ -1,14 +1,9 @@
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import img from '../../../public/assets/imgs/dishwasher-cat.png'
 import Head from "next/head";
 import {useRouter} from "next/router";
-import {
-  useGetCategoryByNameQuery,
-  useGetProductCategoriesQuery,
-  useGetProductsByCategoryQuery
-} from "../../../services/product/productApi";
+import {useGetCategoryByNameQuery} from "../../../services/product/productApi";
 
 const Index = () => {
   const router = useRouter();

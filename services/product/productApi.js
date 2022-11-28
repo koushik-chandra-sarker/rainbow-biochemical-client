@@ -53,12 +53,9 @@ export const productApi = createApi({
 })
 export const {
   useGetProductCategoriesQuery,
-  useGetProductsQuery,
   useGetProductByIdQuery,
-  useGetProductsByCategoryQuery,
   useGetProductsByCategoryNameQuery,
   useGetCategoryByNameQuery,
   util: {getRunningQueriesThunk},
 } = productApi;
 
-// export const {getProductsByCategory} = productApi.endpoints;

@@ -5,9 +5,6 @@ import iconPhone from "../../../public/assets/icons/icon-phone.png";
 import iconMail from "../../../public/assets/icons/icon-mail.png";
 import iconShare from "../../../public/assets/icons/icon-share.png";
 import p1 from "../../../public/assets/imgs/p1.jpg";
-import p2 from "../../../public/assets/imgs/p2.jpg";
-import p3 from "../../../public/assets/imgs/p3.jpg";
-import p4 from "../../../public/assets/imgs/p4.jpg";
 import logo from "../../../public/assets/imgs/logo_h.jpg";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from "swiper";
@@ -22,9 +19,6 @@ const Footer = () => {
   const [state, setState] = useState({
     email:""
   })
-  // const handle = (e) => {
-  //   setState({...state, [e.target.email]: e.target.value});
-  // }
   const sendEmail= (e)=>{
     e.preventDefault();
     createEmail(state);
@@ -91,7 +85,7 @@ const Footer = () => {
             delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true
           }}
           modules={[Autoplay, Navigation]}
-          className="mySwiper"
+          className="mySwiper" // {data && data.data && data.data[0].facebook}
         >
           {
             // {data && data.data && data.data[0].facebook}

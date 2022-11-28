@@ -2,18 +2,15 @@ import React from 'react';
 import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import img from '../../../../public/assets/imgs/p2.jpg'
 import styles from '../../Product.module.scss'
 import cls from "classnames";
 import Head from "next/head";
 import {useGetProductsByCategoryNameQuery} from "../../../../services/product/productApi";
-import {console} from "next/dist/compiled/@edge-runtime/primitives/console";
 
 const Index = () => {
   const router = useRouter()
   const {sub_category} = router.query
   const currentPath = router.pathname
-  console.log(router.asPath)
  const {data} = useGetProductsByCategoryNameQuery(sub_category)
   return (<div>
     <Head>
@@ -68,7 +65,8 @@ const Index = () => {
           <input
             type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
             className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-white py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                          outline-none bg-white py-2 px-3 leading-8 transit  console.log(router.asPath)
+ion-colors duration-200 ease-in-out"/>
         </div>
         <div className={'mobile:w-1/4 w-full px-2'}>
           <button

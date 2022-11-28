@@ -9,10 +9,8 @@ const Index = () => {
   const router = useRouter()
   const {product_id} = router.query
   useEffect(() => {
-    // console.log(product_id)
   }, [product_id])
   const {data} = useGetProductByIdQuery(product_id)
-   console.log(data)
   return (
     <div>
       <Head>
