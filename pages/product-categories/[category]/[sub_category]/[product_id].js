@@ -11,6 +11,9 @@ const Index = () => {
   useEffect(() => {
   }, [product_id])
   const {data} = useGetProductByIdQuery(product_id)
+  console.log("hi")
+  console.log(data)
+  console.log("hell")
   return (
     <div>
       <Head>
@@ -34,7 +37,7 @@ const Index = () => {
               content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
         <meta property="og:image" content="https://biochemicalbd.com/images/logo.png"/>
         <meta property="og:url" content="https://biochemicalbd.com"/>
-        <meta property="og:site_name" content="Biochemical"/>
+        <meta property="og:siterelated_products_name" content="Biochemical"/>
         <meta property="og:type" content="website"/>
         {/*create meta for twitter*/}
         <meta name="twitter:card" content="summary"/>
@@ -74,11 +77,9 @@ const Index = () => {
             </div>
           </div>
         </div>
-
-
         <div className={'desktop:w-8/12 mx-auto w-full'}>
           <h2 className={'text-center text-gray-400 uppercase pb-8'}>Other Products</h2>
-          <RelatedProducts/>
+          <RelatedProducts product={data && data.related_products}/>
         </div>
       </div>
     </div>

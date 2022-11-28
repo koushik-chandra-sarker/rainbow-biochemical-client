@@ -19,9 +19,7 @@ const category = [
     name: 'Diversy',
     image: diversyLogo,
   },
-  {// const {data} = useGetProductCategoriesQuery();
-  // console.log(data);
-
+  {
     id: 1,
     name: 'Biochemical',
     image: logo,
