@@ -48,7 +48,7 @@ export default function Slider(props) {
         {
           // {data && data.data && data.data[0].facebook}
           //   {data && data[0].homeSlider}
-            props.slider[0].homeSlider.map((v, i) => (
+            props.slider.map((v, i) => (
                 <SwiperSlide key={i}>
                   <div className={"relative"}>
                     <Image src={v.image} alt={v.title}

@@ -80,7 +80,7 @@ const Home = ({}) => {
       {/*{data && data[0].homeSlider}*/}
       <div className={''}>
         <div className={''}>
-          <Slider slider={data}/>
+          <Slider slider={data && data[0].homeSlider}/>
         </div>
       </div>
       {/*data && data[0].homeCardSlider}/*/}
@@ -107,7 +107,7 @@ const Home = ({}) => {
           </div>
           <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
             <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
-            <AuthorizedChannelPartner slider={data}/>
+            <AuthorizedChannelPartner slider={data && data[0].authorizedSlider}/>
           </div>
         </div>
       </div>

@@ -44,7 +44,7 @@ const AuthorizedChannelPartner = (props) => {
 
         {
             // {data && data[0].authorizedSlider}
-          props.slider[0].authorizedSlider.map((v, i) => (
+          props.slider.map((v, i) => (
           <SwiperSlide className={"h-full"} key={i}>
             <div
               className={' bg-white flex justify-center items-center border border-gray-400 gap-4 p-5 cursor-pointer'}>

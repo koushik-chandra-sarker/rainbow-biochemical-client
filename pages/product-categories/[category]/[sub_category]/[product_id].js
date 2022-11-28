@@ -54,8 +54,8 @@ const Index = () => {
           </div>
           <div className={'tablet:w-1/2 w-full px-2 py-8'}>
             <div className={'py-4 px-8 border-l border-gray-200'}>
-              <h2 className={'text-black font-semibold pb-2'}> {data && data.name}</h2>
-              <div dangerouslySetInnerHTML={{__html: data?.description}}/>
+              <h2 className={'text-black text-xl font-semibold pb-2'}> {data && data.name}</h2>
+              <div  className={'mt-4'} dangerouslySetInnerHTML={{__html: data?.description}}/>
               <div className={'flex text-sm justify-between mt-8'}>
                 <h2 className={'text-gray-400'}>Weight: <span
                   className={'font-semibold text-black'}>{data && data.specification[0].value}</span></h2>
