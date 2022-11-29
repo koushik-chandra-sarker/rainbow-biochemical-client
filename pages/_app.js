@@ -11,6 +11,8 @@ import 'aos/dist/aos.css';
 import {wrapper} from "../services/store";
 import AOS from 'aos';
 import {useEffect} from "react";
+import {Slide, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App({Component, pageProps}) {
 
@@ -20,9 +22,25 @@ function App({Component, pageProps}) {
 
 
   return (// <Provider store={store}>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Layout>
+        <Component {...pageProps} />
+        <ToastContainer
+          className="impct-toast"
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable={false}
+          pauseOnHover
+          transition={Slide}
+        />
+      </Layout>
+    </>
+
     // </Provider>
   )
 }

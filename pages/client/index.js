@@ -47,7 +47,6 @@ const Index = () => {
       <div className={'bg-blue-white py-20'}>
         <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
         <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
-
           {
             data && data[0].client.map((v, i) => (
             <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
@@ -62,7 +61,6 @@ const Index = () => {
 
         </div>
       </div>
-
     </div>
   );
 };

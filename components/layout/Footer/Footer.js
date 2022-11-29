@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import cls from "classnames";
 import Image from "next/image";
 import iconPhone from "../../../public/assets/icons/icon-phone.png";
@@ -11,11 +11,12 @@ import {Autoplay, Navigation} from "swiper";
 import {CopyrightOutlined, FacebookFilled, InstagramFilled, TwitterSquareFilled} from "@ant-design/icons";
 import {useGetSiteDetailsQuery} from "../../../services/siteDetails/siteDetailsApi";
 import {useCreateSubscriberMutation} from "../../../services/subsciber/subscriberApi";
+import {toast} from "react-toastify";
 
 
 const Footer = () => {
   const {data} = useGetSiteDetailsQuery();
-  const [createEmail] = useCreateSubscriberMutation();
+  const [createEmail,  {data1, isSuccess, isError, error}] = useCreateSubscriberMutation();
   const [state, setState] = useState({
     email:""
   })
@@ -24,7 +25,17 @@ const Footer = () => {
     createEmail(state);
 
   }
-  return (<footer className={cls("")}>
+  useEffect(() => {
+    if (isSuccess) {
+      setState({
+       email: ""
+      })
+    } else if (isError) {
+      toast.error(JSON.stringify(error.data1))
+    }
+  }, [isSuccess, isError])
+  return (
+      <footer className={cls("")}>
     <hr className={"my-20"}/>
 
     {/*footer top portion*/}
