@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {FreeMode, Navigation, Thumbs} from "swiper";
 import _ from "lodash";
@@ -6,9 +6,6 @@ import Image from 'next/image';
 
 const ProductSlider = (props) => {
   const [thumbsSwiper, setThumbsSwiper] = useState();
-  useEffect(() => {
-    console.log(thumbsSwiper)
-  }, [thumbsSwiper])
   return (
     <div>
       <Swiper

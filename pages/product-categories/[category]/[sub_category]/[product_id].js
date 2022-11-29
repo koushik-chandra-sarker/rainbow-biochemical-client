@@ -10,80 +10,76 @@ const Index = () => {
   const {product_id} = router.query
   useEffect(() => {
   }, [product_id])
-  const {data} = useGetProductByIdQuery(product_id)
-  console.log("hi")
-  console.log(data)
-  console.log("hell")
-  return (
-    <div>
-      <Head>
-        <title>Biochemical | Product - {product_id}</title>
-        <meta name="description"
-              content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-        {/*create meta for SEO*/}
-        <meta name="keywords"
-              content="Product, Biochemical Product, Biochemical Product in Bangladesh, Biochemical Product in Asia, Biochemical Product in Dhaka, Biochemical Product in Chittagong, Biochemical Product in Cox's Bazar, Biochemical Product in Bangladesh, Biochemical Product in Asia, Biochemical Product in Dhaka, Biochemical Product in Chittagong, Biochemical Product in Cox's Bazar"/>
-        <meta name="author" content="Biochemical"/>
-        <meta name="robots" content="index, follow"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="language" content="English"/>
-        <meta name="revisit-after" content="7 days"/>
-        <meta name="distribution" content="web"/>
-        product_id
-        <meta name="rating" content="general"/>
-        {/*create meta for facebook*/}
-        <meta property="og:title" content="Biochemical | Product - {product_id}"/>
-        <meta property="og:description"
-              content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-        <meta property="og:image" content="https://biochemicalbd.com/images/logo.png"/>
-        <meta property="og:url" content="https://biochemicalbd.com"/>
-        <meta property="og:siterelated_products_name" content="Biochemical"/>
-        <meta property="og:type" content="website"/>
-        {/*create meta for twitter*/}
-        <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:title" content="Biochemical | Product - {product_id}"/>
-        <meta name="twitter:description"
-              content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-        <meta name="twitter:image" content="https://biochemicalbd.com/images/logo.png"/>
-        <meta name="twitter:site" content="https://biochemicalbd.com"/>
-        <meta name="twitter:creator" content="Biochemical"/>
+  const {data, isLoading, isSuccess, isError} = useGetProductByIdQuery(product_id)
 
-      </Head>
-      <div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
+  function isEven(n) {
+    return n % 2 === 0;
+  }
+
+  return (<div>
+    <Head>
+      <title>Biochemical | Product - {product_id}</title>
+      <meta name="description"
+            content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+      {/*create meta for SEO*/}
+      <meta name="keywords"
+            content="Product, Biochemical Product, Biochemical Product in Bangladesh, Biochemical Product in Asia, Biochemical Product in Dhaka, Biochemical Product in Chittagong, Biochemical Product in Cox's Bazar, Biochemical Product in Bangladesh, Biochemical Product in Asia, Biochemical Product in Dhaka, Biochemical Product in Chittagong, Biochemical Product in Cox's Bazar"/>
+      <meta name="author" content="Biochemical"/>
+      <meta name="robots" content="index, follow"/>
+      <meta name="language" content="English"/>
+      <meta name="revisit-after" content="7 days"/>
+      <meta name="distribution" content="web"/>
+      <meta name="rating" content="general"/>
+      {/*create meta for facebook*/}
+      <meta property="og:title" content="Biochemical | Product - {product_id}"/>
+      <meta property="og:description"
+            content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+      <meta property="og:image" content="https://biochemicalbd.com/images/logo.png"/>
+      <meta property="og:url" content="https://biochemicalbd.com"/>
+      <meta property="og:siterelated_products_name" content="Biochemical"/>
+      <meta property="og:type" content="website"/>
+      {/*create meta for twitter*/}
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content="Biochemical | Product - {product_id}"/>
+      <meta name="twitter:description"
+            content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
+      <meta name="twitter:image" content="https://biochemicalbd.com/images/logo.png"/>
+      <meta name="twitter:site" content="https://biochemicalbd.com"/>
+      <meta name="twitter:creator" content="Biochemical"/>
+
+    </Head>
+
+    {isLoading && <div>Loading...</div>}
+    {isSuccess && (<div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
         <div className={'desktop:w-8/12 mx-auto w-full flex flex-wrap bg-white my-10'}>
           <div className={'tablet:w-1/2 w-full p-10'}>
-            {/*<img src={data && data.images[0].url}className={'h-96 w-full'}/>*/}
             <ProductSlider images={data?.images}/>
           </div>
           <div className={'tablet:w-1/2 w-full px-2 py-8'}>
             <div className={'py-4 px-8 border-l border-gray-200'}>
-              <h2 className={'text-black text-xl font-semibold pb-2'}> {data && data.name}</h2>
-              <div  className={'mt-4'} dangerouslySetInnerHTML={{__html: data?.description}}/>
-              <div className={'flex text-sm justify-between mt-8'}>
-                <h2 className={'text-gray-400'}>Weight: <span
-                  className={'font-semibold text-black'}>{data && data.specification[0].value}</span></h2>
-                <h2 className={'text-gray-400'}>Barcode Number: <span
-                  className={'font-semibold text-black'}>{data && data.specification[0].name}</span></h2>
-
-              </div>
-              <div className={'flex text-sm justify-between mt-4'}>
-                <h2 className={'text-gray-400'}>Brand: <span
-                  className={'font-semibold text-black'}>{data && data.specification[1].name}</span></h2>
-                <h2 className={'text-gray-400'}>Using Area: <span
-                  className={'font-semibold text-black'}>{data && data.specification[1].value}</span>
-                </h2>
-
+              <h2 className={'text-black text-xl font-semibold pb-2 tracking-wide'}> {data?.name}</h2>
+              <div className={'mt-4'} dangerouslySetInnerHTML={{__html: data?.description}}/>
+              <div className={'grid grid-cols-2 text-sm mt-8 gap-5'}>
+                {data?.specification.map((spec, index) => (
+                  <div
+                    className="text-sm text-gray-900 capitalize tracking-wide">{spec.name}: <strong>{spec.value}</strong>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-        <div className={'desktop:w-8/12 mx-auto w-full'}>
+
+        {data?.related_products && <div className={'desktop:w-8/12 mx-auto w-full'}>
           <h2 className={'text-center text-gray-400 uppercase pb-8'}>Other Products</h2>
-          <RelatedProducts product={data && data.related_products}/>
-        </div>
+          <RelatedProducts products={data?.related_products}/>
+        </div>}
+
       </div>
-    </div>
-  );
+
+    )}
+    {isError && <div>Something want wrong...</div>}
+  </div>);
 };
 
 export default Index;
