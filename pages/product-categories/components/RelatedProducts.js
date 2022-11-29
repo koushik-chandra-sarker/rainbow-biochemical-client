@@ -39,16 +39,16 @@ const RelatedProducts = (props) => {
           }
         }}
       >
-        {
-          props.product.map((v, i) => (
-          <SwiperSlide className={"h-full "} key={i}>
-            <div className={'flex flex-col bg-white items-center gap-5 p-5 cursor-pointer'}>
-              <Image alt={'xcv'}  src={v.thumbnail} height={2} width={1800} className={"object-contain tablet:h-48 h-36"}/>
-              <h2 className={'inline-block w-full whitespace-nowrap text-ellipsis overflow-hidden'}>{v.name}</h2>
-            </div>
-          </SwiperSlide>
+        {/*{*/}
+        {/*  props.product.map((v, i) => (*/}
+        {/*  <SwiperSlide className={"h-full "} key={i}>*/}
+        {/*    <div className={'flex flex-col bg-white items-center gap-5 p-5 cursor-pointer'}>*/}
+        {/*      <Image alt={'xcv'}  src={v.thumbnail} height={2} width={1800} className={"object-contain tablet:h-48 h-36"}/>*/}
+        {/*      <h2 className={'inline-block w-full whitespace-nowrap text-ellipsis overflow-hidden'}>{v.name}</h2>*/}
+        {/*    </div>*/}
+        {/*  </SwiperSlide>*/}
 
-        ))}
+        {/*))}*/}
       </Swiper>
     </div>
   );

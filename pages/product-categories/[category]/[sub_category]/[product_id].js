@@ -10,7 +10,7 @@ const Index = () => {
   const {product_id} = router.query
   useEffect(() => {
   }, [product_id])
-  const {data} = useGetProductByIdQuery(product_id)
+  const {data, isLoading} = useGetProductByIdQuery(product_id)
   console.log("hi")
   console.log(data)
   console.log("hell")
@@ -49,6 +49,9 @@ const Index = () => {
         <meta name="twitter:creator" content="Biochemical"/>
 
       </Head>
+      {
+
+      }
       <div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
         <div className={'desktop:w-8/12 mx-auto w-full flex flex-wrap bg-white my-10'}>
           <div className={'tablet:w-1/2 w-full p-10'}>
@@ -79,7 +82,7 @@ const Index = () => {
         </div>
         <div className={'desktop:w-8/12 mx-auto w-full'}>
           <h2 className={'text-center text-gray-400 uppercase pb-8'}>Other Products</h2>
-          <RelatedProducts product={data && data.related_products}/>
+          <RelatedProducts product={related_products}/>
         </div>
       </div>
     </div>
