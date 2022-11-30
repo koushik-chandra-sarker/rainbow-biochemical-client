@@ -27,7 +27,7 @@ const category = [
 ]
 
 const Index = () => {
-  const {data} = useGetProductCategoriesQuery();
+  const {data, isLoading, isSuccess, isError} = useGetProductCategoriesQuery();
 
   const [isDataLoaded, setIsDataLoaded] = React.useState(false);
   const [selectedCategory, setSelectedCategory] = React.useState(null);
@@ -72,43 +72,48 @@ const Index = () => {
         <meta name="twitter:creator" content="Biochemical"/>
 
       </Head>
-      <div className={'bg-gray-100'}>
-        <h2 className={'text-center text-xl text-black pt-10 '}>MARKET PRODUCTS</h2>
-        <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
-          {
-             data && data.map((category, i) => (
-            <div className={'mobile:w-1/2 my-10 w-full'} key={i}
-                 data-aos={isEven(i) ? "fade-right" : "fade-left"}
-                 data-aos-offset="100"
-                 data-aos-easing="ease-in-sine"
-            >
-              <Link href={`${router.asPath}/${category.name}`}>
-                <div className={'mx-4 bg-white h-124 mb-8'}>
-                  <Image src={category.thumbnail} alt={"aa"} height={2} width={1500}
-                         className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
-                  <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{category.name}</h2>
-                </div>
-              </Link>
-            </div>
-          ))}
-          {/*{category.map((v, i) => (*/}
-          {/*    <div className={'mobile:w-1/2 my-10 w-full'} key={i}*/}
-          {/*         data-aos={isEven(i) ? "fade-right" : "fade-left"}*/}
-          {/*         data-aos-offset="100"*/}
-          {/*         data-aos-easing="ease-in-sine"*/}
-          {/*    >*/}
-          {/*      <Link href={`${router.asPath}/${v.name}`}>*/}
-          {/*        <div className={'mx-4 bg-white h-124 mb-8'}>*/}
-          {/*          <Image src={v.image} alt={"aa"}*/}
-          {/*                 className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>*/}
-          {/*          <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{v.name}</h2>*/}
-          {/*        </div>*/}
-          {/*      </Link>*/}
-          {/*    </div>*/}
-          {/*))}*/}
+      {isLoading && <div>Loading...</div>}
+      {isSuccess && (
+          <div className={'bg-gray-100'}>
+            <h2 className={'text-center text-xl text-black pt-10 '}>MARKET PRODUCTS</h2>
+            <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
+              {
+                  data && data.map((category, i) => (
+                      <div className={'mobile:w-1/2 my-10 w-full'} key={i}
+                           data-aos={isEven(i) ? "fade-right" : "fade-left"}
+                           data-aos-offset="100"
+                           data-aos-easing="ease-in-sine"
+                      >
+                        <Link href={`${router.asPath}/${category.name}`}>
+                          <div className={'mx-4 bg-white h-124 mb-8'}>
+                            <Image src={category.thumbnail} alt={"aa"} height={2} width={1500}
+                                   className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
+                            <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{category.name}</h2>
+                          </div>
+                        </Link>
+                      </div>
+                  ))}
+              {/*{category.map((v, i) => (*/}
+              {/*    <div className={'mobile:w-1/2 my-10 w-full'} key={i}*/}
+              {/*         data-aos={isEven(i) ? "fade-right" : "fade-left"}*/}
+              {/*         data-aos-offset="100"*/}
+              {/*         data-aos-easing="ease-in-sine"*/}
+              {/*    >*/}
+              {/*      <Link href={`${router.asPath}/${v.name}`}>*/}
+              {/*        <div className={'mx-4 bg-white h-124 mb-8'}>*/}
+              {/*          <Image src={v.image} alt={"aa"}*/}
+              {/*                 className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>*/}
+              {/*          <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{v.name}</h2>*/}
+              {/*        </div>*/}
+              {/*      </Link>*/}
+              {/*    </div>*/}
+              {/*))}*/}
 
-        </div>
-      </div>
+            </div>
+          </div>
+      )}
+      {isError && <div>Something want wrong...</div>}
+
     </div>
   );
 };

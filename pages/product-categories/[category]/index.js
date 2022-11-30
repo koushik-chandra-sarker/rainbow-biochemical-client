@@ -4,12 +4,13 @@ import Image from "next/image";
 import Head from "next/head";
 import {useRouter} from "next/router";
 import {useGetCategoryByNameQuery} from "../../../services/product/productApi";
+import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
 
 const Index = () => {
   const router = useRouter();
   const {category} = router.query;
   const subCategory = "sub-category";
-  const {data} = useGetCategoryByNameQuery(category);
+  const {data, isLoading, isSuccess, isError} = useGetCategoryByNameQuery(category);
 
   function isEven(n) {
     return n % 2 == 0;
@@ -48,29 +49,34 @@ const Index = () => {
         <meta name="twitter:creator" content="Biochemical"/>
 
       </Head>
-      <div className={'bg-gray-100'}>
-        <div className={'mobile:w-8/12 mx-auto px-4 text-center text-xl text-black pt-10 '}>
-          <h2 className={'w-full border py-5 tablet:text-3xl text-xl uppercase font-bold text-gray-500'}>{category}</h2>
-        </div>
-        <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
-          {
-            data && data[0].sub_category.map((v, i) => (
-            <div className={'mobile:w-1/2 my-10 w-full '} key={i}
-                 data-aos={isEven(i) ? "fade-right" : "fade-left"}
-                 data-aos-offset="100"
-                 data-aos-easing="ease-in-sine">
-              <Link href={`${router.asPath}/${v.name}`}>
-                <div className={'mx-4 bg-white h-124 mb-8'}>
-                  <Image src={v.thumbnail} alt={"aa"} height={2} width={1500}
-                         className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
-                  <h2 className={'text-center bg-white text-xl  text-black py-4'}>{v.name}</h2>
-                </div>
-              </Link>
+      {isLoading && <div>Loading...</div>}
+      {isSuccess && (
+          <div className={'bg-gray-100'}>
+            <div className={'mobile:w-8/12 mx-auto px-4 text-center text-xl text-black pt-10 '}>
+              <h2 className={'w-full border py-5 tablet:text-3xl text-xl uppercase font-bold text-gray-500'}>{category}</h2>
+            </div>
+            <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
+              {
+                  data && data[0].sub_category.map((v, i) => (
+                      <div className={'mobile:w-1/2 my-10 w-full '} key={i}
+                           data-aos={isEven(i) ? "fade-right" : "fade-left"}
+                           data-aos-offset="100"
+                           data-aos-easing="ease-in-sine">
+                        <Link href={`${router.asPath}/${v.name}`}>
+                          <div className={'mx-4 bg-white h-124 mb-8'}>
+                            <Image src={v.thumbnail} alt={"aa"} height={2} width={1500}
+                                   className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
+                            <h2 className={'text-center bg-white text-xl  text-black py-4'}>{v.name}</h2>
+                          </div>
+                        </Link>
 
-            </div>))}
+                      </div>))}
 
-        </div>
-      </div>
+            </div>
+          </div>
+      )}
+      {isError && <div>Something want wrong...</div>}
+
     </div>
   );
 };
