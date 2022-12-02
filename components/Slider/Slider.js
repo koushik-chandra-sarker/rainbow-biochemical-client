@@ -8,8 +8,7 @@ import img3 from '../../public/assets/imgs/sanitizer.jpg'
 import img4 from '../../public/assets/imgs/cleaner.jpg'
 import Image from 'next/image';
 import cls from "classnames";
-import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
-import _ from "lodash";
+
 const sliderContent = [
   {
     img: img1,
@@ -48,22 +47,22 @@ export default function Slider(props) {
         {
           // {data && data.data && data.data[0].facebook}
           //   {data && data[0].homeSlider}
-            props.slider.map((v, i) => (
-                <SwiperSlide key={i}>
-                  <div className={"relative"}>
-                    <Image src={v.image} alt={v.title}
-                           height={2}
-                           width={1800}
-                           className={'w-full'}
-                    />
-                    <div className={'absolute top-2/4 left-40 z-20 animate__bounce'}>
-                      <button
-                          className={cls(" bg-blue-600 text-xl text-white rounded-3xl px-12 py-2 animate__animated ", activeSliderIndex === i ? "animate__slideInLeft" : "")}>Details
-                      </button>
-                    </div>
-                  </div>
-                </SwiperSlide>
-            ))
+          props.slider?.map((v, i) => (
+            <SwiperSlide key={i}>
+              <div className={"relative"}>
+                <Image src={v.image} alt={v.title}
+                       height={2}
+                       width={1800}
+                       className={'w-full'}
+                />
+                <div className={'absolute top-2/4 left-40 z-20 animate__bounce'}>
+                  <button
+                    className={cls(" bg-blue-600 text-xl text-white rounded-3xl px-12 py-2 animate__animated ", activeSliderIndex === i ? "animate__slideInLeft" : "")}>Details
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))
         }
       </Swiper>
     </>

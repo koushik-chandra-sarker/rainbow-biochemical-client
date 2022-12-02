@@ -6,7 +6,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'file.rainbowgroup-bd.com',
-        port: '',
         pathname: '/**',
       },
     ],
