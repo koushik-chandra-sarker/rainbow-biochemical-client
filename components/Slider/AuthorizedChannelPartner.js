@@ -43,16 +43,16 @@ const AuthorizedChannelPartner = (props) => {
       >
 
         {
-            // {data && data[0].authorizedSlider}
-          props.slider.map((v, i) => (
-          <SwiperSlide className={"h-full"} key={i}>
-            <div
-              className={' bg-white flex justify-center items-center border border-gray-400 gap-4 p-5 cursor-pointer'}>
-              <img src={v.image} alt={"authorized logo"} className={"object-contain tablet:h-24 h-24 w-32 "}/>
-            </div>
-          </SwiperSlide>
+          // {data && data[0].authorizedSlider}
+          props.slider?.map((v, i) => (
+            <SwiperSlide className={"h-full"} key={i}>
+              <div
+                className={' bg-white flex justify-center items-center border border-gray-400 gap-4 p-5 cursor-pointer'}>
+                <img src={v.image} alt={"authorized logo"} className={"object-contain tablet:h-24 h-24 w-32 "}/>
+              </div>
+            </SwiperSlide>
 
-        ))}
+          ))}
       </Swiper>
     </div>
   );

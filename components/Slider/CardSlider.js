@@ -49,22 +49,22 @@ export default function CardSlider(props) {
       <div className={'CardSlider '}>
         <Slider {...settings}>
           {
-               props.slider.map((v, i) => (
-                  <div className={''} key={i}>
-                    <div className={'mobile:flex shadow-xl rounded-lg bg-white overflow-hidden'}>
-                      <div className={'mobile:w-1/2 w-full'}>
-                        <Image src={v.image} alt={"card"} height={100} width={1500}
-                               className={'h-72 w-full'}/>
-                      </div>
-                      <div className={'mobile:w-1/2 w-full flex justify-center items-center '}>
-                        <div className={'p-20'}>
-                          <h2 className={'text-lg text-center'}>{v.title}</h2>
-                        </div>
-                      </div>
-
+            props.slider?.map((v, i) => (
+              <div className={''} key={i}>
+                <div className={'mobile:flex shadow-xl rounded-lg bg-white overflow-hidden'}>
+                  <div className={'mobile:w-1/2 w-full'}>
+                    <Image src={v.image} alt={"card"} height={100} width={1500}
+                           className={'h-72 w-full'}/>
+                  </div>
+                  <div className={'mobile:w-1/2 w-full flex justify-center items-center '}>
+                    <div className={'p-20'}>
+                      <h2 className={'text-lg text-center'}>{v.title}</h2>
                     </div>
                   </div>
-                ))}
+
+                </div>
+              </div>
+            ))}
         </Slider>
       </div>
 
