@@ -18,7 +18,8 @@ const Header = () => {
   let router = useRouter();
   useEffect(() => {
     handleMenuImage(router.pathname)
-    dropdownOverlay.current.style.transform = isMenuOpen ? 'scale(1)' : 'scale(0)';
+    dropdownOverlay.current.style.opacity = isMenuOpen ? '1' : '0';
+    dropdownOverlay.current.style.transform = isMenuOpen ? 'translateY(0)' : 'translateY(100%)';
   }, [isMenuOpen]);
 
   function handleMenuImage(pathname) {

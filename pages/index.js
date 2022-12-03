@@ -42,6 +42,7 @@ const serviceList = [
 ]
 const Home = ({}) => {
   const router = useRouter();
+  
   const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
   const title = 'Biochemical | Home'
   return (
