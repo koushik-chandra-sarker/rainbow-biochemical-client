@@ -20,7 +20,7 @@ const Index = () => {
     return n % 2 == 0;
   }
 
-  const {data, isLoading, isSuccess, isError} = useGetCategoryByNameQuery(category);
+  const {data, isLoading, isSuccess, isError, error} = useGetCategoryByNameQuery(category);
   return (
     <div>
       <Head>

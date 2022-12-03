@@ -11,6 +11,7 @@ import Loading from "../../components/Loading/Loading";
 import NotFound from "../../components/NotFound/NotFound";
 import _ from "lodash"
 import {isEven} from "../../utils/common";
+import ServerError from "../../components/ServerError/ServerError";
 
 const category = [
   {
@@ -112,7 +113,7 @@ const Index = () => {
             </div>
           </div> : <NotFound/>
       )}
-      {isError && <div>Something want wrong...</div>}
+      {isError && <div><ServerError error={error.status}/></div>}
 
     </div>
   );

@@ -8,9 +8,10 @@ import Loading from "../../components/Loading/Loading";
 import _ from "lodash"
 import Image from "next/image"
 import NotFound from "../../components/NotFound/NotFound";
+import ServerError from "../../components/ServerError/ServerError";
 
 const Index = () => {
-  const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
+  const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
 
   return (
     <div>
@@ -70,7 +71,7 @@ const Index = () => {
           </div> : <NotFound/>
       )}
       {isError && <div>
-        <img src={error}/>
+        <ServerError error={error.status}/>
       </div>
       }
 
