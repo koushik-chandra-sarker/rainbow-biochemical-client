@@ -10,6 +10,8 @@ import {useGetProductCategoriesQuery} from "../../services/product/productApi";
 import Loading from "../../components/Loading/Loading";
 import NotFound from "../../components/NotFound/NotFound";
 import _ from "lodash"
+import {isEven} from "../../utils/common";
+
 const category = [
   {
     id: 1,
@@ -36,9 +38,6 @@ const Index = () => {
   // const data = useGetSiteDetailsQuery();
   const router = useRouter();
 
-  function isEven(n) {
-    return n % 2 == 0;
-  }
 
   return (
     <div className={'bg-gray-100 pb-10'}>
@@ -74,26 +73,26 @@ const Index = () => {
 
       </Head>
       {isLoading && <div><Loading/></div>}
-      {isSuccess && ( !_.isEmpty(data)?
+      {isSuccess && (!_.isEmpty(data) ?
           <div className={'bg-gray-100'}>
             <h2 className={'text-center text-xl text-black pt-10 '}>MARKET PRODUCTS</h2>
             <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
               {
-                  data && data.map((category, i) => (
-                      <div className={'mobile:w-1/2 my-10 w-full'} key={i}
-                           data-aos={isEven(i) ? "fade-right" : "fade-left"}
-                           data-aos-offset="100"
-                           data-aos-easing="ease-in-sine"
-                      >
-                        <Link href={`${router.asPath}/${category.name}`}>
-                          <div className={'mx-4 bg-white h-124 mb-8'}>
-                            <Image src={category.thumbnail} alt={"aa"} height={2} width={1500}
-                                   className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
-                            <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{category.name}</h2>
-                          </div>
-                        </Link>
+                data && data.map((category, i) => (
+                  <div className={'mobile:w-1/2 my-10 w-full'} key={i}
+                       data-aos={isEven(i) ? "fade-right" : "fade-left"}
+                       data-aos-offset="100"
+                       data-aos-easing="ease-in-sine"
+                  >
+                    <Link href={`${router.asPath}/${category.name}`}>
+                      <div className={'mx-4 bg-white h-124 mb-8'}>
+                        <Image src={category.thumbnail} alt={"aa"} height={2} width={1500}
+                               className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
+                        <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{category.name}</h2>
                       </div>
-                  ))}
+                    </Link>
+                  </div>
+                ))}
               {/*{category.map((v, i) => (*/}
               {/*    <div className={'mobile:w-1/2 my-10 w-full'} key={i}*/}
               {/*         data-aos={isEven(i) ? "fade-right" : "fade-left"}*/}
@@ -111,7 +110,7 @@ const Index = () => {
               {/*))}*/}
 
             </div>
-          </div>:<NotFound/>
+          </div> : <NotFound/>
       )}
       {isError && <div>Something want wrong...</div>}
 

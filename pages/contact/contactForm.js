@@ -13,6 +13,7 @@ const ContactForm = () => {
   }
   useEffect(() => {
     if (isSuccess) {
+      toast.success("Message sent successfully")
       setText({
         firstName: "", lastName: "", companyName: "", phoneNumber: "", subject: "", email: "", address: "", message: ""
       })
@@ -22,8 +23,11 @@ const ContactForm = () => {
   }, [isSuccess, isError])
   return (
     <div>
-      <div className={'mobile:w-8/12 w-full mx-auto mobile:flex  mt-10'}>
-        <div className={'mobile:w-1/2 w-full mobile:mr-4 mobile:mx-0 mx-4'}>
+      <div className={'flex p-8 justify-center'}>
+        <button className={'text-black  tablet:text-3xl text-base uppercase'}>CONTACT FORM</button>
+      </div>
+      <div className={'mobile:w-8/12 w-11/12 mx-auto mobile:flex mt-10'}>
+        <div className={'mobile:w-1/2 w-full  mobile:mx-0'}>
           <input
             type="text" name="firstName" placeholder={'FIRST NAME'}
             onChange={event => {
@@ -59,7 +63,7 @@ const ContactForm = () => {
                           outline-none bg-gray-100 text-gray-400 pb-16 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
 
         </div>
-        <div className={'mobile:w-1/2 w-full mobile:ml-4 mobile:mx-0 mx-4'}>
+        <div className={'mobile:w-1/2 w-full mobile:mx-0'}>
           <input
             type="text" name="lastName" placeholder={'LAST NAME'}
             onChange={event => {

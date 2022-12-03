@@ -12,6 +12,7 @@ import {CopyrightOutlined, FacebookFilled, InstagramFilled, TwitterSquareFilled}
 import {useGetSiteDetailsQuery} from "../../../services/siteDetails/siteDetailsApi";
 import {useCreateSubscriberMutation} from "../../../services/subsciber/subscriberApi";
 import {toast} from "react-toastify";
+import Link from "next/link";
 
 
 const Footer = () => {
@@ -155,34 +156,22 @@ const Footer = () => {
             <h3 className={cls("font-bold text-base")}>Contact</h3>
             <hr className={"my-5 w-full"}/>
             {
-               data &&  data[0]?.contact.map((v,i)=>(
-                   <div className={"flex flex-col"}>
-                     <div className={"text-xs leading-6"}>
-                       <div className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                         <p>{v.address}<br/>
-                           <b>Phone: </b> {v.phone}<br/>
-                           <b>Email: </b> {v.email}
-                         </p>
-                       </div>
-                       <hr className={"my-2"}/>
-                     </div>
-                   </div>
-               ))}
 
-                  {/*<p*/}
-                  {/*  className={"mt-2 tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>*/}
-                  {/*  {data && data[0]?.contact[1]?.address}<br/>*/}
-                  {/*  <b>Mobile: </b> {data && data[0]?.contact[1]?.phone}. <br/>*/}
-                  {/*  <b>Email: </b> {data && data[0]?.contact[1]?.email}*/}
-                  {/*</p>*/}
-                  {/*<hr className={"my-2"}/>*/}
-                  {/*<p className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>*/}
-                  {/*  {data && data[0]?.contact[2]?.address}<br/>*/}
-                  {/*  <b>Mobile: </b>{data && data[0]?.contact[2]?.phone}.<br/>*/}
-                  {/*  <b>Email: </b> {data && data[0]?.contact[2]?.email}*/}
-                  {/*</p>*/}
-
-
+              <div className={"flex flex-col"}>
+                <div className={"text-xs leading-6"}>
+                  <div
+                    className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
+                    <p>{data[0]?.contact[0]?.address}<br/>
+                      <b>Phone: </b> {data[0]?.contact[0]?.phone}<br/>
+                      <b>Email: </b> {data[0]?.contact[0]?.email}
+                    </p>
+                  </div>
+                  <Link href={"/contact"} className={"flex justify-center mt-3 text-blue-500"}>
+                    See more
+                  </Link>
+                </div>
+              </div>
+            }
 
           </section>
           <section className={"tablet:block flex flex-col justify-center items-center mt-5 tablet:mt-0"}>
