@@ -2,14 +2,19 @@ import React from 'react';
 import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
 import ContactForm from "./contactForm";
 import Head from "next/head";
-import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
+import {
+  getRunningQueriesThunk,
+  getSiteDetails,
+  useGetSiteDetailsQuery
+} from "../../services/siteDetails/siteDetailsApi";
 import Loading from "../../components/Loading/Loading";
 import NotFound from "../../components/NotFound/NotFound";
 import _ from "lodash"
 import cls from 'classnames'
 import {isEven} from "../../utils/common";
+import {wrapper} from "../../services/store";
 
-const Index = () => {
+const Index = ({}) => {
   const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
 
   return (
@@ -40,7 +45,7 @@ const Index = () => {
         </div>
       </div>
       {isLoading && <Loading/>}
-      {isSuccess && (!_.isEmpty(data) ?
+      {isSuccess && (!_.isEmpty(data) && !_.isEmpty(data[0]?.contact) ?
           <div className={'bg-gray-100 relative border-b border-gray-200'}>
             {
               data[0]?.contact?.map((contact, index) => (
@@ -98,5 +103,13 @@ const Index = () => {
     </div>
   );
 };
-
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({dispatch}) => async (context) => {
+    dispatch(getSiteDetails.initiate());
+    await Promise.all(dispatch(getRunningQueriesThunk()));
+    return {
+      props: {},
+    };
+  }
+);
 export default Index;

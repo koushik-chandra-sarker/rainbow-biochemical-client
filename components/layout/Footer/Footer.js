@@ -156,7 +156,7 @@ const Footer = () => {
             <h3 className={cls("font-bold text-base")}>Contact</h3>
             <hr className={"my-5 w-full"}/>
             {
-
+              data &&
               <div className={"flex flex-col"}>
                 <div className={"text-xs leading-6"}>
                   <div

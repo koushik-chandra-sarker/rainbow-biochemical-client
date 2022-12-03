@@ -3,14 +3,19 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import {useRouter} from "next/router";
-import {useGetCategoryByNameQuery} from "../../../services/product/productApi";
+import {
+  getCategoryByName,
+  getRunningQueriesThunk,
+  useGetCategoryByNameQuery
+} from "../../../services/product/productApi";
 import error from "../../../public/assets/imgs/404.webp"
 import Loading from "../../../components/Loading/Loading";
 import _ from "lodash"
 import NotFound from "../../../components/NotFound/NotFound";
 import {isEven} from "../../../utils/common";
+import {wrapper} from "../../../services/store";
 
-const Index = () => {
+const Index = ({}) => {
   const router = useRouter();
   const {category} = router.query;
   const subCategory = "sub-category";
@@ -83,5 +88,14 @@ const Index = () => {
     </div>
   );
 };
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({dispatch}) => async (context) => {
+    dispatch(getCategoryByName.initiate());
+    await Promise.all(dispatch(getRunningQueriesThunk()));
+    return {
+      props: {},
+    };
+  }
+);
 
 export default Index;
