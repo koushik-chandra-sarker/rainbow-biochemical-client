@@ -5,6 +5,8 @@ import Head from "next/head";
 import {useRouter} from "next/router";
 import {useGetCategoryByNameQuery} from "../../../services/product/productApi";
 import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
+import error from "../../../public/assets/imgs/404.webp"
+import Skeleton from "react-loading-skeleton";
 
 const Index = () => {
   const router = useRouter();
@@ -49,7 +51,24 @@ const Index = () => {
         <meta name="twitter:creator" content="Biochemical"/>
 
       </Head>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <div>
+        <Skeleton variant="rectangular" height={600} animation="wave"/>
+        <div className="container  1/12 sm:w-3/4 mx-auto md:px-0 px-8 my-12 mx-auto text-center">
+          <div className={'flex justify-center'}>
+            <Skeleton variant="rectangular" width={200} height={50} animation="wave"/>
+          </div>
+
+          <br/>
+          <Skeleton/>
+          <Skeleton animation="wave"/>
+          <Skeleton animation={false}/>
+          <br/><br/>
+          <Skeleton variant="rectangular" height={100} animation="wave"/>
+          <br/> <br/>
+          <Skeleton variant="rectangular" height={600} animation="wave"/>
+        </div>
+      </div>
+      }
       {isSuccess && (
           <div className={'bg-gray-100'}>
             <div className={'mobile:w-8/12 mx-auto px-4 text-center text-xl text-black pt-10 '}>
@@ -57,7 +76,7 @@ const Index = () => {
             </div>
             <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
               {
-                  data && data[0].sub_category.map((v, i) => (
+                data?.sub_category.map((v, i) => (
                       <div className={'mobile:w-1/2 my-10 w-full '} key={i}
                            data-aos={isEven(i) ? "fade-right" : "fade-left"}
                            data-aos-offset="100"
@@ -75,7 +94,10 @@ const Index = () => {
             </div>
           </div>
       )}
-      {isError && <div>Something want wrong...</div>}
+      {isError && <div>
+        <img src={error}/>
+      </div>
+      }
 
     </div>
   );

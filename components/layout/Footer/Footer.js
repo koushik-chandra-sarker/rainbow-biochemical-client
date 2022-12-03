@@ -154,29 +154,36 @@ const Footer = () => {
           <section className={"tablet:block flex flex-col justify-center items-center tablet:text-left"}>
             <h3 className={cls("font-bold text-base")}>Contact</h3>
             <hr className={"my-5 w-full"}/>
-            <div className={"flex flex-col"}>
-              <div className={"text-xs leading-6"}>
-                <div className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                  <p>{data && data[0]?.contact[0]?.address}<br/>
-                    <b>Phone: </b> {data && data[0]?.contact[0]?.phone}<br/>
-                    <b>Email: </b> {data && data[0]?.contact[0]?.email}
-                  </p>
-                </div>
-                <hr className={"my-2"}/>
-                <p
-                  className={"mt-2 tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                  {data && data[0]?.contact[1]?.address}<br/>
-                  <b>Mobile: </b> {data && data[0]?.contact[1]?.phone}. <br/>
-                  <b>Email: </b> {data && data[0]?.contact[1]?.email}
-                </p>
-                <hr className={"my-2"}/>
-                <p className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                  {data && data[0]?.contact[2]?.address}<br/>
-                  <b>Mobile: </b>{data && data[0]?.contact[2]?.phone}.<br/>
-                  <b>Email: </b> {data && data[0]?.contact[2]?.email}
-                </p>
-              </div>
-            </div>
+            {
+               data &&  data[0]?.contact.map((v,i)=>(
+                   <div className={"flex flex-col"}>
+                     <div className={"text-xs leading-6"}>
+                       <div className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
+                         <p>{v.address}<br/>
+                           <b>Phone: </b> {v.phone}<br/>
+                           <b>Email: </b> {v.email}
+                         </p>
+                       </div>
+                       <hr className={"my-2"}/>
+                     </div>
+                   </div>
+               ))}
+
+                  {/*<p*/}
+                  {/*  className={"mt-2 tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>*/}
+                  {/*  {data && data[0]?.contact[1]?.address}<br/>*/}
+                  {/*  <b>Mobile: </b> {data && data[0]?.contact[1]?.phone}. <br/>*/}
+                  {/*  <b>Email: </b> {data && data[0]?.contact[1]?.email}*/}
+                  {/*</p>*/}
+                  {/*<hr className={"my-2"}/>*/}
+                  {/*<p className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>*/}
+                  {/*  {data && data[0]?.contact[2]?.address}<br/>*/}
+                  {/*  <b>Mobile: </b>{data && data[0]?.contact[2]?.phone}.<br/>*/}
+                  {/*  <b>Email: </b> {data && data[0]?.contact[2]?.email}*/}
+                  {/*</p>*/}
+
+
+
           </section>
           <section className={"tablet:block flex flex-col justify-center items-center mt-5 tablet:mt-0"}>
             <h3 className={cls("font-bold text-base")}>Social Media</h3>

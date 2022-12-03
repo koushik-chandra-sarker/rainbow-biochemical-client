@@ -3,7 +3,10 @@ import React from 'react';
 import ClientSlider from "./ClientSlider";
 import Head from "next/head";
 import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
-
+import Skeleton from 'react-loading-skeleton'
+import error from "../../public/assets/imgs/404.webp"
+import Loading from "../../components/Loading/Loading";
+import _ from "lodash"
 const Index = () => {
   const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
 
@@ -44,13 +47,13 @@ const Index = () => {
       <div className={'w-full'}>
         <ClientSlider/>
       </div>
-      {isLoading && <div>Loading...</div>}
-      {isSuccess && (
+      {isLoading && <Loading/>}
+      {isSuccess && ( !_.isEmpty(data)?
         <div className={'bg-blue-white py-20'}>
           <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
           <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
             {
-              data && data[0]?.client.map((v, i) => (
+              data[0]?.client.map((v, i) => (
                 <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
                   <div className={'mx-2'}>
                     <div className={'shadow bg-white'}>
@@ -62,9 +65,12 @@ const Index = () => {
               ))}
 
           </div>
-        </div>
+        </div>:<>Data Not Found</>
       )}
-      {isError && <div>Something want wrong...</div>}
+      {isError && <div>
+        <img src={error}/>
+      </div>
+      }
 
     </div>
   );

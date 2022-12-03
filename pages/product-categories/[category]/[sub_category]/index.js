@@ -7,7 +7,8 @@ import cls from "classnames";
 import Head from "next/head";
 import {useGetProductsByCategoryNameQuery} from "../../../../services/product/productApi";
 import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
-
+import Skeleton from "react-loading-skeleton";
+import error from "../../../../public/assets/imgs/404.webp"
 const Index = () => {
   const router = useRouter()
   const {sub_category} = router.query
@@ -25,7 +26,8 @@ const Index = () => {
       <meta name="robots" content="index, follow"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       <meta name="language" content="English"/>
-      <meta name="revisit-after" content="7 days"/>
+      <meta name="revisit-after" content="7 days"/>      Something want wrong...
+
       <meta name="distribution" content="web"/>
       <meta name="rating" content="general"/>
       {/*create meta for facebook*/}
@@ -47,7 +49,24 @@ const Index = () => {
 
 
     </Head>
-    {isLoading && <div>Loading...</div>}
+    {isLoading && <div>
+      <Skeleton variant="rectangular" height={600} animation="wave"/>
+      <div className="container  1/12 sm:w-3/4 mx-auto md:px-0 px-8 my-12 mx-auto text-center">
+        <div className={'flex justify-center'}>
+          <Skeleton variant="rectangular" width={200} height={50} animation="wave"/>
+        </div>
+
+        <br/>
+        <Skeleton/>
+        <Skeleton animation="wave"/>
+        <Skeleton animation={false}/>
+        <br/><br/>
+        <Skeleton variant="rectangular" height={100} animation="wave"/>
+        <br/> <br/>
+        <Skeleton variant="rectangular" height={600} animation="wave"/>
+      </div>
+    </div>
+    }
     {isSuccess && (
         <div className={'bg-gray-100 py-10'}>
           <div className={'mobile:w-8/12 mx-auto w-full flex  my-10'}>
@@ -126,7 +145,10 @@ ion-colors duration-200 ease-in-out"/>
           </div>
         </div>
     )}
-    {isError && <div>Something want wrong...</div>}
+    {isError && <div>
+      <img src={error}/>
+    </div>
+    }
 
   </div>);
 };

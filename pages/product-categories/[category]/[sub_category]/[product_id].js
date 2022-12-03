@@ -48,7 +48,8 @@ const Index = () => {
       <meta name="twitter:site" content="https://biochemicalbd.com"/>
       <meta name="twitter:creator" content="Biochemical"/>
 
-    </Head>
+    </Head>      Loading...
+
 
     {isLoading && <div>Loading...</div>}
     {isSuccess && (<div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
