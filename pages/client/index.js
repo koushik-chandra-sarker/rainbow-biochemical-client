@@ -7,17 +7,16 @@ import {
   getSiteDetails,
   useGetSiteDetailsQuery
 } from "../../services/siteDetails/siteDetailsApi";
-import error from "../../public/assets/imgs/404.webp"
 import Loading from "../../components/Loading/Loading";
 import _ from "lodash"
 import Image from "next/image"
 import NotFound from "../../components/NotFound/NotFound";
 import ServerError from "../../components/ServerError/ServerError";
 import {wrapper} from "../../services/store";
+import Link from "next/link";
 
 const Index = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
-
   return (
     <div>
       <Head>
@@ -61,14 +60,16 @@ const Index = ({}) => {
             <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
               {
                 data[0]?.client.map((v, i) => (
-                  <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
+                  <Link href={v.link ? v.link : "#"} className={'mobile:w-1/4 w-full  mt-4'} key={i}>
                     <div className={'mx-2'}>
-                      <div className={'shadow bg-white'}>
-                        <Image src={v.image} height={2} width={50}
-                               className={'h-36 p-2 object-contain scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
+                      <div className={'shadow'} style={{background: "#f7f7f7"}}>
+                        <Image src={v.image} height={10} width={200} alt={v.name ? v.name : "client logo"}
+                               className={'h-36 p-2 object-contain scale-90 hover:scale-100 ease-in duration-100 w-full'}
+                        />
+
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
 
             </div>

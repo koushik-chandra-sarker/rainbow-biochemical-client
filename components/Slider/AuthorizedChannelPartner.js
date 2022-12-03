@@ -1,7 +1,8 @@
 import React from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation, Pagination} from "swiper";
-import img from '../../public/assets/imgs/radisonblue.jpg'
+import Link from "next/link";
+import Image from "next/image";
 
 const AuthorizedChannelPartner = (props) => {
   return (
@@ -46,10 +47,11 @@ const AuthorizedChannelPartner = (props) => {
           // {data && data[0].authorizedSlider}
           props.slider?.map((v, i) => (
             <SwiperSlide className={"h-full"} key={i}>
-              <div
-                className={' bg-white flex justify-center items-center border border-gray-400 gap-4 p-5 cursor-pointer'}>
-                <img src={v.image} alt={"authorized logo"} className={"object-contain tablet:h-24 h-24 w-32 "}/>
-              </div>
+              <Link href={v.link ? v.link : "#"}
+                    className={' bg-white flex justify-center items-center border border-gray-400 gap-4 p-5 cursor-pointer'}>
+                <Image height={10} width={1000} src={v.image} alt={"authorized logo"}
+                       className={"object-contain h-24 "}/>
+              </Link>
             </SwiperSlide>
 
           ))}
