@@ -7,6 +7,8 @@ import Skeleton from 'react-loading-skeleton'
 import error from "../../public/assets/imgs/404.webp"
 import Loading from "../../components/Loading/Loading";
 import _ from "lodash"
+import Image from "next/image"
+import NotFound from "../../components/NotFound/NotFound";
 const Index = () => {
   const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
 
@@ -57,7 +59,7 @@ const Index = () => {
                 <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
                   <div className={'mx-2'}>
                     <div className={'shadow bg-white'}>
-                      <img src={v.image}
+                      <Image src={v.image} height={2} width={50}
                            className={'h-36 p-2 object-contain scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
                     </div>
                   </div>
@@ -65,7 +67,7 @@ const Index = () => {
               ))}
 
           </div>
-        </div>:<>Data Not Found</>
+        </div>:<NotFound/>
       )}
       {isError && <div>
         <img src={error}/>
