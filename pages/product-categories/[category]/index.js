@@ -15,6 +15,7 @@ import NotFound from "../../../components/NotFound/NotFound";
 import {isEven} from "../../../utils/common";
 import {wrapper} from "../../../services/store";
 
+import ServerError from "../../../components/ServerError/ServerError";
 const Index = ({}) => {
   const router = useRouter();
   const {category} = router.query;
@@ -81,7 +82,7 @@ const Index = ({}) => {
           </div> : <NotFound/>
       )}
       {isError && <div>
-        <img src={error}/>
+        <ServerError error={error.status}/>
       </div>
       }
 

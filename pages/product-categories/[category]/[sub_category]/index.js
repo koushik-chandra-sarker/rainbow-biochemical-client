@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from '../../Product.module.scss'
 import cls from "classnames";
 import Head from "next/head";
+import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
 import {
   getProductsByCategoryName,
   getRunningQueriesThunk,
@@ -14,13 +15,14 @@ import error from "../../../../public/assets/imgs/404.webp"
 import Loading from "../../../../components/Loading/Loading";
 import NotFound from "../../../../components/NotFound/NotFound";
 import _ from "lodash"
+import ServerError from "../../../../components/ServerError/ServerError";
 import {wrapper} from "../../../../services/store";
 
 const Index = ({}) => {
   const router = useRouter()
   const {sub_category} = router.query
   const currentPath = router.pathname
-  const {data, isLoading, isSuccess, isError} = useGetProductsByCategoryNameQuery(sub_category)
+ const {data, isLoading, isSuccess, isError, error} = useGetProductsByCategoryNameQuery(sub_category)
   return (<div>
     <Head>
       <title>Biochemical | Product Category - {sub_category}</title>
@@ -55,7 +57,7 @@ const Index = ({}) => {
 
     </Head>
     {isLoading && <div><Loading/></div>}
-    {isSuccess && (!_.isEmpty(data) ?
+    {isSuccess && ( !_.isEmpty(data)?
         <div className={'bg-gray-100 py-10'}>
           <div className={'mobile:w-8/12 mx-auto w-full flex  my-10'}>
             <div className={'mobile:w-1/4 w-full px-2'}>
@@ -135,7 +137,7 @@ const Index = ({}) => {
         </div> : <NotFound/>
     )}
     {isError && <div>
-      <img src={error}/>
+      <ServerError error={error.status}/>
     </div>
     }
 

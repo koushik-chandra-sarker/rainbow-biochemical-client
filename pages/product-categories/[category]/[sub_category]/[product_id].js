@@ -5,7 +5,6 @@ import {useRouter} from "next/router";
 import Head from "next/head";
 import {useGetProductByIdQuery} from "../../../../services/product/productApi";
 import Loading from "../../../../components/Loading/Loading";
-import _ from "lodash"
 import NotFound from "../../../../components/NotFound/NotFound";
 import ServerError from "../../../../components/ServerError/ServerError";
 
@@ -15,6 +14,9 @@ const Index = () => {
   useEffect(() => {
   }, [product_id])
   const {data, isLoading, isSuccess, isError, error} = useGetProductByIdQuery(product_id)
+  function isEven(n) {
+    return n % 2 === 0;
+  }
 
   return (
     <div>
