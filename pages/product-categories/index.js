@@ -6,12 +6,17 @@ import sebaLogo from '../../public/assets/imgs/seba_logo.png'
 import diversyLogo from '../../public/assets/imgs/diversy_logo.png'
 import logo from '../../public/assets/imgs/logo.jpg'
 import {useRouter} from "next/router";
-import {useGetProductCategoriesQuery} from "../../services/product/productApi";
+import {
+  getProductCategories,
+  getRunningQueriesThunk,
+  useGetProductCategoriesQuery
+} from "../../services/product/productApi";
 import Loading from "../../components/Loading/Loading";
 import NotFound from "../../components/NotFound/NotFound";
 import _ from "lodash"
 import {isEven} from "../../utils/common";
 import ServerError from "../../components/ServerError/ServerError";
+import {wrapper} from "../../services/store";
 
 const category = [
   {
@@ -31,12 +36,8 @@ const category = [
   }
 ]
 
-const Index = () => {
+const Index = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetProductCategoriesQuery();
-  const [isDataLoaded, setIsDataLoaded] = React.useState(false);
-  const [selectedCategory, setSelectedCategory] = React.useState(null);
-  // const [data, setData] = React.useState(null);
-  // const data = useGetSiteDetailsQuery();
   const router = useRouter();
 
 
@@ -118,5 +119,13 @@ const Index = () => {
     </div>
   );
 };
-
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({dispatch}) => async (context) => {
+    dispatch(getProductCategories.initiate());
+    await Promise.all(dispatch(getRunningQueriesThunk()));
+    return {
+      props: {},
+    };
+  }
+);
 export default Index;

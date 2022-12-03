@@ -156,23 +156,21 @@ const Footer = () => {
             <h3 className={cls("font-bold text-base")}>Contact</h3>
             <hr className={"my-5 w-full"}/>
             {
-             data && data[0]?.contact((v,i)=>(
-                    <div className={"flex flex-col"}>
-                      <div className={"text-xs leading-6"}>
-                        <div
-                            className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
-                          <p>{v.address}<br/>
-                            <b>Phone: </b> {v.phone}<br/>
-                            <b>Email: </b> {v.email}
-                          </p>
-                        </div>
-                        <Link href={"/contact"} className={"flex justify-center mt-3 text-blue-500"}>
-                          See more
-                        </Link>
-                      </div>
-                    </div>
-                ))
-
+              data &&
+              <div className={"flex flex-col"}>
+                <div className={"text-xs leading-6"}>
+                  <div
+                    className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
+                    <p>{data[0]?.contact[0]?.address}<br/>
+                      <b>Phone: </b> {data[0]?.contact[0]?.phone}<br/>
+                      <b>Email: </b> {data[0]?.contact[0]?.email}
+                    </p>
+                  </div>
+                  <Link href={"/contact"} className={"flex justify-center mt-3 text-blue-500"}>
+                    See more
+                  </Link>
+                </div>
+              </div>
             }
 
           </section>

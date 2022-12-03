@@ -2,15 +2,20 @@ import React from 'react';
 
 import ClientSlider from "./ClientSlider";
 import Head from "next/head";
-import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
+import {
+  getRunningQueriesThunk,
+  getSiteDetails,
+  useGetSiteDetailsQuery
+} from "../../services/siteDetails/siteDetailsApi";
 import error from "../../public/assets/imgs/404.webp"
 import Loading from "../../components/Loading/Loading";
 import _ from "lodash"
 import Image from "next/image"
 import NotFound from "../../components/NotFound/NotFound";
 import ServerError from "../../components/ServerError/ServerError";
+import {wrapper} from "../../services/store";
 
-const Index = () => {
+const Index = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
 
   return (
@@ -24,7 +29,6 @@ const Index = () => {
               content="Biochemical client, client, client list of biochemical, biochemical client list, biochemical client list in Bangladesh, biochemical client list in Asia, biochemical client list in Dhaka, biochemical client list in Chittagong, biochemical client list in Cox's Bazar, biochemical client list in Bangladesh, biochemical client list in Asia, biochemical client list in Dhaka, biochemical client list in Chittagong, biochemical client list in Cox's Bazar"/>
         <meta name="author" content="Biochemical"/>
         <meta name="robots" content="index, follow"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="language" content="English"/>
         <meta name="revisit-after" content="7 days"/>
         <meta name="distribution" content="web"/>
@@ -51,7 +55,7 @@ const Index = () => {
         <ClientSlider/>
       </div>
       {isLoading && <Loading/>}
-      {isSuccess && (!_.isEmpty(data) ?
+      {isSuccess && (!_.isEmpty(data) && !_.isEmpty(data[0]?.client) ?
           <div className={'bg-blue-white py-20'}>
             <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
             <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
@@ -78,5 +82,13 @@ const Index = () => {
     </div>
   );
 };
-
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({dispatch}) => async (context) => {
+    dispatch(getSiteDetails.initiate());
+    await Promise.all(dispatch(getRunningQueriesThunk()));
+    return {
+      props: {},
+    };
+  }
+);
 export default Index;

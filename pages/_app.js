@@ -19,7 +19,6 @@ import InitialLoading from "../components/Loading/InitialLoading";
 function App({Component, pageProps}) {
   const router = useRouter();
   const [loading, setLoading] = React.useState(true);
-  console.log(router.isReady)
   useEffect(() => {
     AOS.init({ones: false});
     setTimeout(() => {
