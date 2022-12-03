@@ -7,7 +7,9 @@ import diversyLogo from '../../public/assets/imgs/diversy_logo.png'
 import logo from '../../public/assets/imgs/logo.jpg'
 import {useRouter} from "next/router";
 import {useGetProductCategoriesQuery} from "../../services/product/productApi";
-
+import Loading from "../../components/Loading/Loading";
+import NotFound from "../../components/NotFound/NotFound";
+import _ from "lodash"
 const category = [
   {
     id: 1,
@@ -27,8 +29,7 @@ const category = [
 ]
 
 const Index = () => {
-  const {data, isLoading, isSuccess, isError} = useGetProductCategoriesQuery();
-
+  const {data, isLoading, isSuccess, isError, error} = useGetProductCategoriesQuery();
   const [isDataLoaded, setIsDataLoaded] = React.useState(false);
   const [selectedCategory, setSelectedCategory] = React.useState(null);
   // const [data, setData] = React.useState(null);
@@ -72,8 +73,8 @@ const Index = () => {
         <meta name="twitter:creator" content="Biochemical"/>
 
       </Head>
-      {isLoading && <div>Loading...</div>}
-      {isSuccess && (
+      {isLoading && <div><Loading/></div>}
+      {isSuccess && ( !_.isEmpty(data)?
           <div className={'bg-gray-100'}>
             <h2 className={'text-center text-xl text-black pt-10 '}>MARKET PRODUCTS</h2>
             <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
@@ -110,7 +111,7 @@ const Index = () => {
               {/*))}*/}
 
             </div>
-          </div>
+          </div>:<NotFound/>
       )}
       {isError && <div>Something want wrong...</div>}
 

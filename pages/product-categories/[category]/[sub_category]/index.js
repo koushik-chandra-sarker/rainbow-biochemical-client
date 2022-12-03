@@ -9,6 +9,9 @@ import {useGetProductsByCategoryNameQuery} from "../../../../services/product/pr
 import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
 import Skeleton from "react-loading-skeleton";
 import error from "../../../../public/assets/imgs/404.webp"
+import Loading from "../../../../components/Loading/Loading";
+import NotFound from "../../../../components/NotFound/NotFound";
+import _ from "lodash"
 const Index = () => {
   const router = useRouter()
   const {sub_category} = router.query
@@ -49,25 +52,8 @@ const Index = () => {
 
 
     </Head>
-    {isLoading && <div>
-      <Skeleton variant="rectangular" height={600} animation="wave"/>
-      <div className="container  1/12 sm:w-3/4 mx-auto md:px-0 px-8 my-12 mx-auto text-center">
-        <div className={'flex justify-center'}>
-          <Skeleton variant="rectangular" width={200} height={50} animation="wave"/>
-        </div>
-
-        <br/>
-        <Skeleton/>
-        <Skeleton animation="wave"/>
-        <Skeleton animation={false}/>
-        <br/><br/>
-        <Skeleton variant="rectangular" height={100} animation="wave"/>
-        <br/> <br/>
-        <Skeleton variant="rectangular" height={600} animation="wave"/>
-      </div>
-    </div>
-    }
-    {isSuccess && (
+    {isLoading && <div><Loading/></div>}
+    {isSuccess && ( !_.isEmpty(data)?
         <div className={'bg-gray-100 py-10'}>
           <div className={'mobile:w-8/12 mx-auto w-full flex  my-10'}>
             <div className={'mobile:w-1/4 w-full px-2'}>
@@ -143,7 +129,7 @@ ion-colors duration-200 ease-in-out"/>
 
             </div>
           </div>
-        </div>
+        </div>:<NotFound/>
     )}
     {isError && <div>
       <img src={error}/>

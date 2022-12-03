@@ -4,14 +4,18 @@ import RelatedProducts from "../../components/RelatedProducts";
 import {useRouter} from "next/router";
 import Head from "next/head";
 import {useGetProductByIdQuery} from "../../../../services/product/productApi";
-
+import Loading from "../../../../components/Loading/Loading";
+import _ from "lodash"
+import NotFound from "../../../../components/NotFound/NotFound";
+import ServerError from "../../../../components/ServerError/ServerError";
+import _ from "lodash"
 const Index = () => {
   const router = useRouter()
   const {product_id} = router.query
   useEffect(() => {
   }, [product_id])
-  const {data, isLoading, isSuccess, isError} = useGetProductByIdQuery(product_id)
-
+  const {data, isLoading, isSuccess, isError, error} = useGetProductByIdQuery(product_id)
+// console.log(error.status)
   function isEven(n) {
     return n % 2 === 0;
   }
@@ -48,11 +52,12 @@ const Index = () => {
       <meta name="twitter:site" content="https://biochemicalbd.com"/>
       <meta name="twitter:creator" content="Biochemical"/>
 
-    </Head>      Loading...
+    </Head>
 
 
-    {isLoading && <div>Loading...</div>}
-    {isSuccess && (<div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
+    {isLoading && <div><Loading/></div>}
+    {isSuccess && ( !_.isEmpty(data)?
+        <div className={'bg-gray-100 py-16 tablet:px-10 desktop:px-0'}>
         <div className={'desktop:w-8/12 mx-auto w-full flex flex-wrap bg-white my-10'}>
           <div className={'tablet:w-1/2 w-full p-10'}>
             <ProductSlider images={data?.images}/>
@@ -77,10 +82,10 @@ const Index = () => {
           <RelatedProducts products={data?.related_products}/>
         </div>}
 
-      </div>
+      </div>:<NotFound/>
 
     )}
-    {isError && <div>Something want wrong...</div>}
+    {isError && <div><ServerError error={error.status}/></div>}
   </div>);
 };
 

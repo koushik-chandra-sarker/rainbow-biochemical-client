@@ -9,6 +9,9 @@ import AuthorizedChannelPartner from "../components/Slider/AuthorizedChannelPart
 import {getRunningQueriesThunk, getSiteDetails, useGetSiteDetailsQuery} from "../services/siteDetails/siteDetailsApi";
 import {useRouter} from "next/router";
 import {wrapper} from "../services/store";
+import Loading from "../components/Loading/Loading";
+import _ from "lodash";
+import NotFound from "../components/NotFound/NotFound";
 
 const serviceList = [
   {
@@ -85,11 +88,11 @@ const Home = ({}) => {
         </div>
       </div>
       {/*data && data[0].homeCardSlider}/*/}
-      {isLoading && <div>Loading...</div>}
-      {isSuccess && (
+      {isLoading && <div><Loading/></div>}
+      {isSuccess && ( !_.isEmpty(data)?
         <div className={'bg'}>
           <div className={'bg-gray-100 pt-8 pb-8'}>
-            <CardSlider slider={data && data[0]?.homeCardSlider}/>
+            <CardSlider slider={data[0]?.homeCardSlider}/>
             <div className={'w-11/12 mt-20 mx-auto grid desktop:grid-cols-4 tablet:grid-cols-2 gap-10 '}>
               {serviceList.map((value, i) => (
                 <div className="w-full flex items-center flex-col" key={i}>
@@ -112,7 +115,7 @@ const Home = ({}) => {
               <AuthorizedChannelPartner slider={data && data[0]?.authorizedSlider}/>
             </div>
           </div>
-        </div>
+        </div>:<NotFound/>
       )}
       {isError && <div>Something want wrong...</div>}
     </div>

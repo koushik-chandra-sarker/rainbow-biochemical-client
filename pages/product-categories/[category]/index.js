@@ -6,8 +6,9 @@ import {useRouter} from "next/router";
 import {useGetCategoryByNameQuery} from "../../../services/product/productApi";
 import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
 import error from "../../../public/assets/imgs/404.webp"
-import Skeleton from "react-loading-skeleton";
-
+import Loading from "../../../components/Loading/Loading";
+import _ from "lodash"
+import NotFound from "../../../components/NotFound/NotFound";
 const Index = () => {
   const router = useRouter();
   const {category} = router.query;
@@ -51,32 +52,15 @@ const Index = () => {
         <meta name="twitter:creator" content="Biochemical"/>
 
       </Head>
-      {isLoading && <div>
-        <Skeleton variant="rectangular" height={600} animation="wave"/>
-        <div className="container  1/12 sm:w-3/4 mx-auto md:px-0 px-8 my-12 mx-auto text-center">
-          <div className={'flex justify-center'}>
-            <Skeleton variant="rectangular" width={200} height={50} animation="wave"/>
-          </div>
-
-          <br/>
-          <Skeleton/>
-          <Skeleton animation="wave"/>
-          <Skeleton animation={false}/>
-          <br/><br/>
-          <Skeleton variant="rectangular" height={100} animation="wave"/>
-          <br/> <br/>
-          <Skeleton variant="rectangular" height={600} animation="wave"/>
-        </div>
-      </div>
-      }
-      {isSuccess && (
+      {isLoading && <div><Loading/></div>}
+      {isSuccess && ( !_.isEmpty(data)?
           <div className={'bg-gray-100'}>
             <div className={'mobile:w-8/12 mx-auto px-4 text-center text-xl text-black pt-10 '}>
               <h2 className={'w-full border py-5 tablet:text-3xl text-xl uppercase font-bold text-gray-500'}>{category}</h2>
             </div>
             <div className={'mobile:w-8/12 full mx-auto  flex flex-wrap'}>
               {
-                data?.sub_category.map((v, i) => (
+                data[0]?.sub_category.map((v, i) => (
                       <div className={'mobile:w-1/2 my-10 w-full '} key={i}
                            data-aos={isEven(i) ? "fade-right" : "fade-left"}
                            data-aos-offset="100"
@@ -92,7 +76,7 @@ const Index = () => {
                       </div>))}
 
             </div>
-          </div>
+          </div>:<NotFound/>
       )}
       {isError && <div>
         <img src={error}/>
