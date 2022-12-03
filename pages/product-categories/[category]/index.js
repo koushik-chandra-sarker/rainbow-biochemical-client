@@ -9,11 +9,12 @@ import error from "../../../public/assets/imgs/404.webp"
 import Loading from "../../../components/Loading/Loading";
 import _ from "lodash"
 import NotFound from "../../../components/NotFound/NotFound";
+import ServerError from "../../../components/ServerError/ServerError";
 const Index = () => {
   const router = useRouter();
   const {category} = router.query;
   const subCategory = "sub-category";
-  const {data, isLoading, isSuccess, isError} = useGetCategoryByNameQuery(category);
+  const {data, isLoading, isSuccess, isError, error} = useGetCategoryByNameQuery(category);
 
   function isEven(n) {
     return n % 2 == 0;
@@ -79,7 +80,7 @@ const Index = () => {
           </div>:<NotFound/>
       )}
       {isError && <div>
-        <img src={error}/>
+        <ServerError error={error.status}/>
       </div>
       }
 

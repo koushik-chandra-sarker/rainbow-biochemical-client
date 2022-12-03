@@ -12,11 +12,12 @@ import error from "../../../../public/assets/imgs/404.webp"
 import Loading from "../../../../components/Loading/Loading";
 import NotFound from "../../../../components/NotFound/NotFound";
 import _ from "lodash"
+import ServerError from "../../../../components/ServerError/ServerError";
 const Index = () => {
   const router = useRouter()
   const {sub_category} = router.query
   const currentPath = router.pathname
- const {data, isLoading, isSuccess, isError} = useGetProductsByCategoryNameQuery(sub_category)
+ const {data, isLoading, isSuccess, isError, error} = useGetProductsByCategoryNameQuery(sub_category)
   return (<div>
     <Head>
       <title>Biochemical | Product Category - {sub_category}</title>
@@ -29,7 +30,7 @@ const Index = () => {
       <meta name="robots" content="index, follow"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       <meta name="language" content="English"/>
-      <meta name="revisit-after" content="7 days"/>      Something want wrong...
+      <meta name="revisit-after" content="7 days"/>
 
       <meta name="distribution" content="web"/>
       <meta name="rating" content="general"/>
@@ -132,7 +133,7 @@ ion-colors duration-200 ease-in-out"/>
         </div>:<NotFound/>
     )}
     {isError && <div>
-      <img src={error}/>
+      <ServerError error={error.status}/>
     </div>
     }
 
