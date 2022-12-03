@@ -6,6 +6,8 @@ import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi"
 import Loading from "../../components/Loading/Loading";
 import NotFound from "../../components/NotFound/NotFound";
 import _ from "lodash"
+import cls from 'classnames'
+import {isEven} from "../../utils/common";
 
 const Index = () => {
   const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
@@ -21,7 +23,6 @@ const Index = () => {
               content="Biochemical, Contact, address, address of biochemical, address of biochemical in Bangladesh, address of biochemical in Dhaka, address of biochemical in Asia, address of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia, Contact of biochemical in Asia, Contact, Contact of biochemical, Contact of biochemical in Bangladesh, Contact of biochemical in Dhaka, Contact of biochemical in Asia"/>
 
         <meta name="robots" content="index, follow"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="language" content="English"/>
         <meta name="revisit-after" content="1 days"/>
         <meta name="author" content="Biochemical"/>
@@ -38,58 +39,58 @@ const Index = () => {
           </div>
         </div>
       </div>
-      {isLoading && <div><Loading/></div>}
-      {isSuccess && ( !_.isEmpty(data)?
-        <div className={'bg-gray-100 relative border-b border-gray-200'}>
-          <div className={'mobile:w-8/12 w-full mx-auto mobile:flex  pb-20'}>
-            <div className={'mobile:w-5/12 w-full mobile:-mt-12 mt-10 border-8 border-white h-128  rounded-xl'}>
-              <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
-                      scrolling="no"
-                      src={data[0]?.contact[0]?.map_url}
-              />
-            </div>
-            <div
-              className={'mobile:w-7/12 w-full bg-gray-100 text-gray-600 mobile:pl-8 mobile:p-0 p-2 mt-16 h-auto pb-16'}>
-              <h2 className={'text-xl text-black pb-2'}>DHAKA OFFICE</h2>
-              <div className={'flex pb-4 items-center'}>
-                <div className={'pr-4 text-2xl text-gray-500'}>
-                  <HomeOutlined/>
+      {isLoading && <Loading/>}
+      {isSuccess && (!_.isEmpty(data) ?
+          <div className={'bg-gray-100 relative border-b border-gray-200'}>
+            {
+              data[0]?.contact?.map((contact, index) => (
+                <div
+                  className={cls('mobile:w-8/12 w-11/12 mx-auto mobile:flex  pb-20', !isEven(index) ? "flex-row-reverse" : "")}>
+                  <div className={'mobile:w-5/12 w-full mobile:-mt-12 mt-10 border-8 border-white h-128  rounded-xl'}>
+                    <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
+                            scrolling="no"
+                            src={contact?.map_url}
+                    />
+                  </div>
+                  <div
+                    className={'mobile:w-7/12 w-full bg-gray-100 text-gray-600 mobile:pl-8 mobile:p-0 p-2 mt-16 h-auto pb-16'}>
+                    <h2 className={'text-xl text-black pb-2'}>DHAKA OFFICE</h2>
+                    <div className={'flex pb-4 items-center'}>
+                      <div className={'pr-4 text-2xl text-gray-500'}>
+                        <HomeOutlined/>
+                      </div>
+                      <div className={'pr-24'}>
+                        <p className={'text-lg'}>{contact?.address}</p>
+                      </div>
+                    </div>
+                    <div className={'flex pb-4 items-center'}>
+                      <div className={'pr-4 text-2xl text-gray-500'}>
+                        <PhoneOutlined/>
+                      </div>
+                      <div className={'pr-24'}>
+                        <p className={'text-lg'}>Mobile: {contact?.mobile}</p>
+                        <p className={'text-lg'}>Phone: {contact?.phone}</p>
+                      </div>
+                    </div>
+                    <div className={'flex pb-4  items-center'}>
+                      <div className={'pr-4 text-2xl text-gray-500'}>
+                        <MailOutlined/>
+                      </div>
+                      <div className={'pr-24'}>
+                        <p className={'text-lg'}>E-Mail: {contact?.email}</p>
+                      </div>
+                    </div>
+                    <div className={'pt-16'}>
+                      <button
+                        className="w-full font-semibold  mx-auto text-white rounded-3xl flex justify-center  text-white  bg-blue-600 py-4   text-sm">
+                        See on navigation
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div className={'pr-24'}>
-                  <p className={'text-lg'}>{data[0]?.contact?.address}</p>
-                </div>
-              </div>
-              <div className={'flex pb-4 items-center'}>
-                <div className={'pr-4 text-2xl text-gray-500'}>
-                  <PhoneOutlined/>
-                </div>
-                <div className={'pr-24'}>
-                  <p className={'text-lg'}>Mobile: {data[0]?.contact?.mobile}</p>
-                  <p className={'text-lg'}>Phone: {data[0]?.contact?.phone}</p>
-                </div>
-              </div>
-              <div className={'flex pb-4  items-center'}>
-                <div className={'pr-4 text-2xl text-gray-500'}>
-                  <MailOutlined/>
-                </div>
-                <div className={'pr-24'}>
-                  <p className={'text-lg'}>E-Mail: {data[0]?.contact?.email}</p>
-                </div>
-              </div>
-              <div className={'pt-16'}>
-                <button
-                  className="w-full font-semibold  mx-auto text-white rounded-3xl flex justify-center  text-white  bg-blue-600 py-4   text-sm">
-                  See on navigation
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className={'mobile:w-4/12 w-full mx-auto flex  pb-8 justify-center'}>
-            <div>
-              <button className={'text-black '}>CONTACT FORM</button>
-            </div>
-          </div>
-        </div>:<NotFound/>
+              ))
+            }
+          </div> : <NotFound/>
       )}
       {isError && <div>Something want wrong...</div>}
       <ContactForm/>
