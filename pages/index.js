@@ -12,6 +12,7 @@ import {wrapper} from "../services/store";
 import Loading from "../components/Loading/Loading";
 import _ from "lodash";
 import NotFound from "../components/NotFound/NotFound";
+import ServerError from "../components/ServerError/ServerError";
 
 const serviceList = [
   {
@@ -46,7 +47,7 @@ const serviceList = [
 const Home = ({}) => {
   const router = useRouter();
   
-  const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
+  const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
   const title = 'Biochemical | Home'
   return (
     <div>
@@ -117,7 +118,7 @@ const Home = ({}) => {
           </div>
         </div>:<NotFound/>
       )}
-      {isError && <div>Something want wrong...</div>}
+      {isError && <div><ServerError error={error.status}/></div>}
     </div>
   )
 

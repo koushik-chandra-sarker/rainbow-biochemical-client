@@ -20,7 +20,7 @@ const Index = ({}) => {
   const router = useRouter();
   const {category} = router.query;
   const subCategory = "sub-category";
-  const {data, isLoading, isSuccess, isError} = useGetCategoryByNameQuery(category);
+  const {data, isLoading, isSuccess, isError, error} = useGetCategoryByNameQuery(category);
   return (
     <div>
       <Head>

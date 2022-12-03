@@ -12,10 +12,11 @@ import NotFound from "../../components/NotFound/NotFound";
 import _ from "lodash"
 import cls from 'classnames'
 import {isEven} from "../../utils/common";
+import ServerError from "../../components/ServerError/ServerError";
 import {wrapper} from "../../services/store";
 
 const Index = ({}) => {
-  const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
+  const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
 
   return (
     <div>
@@ -98,7 +99,7 @@ const Index = ({}) => {
             }
           </div> : <NotFound/>
       )}
-      {isError && <div>Something want wrong...</div>}
+      {isError && <div><ServerError error={error.status}/></div>}
       <ContactForm/>
     </div>
   );
