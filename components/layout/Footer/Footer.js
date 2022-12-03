@@ -140,7 +140,7 @@ const Footer = () => {
             <h3 className={cls("font-bold text-base")}>Products</h3>
             <hr className={"my-5 w-full"}/>
             <ul className={cls("text-gray-500 text-sm")}>
-              <li className={"mb-2"}>MARKET PRODUCTS</li>
+              <li className={"mb-2"}><Link href={"/product-categories"}>MARKET PRODUCTS</Link></li>
             </ul>
           </section>
           <section className={"tablet:block flex flex-col justify-center items-center"}>

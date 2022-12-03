@@ -2,9 +2,6 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import sebaLogo from '../../public/assets/imgs/seba_logo.png'
-import diversyLogo from '../../public/assets/imgs/diversy_logo.png'
-import logo from '../../public/assets/imgs/logo.jpg'
 import {useRouter} from "next/router";
 import {
   getProductCategories,
@@ -18,36 +15,16 @@ import {isEven} from "../../utils/common";
 import ServerError from "../../components/ServerError/ServerError";
 import {wrapper} from "../../services/store";
 
-const category = [
-  {
-    id: 1,
-    name: 'Seba',
-    image: sebaLogo,
-  },
-  {
-    id: 1,
-    name: 'Diversy',
-    image: diversyLogo,
-  },
-  {
-    id: 1,
-    name: 'Biochemical',
-    image: logo,
-  }
-]
-
 const Index = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetProductCategoriesQuery();
   const router = useRouter();
-
-
   return (
     <div className={'bg-gray-100 pb-10'}>
       <Head>
         <title>Biochemical | Product Categories</title>
         <meta name="description"
               content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
-        {/*create meta for SEO*/}https://file.rainbowgroup-bd.com/biochemical/images/chennel-1.png
+        {/*create meta for SEO*/}
         <meta name="keywords"
               content="Product Categories, Biochemical Product Categories, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar, Biochemical Product Categories in Bangladesh, Biochemical Product Categories in Asia, Biochemical Product Categories in Dhaka, Biochemical Product Categories in Chittagong, Biochemical Product Categories in Cox's Bazar"/>
         <meta name="author" content="Biochemical"/>
@@ -57,7 +34,7 @@ const Index = ({}) => {
         <meta name="distribution" content="web"/>
         <meta name="rating" content="general"/>
         {/*create meta for facebook*/}
-        <meta property="og:title" content={category}/>
+        <meta property="og:title" content={`Product Categories`}/>
         <meta property="og:description"
               content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
         <meta property="og:image" content="https://www.biochemical.com.bd/images/logo.png"/>
@@ -66,7 +43,7 @@ const Index = ({}) => {
         <meta property="og:type" content="website"/>
         {/*create meta for twitter*/}
         <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:title" content={category}/>
+        <meta name="twitter:title" content={"Product Categories"}/>
         <meta name="twitter:description"
               content="Biochemical is a leading importer, supplier, marketing and trading various kinds of Products & services to national & multinational company in Bangladesh. Presently Biochemical is operating its Business with permanent setup in Dhaka, Chittagong & Cox’s Bazar and servicing the customers with ultimate satisfaction and excellence."/>
         <meta name="twitter:image" content="https://www.biochemical.com.bd/images/logo.png"/>
