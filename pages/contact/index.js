@@ -45,8 +45,9 @@ const Index = () => {
             {
               data[0]?.contact?.map((contact, index) => (
                 <div
-                  className={cls('mobile:w-8/12 w-11/12 mx-auto mobile:flex  pb-20', !isEven(index) ? "flex-row-reverse" : "")}>
-                  <div className={'mobile:w-5/12 w-full mobile:-mt-12 mt-10 border-8 border-white h-128  rounded-xl'}>
+                  className={cls('mobile:w-8/12 w-11/12 mx-auto mobile:flex  pb-20 gap-10', !isEven(index) ? "flex-row-reverse" : "")}>
+                  <div
+                    className={'mobile:w-5/12 w-full mobile:-mt-12 mt-10 border-8 border-white mobile:h-128 h-96  rounded-xl'}>
                     <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
                             scrolling="no"
                             src={contact?.map_url}
@@ -59,7 +60,7 @@ const Index = () => {
                       <div className={'pr-4 text-2xl text-gray-500'}>
                         <HomeOutlined/>
                       </div>
-                      <div className={'pr-24'}>
+                      <div>
                         <p className={'text-lg'}>{contact?.address}</p>
                       </div>
                     </div>
@@ -67,7 +68,7 @@ const Index = () => {
                       <div className={'pr-4 text-2xl text-gray-500'}>
                         <PhoneOutlined/>
                       </div>
-                      <div className={'pr-24'}>
+                      <div>
                         <p className={'text-lg'}>Mobile: {contact?.mobile}</p>
                         <p className={'text-lg'}>Phone: {contact?.phone}</p>
                       </div>
@@ -76,7 +77,7 @@ const Index = () => {
                       <div className={'pr-4 text-2xl text-gray-500'}>
                         <MailOutlined/>
                       </div>
-                      <div className={'pr-24'}>
+                      <div>
                         <p className={'text-lg'}>E-Mail: {contact?.email}</p>
                       </div>
                     </div>
