@@ -10,19 +10,27 @@ import 'animate.css';
 import 'aos/dist/aos.css';
 import {wrapper} from "../services/store";
 import AOS from 'aos';
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {Slide, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {useRouter} from "next/router";
+import InitialLoading from "../components/Loading/InitialLoading";
 
 function App({Component, pageProps}) {
-
+  const router = useRouter();
+  const [loading, setLoading] = React.useState(true);
+  console.log(router.isReady)
   useEffect(() => {
     AOS.init({ones: false});
+    setTimeout(() => {
+      if (router.isReady) setLoading(false);
+    }, 2000)
   }, []);
 
 
-  return (// <Provider store={store}>
+  return (
     <>
+      {loading && <InitialLoading/>}
       <Layout>
         <Component {...pageProps} />
         <ToastContainer
@@ -41,21 +49,9 @@ function App({Component, pageProps}) {
       </Layout>
     </>
 
-    // </Provider>
   )
 }
 
 export default wrapper.withRedux(App);
-// export default App;
-//
-// function App({Component, pageProps}) {
-//   ;
-//   return (
-//     <Layout>
-//       <Component {...pageProps} />
-//     </Layout>
-//   )
-// }
-//
-// export default wrapper.withRedux(App);
+
 

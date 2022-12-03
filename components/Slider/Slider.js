@@ -50,7 +50,7 @@ export default function Slider(props) {
           props.slider?.map((v, i) => (
             <SwiperSlide key={i}>
               <div className={"relative  hidden mobile:block "}>
-                <Image src={v.image} alt={v.title}
+                <Image src={v.image} alt={v.title ? v.title : 'Home slider'}
                        height={2}
                        width={1800}
                        className={'w-full'}
@@ -62,7 +62,7 @@ export default function Slider(props) {
                 </div>
               </div>
               <div className={"relative block mobile:hidden"}>
-                <Image src={v.image_mobile} alt={v.title}
+                <Image src={v.image_mobile} alt={v.title ? v.title : 'Home Slider'}
                        height={2}
                        width={500}
                        className={'w-full tablet:hidden block'}
