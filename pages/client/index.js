@@ -3,12 +3,12 @@ import React from 'react';
 import ClientSlider from "./ClientSlider";
 import Head from "next/head";
 import {useGetSiteDetailsQuery} from "../../services/siteDetails/siteDetailsApi";
-import Skeleton from 'react-loading-skeleton'
 import error from "../../public/assets/imgs/404.webp"
 import Loading from "../../components/Loading/Loading";
 import _ from "lodash"
 import Image from "next/image"
 import NotFound from "../../components/NotFound/NotFound";
+
 const Index = () => {
   const {data, isLoading, isSuccess, isError} = useGetSiteDetailsQuery();
 
@@ -50,24 +50,24 @@ const Index = () => {
         <ClientSlider/>
       </div>
       {isLoading && <Loading/>}
-      {isSuccess && ( !_.isEmpty(data)?
-        <div className={'bg-blue-white py-20'}>
-          <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
-          <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
-            {
-              data[0]?.client.map((v, i) => (
-                <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
-                  <div className={'mx-2'}>
-                    <div className={'shadow bg-white'}>
-                      <Image src={v.image} height={2} width={50}
-                           className={'h-36 p-2 object-contain scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
+      {isSuccess && (!_.isEmpty(data) ?
+          <div className={'bg-blue-white py-20'}>
+            <h2 className={'text-center text-2xl italic text-gray-400'}>Our Few Client Lists</h2>
+            <div className={'w-8/12 mx-auto mt-10 flex flex-wrap '}>
+              {
+                data[0]?.client.map((v, i) => (
+                  <div className={'mobile:w-1/4 w-full  mt-4'} key={i}>
+                    <div className={'mx-2'}>
+                      <div className={'shadow bg-white'}>
+                        <Image src={v.image} height={2} width={50}
+                               className={'h-36 p-2 object-contain scale-50 hover:scale-75 ease-in duration-500 w-full'}/>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
 
-          </div>
-        </div>:<NotFound/>
+            </div>
+          </div> : <NotFound/>
       )}
       {isError && <div>
         <img src={error}/>
