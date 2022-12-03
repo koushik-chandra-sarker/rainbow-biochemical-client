@@ -1,4 +1,5 @@
 import React from 'react';
+import {error} from "next/dist/build/output/log";
 
 const ServerError = (props) => {
   return (
@@ -6,10 +7,9 @@ const ServerError = (props) => {
       className="container mx-auto w-full py-20 flex flex-col tablet:flex-row items-center justify-center space-y-16 tablet:space-y-0 space-x-8 2xl:space-x-0">
       <div
         className="w-full tablet:w-1/2 flex flex-col items-center justify-center tablet:px-2 desktop:px-0 text-center">
-        <p className="text-7xl md:text-8xl tablet:text-9xl font-bold tracking-wider text-gray-300">{props.error}</p>
+        <p className="text-7xl md:text-8xl tablet:text-9xl font-bold tracking-wider text-gray-300">{props.errorStatus}</p>
         <p className="text-4xl md:text-5xl tablet:text-6xl font-bold tracking-wider text-gray-300 mt-2">Server Error</p>
-        <p className="text-tablet md:text-xl tablet:text-2xl text-gray-500 my-12">Whoops, something went wrong on our
-          servers.</p>
+        <p className="text-tablet md:text-xl tablet:text-2xl text-gray-500 my-12">{props.error}</p>
       </div>
       <div className="w-1/2 tablet:h-full flex tablet:items-center justify-center p-4">
         <svg className="w-full text-blue-600" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"

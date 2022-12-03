@@ -82,7 +82,7 @@ const Index = ({}) => {
           </div> : <NotFound/>
       )}
       {isError && <div>
-        <ServerError error={error.status}/>
+        <ServerError errorStatus={error.status} error={error.error}/>
       </div>
       }
 

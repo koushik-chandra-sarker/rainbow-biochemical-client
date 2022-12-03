@@ -45,6 +45,7 @@ const serviceList = [
 ]
 const Home = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
+  console.log(error)
   const title = 'Biochemical | Home'
   return (
     <div>
@@ -113,7 +114,7 @@ const Home = ({}) => {
             </div>
           </div> : <NotFound/>
       )}
-      {isError && <div><ServerError error={error.status}/></div>}
+      {isError && <div><ServerError errorStatus={error.status} error={error.error} /></div>}
     </div>
   )
 
