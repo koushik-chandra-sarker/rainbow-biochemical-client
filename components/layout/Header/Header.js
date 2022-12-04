@@ -12,6 +12,7 @@ import {useRouter} from "next/router";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openSideBar, setOpenSideBar] = useState(false);
   const [menuImage, setMenuImage] = useState();
   const dropdownOverlay = useRef();
 
@@ -110,11 +111,11 @@ const Header = () => {
       </div>
       {/*Mobile Navbar*/}
       <div className={cls("tablet:container px-4 block desktop:hidden mx-auto h-full")}>
-        <Sidebar/>
+        <Sidebar openSidebar={openSideBar}/>
         <div className={cls("flex flex-wrap items-center justify-between h-full")}>
           <div className={cls(styles.hamburger)}>
             <label htmlFor="check">
-              <input type="checkbox" id="check" onClick={() => collapseSidebar()}/>
+              <input type="checkbox" id="check" onClick={() => setOpenSideBar(!openSideBar)}/>
               <span></span>
               <span></span>
               <span></span>
