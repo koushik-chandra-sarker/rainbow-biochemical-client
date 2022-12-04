@@ -2,9 +2,12 @@ import React from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation, Pagination} from "swiper";
 import Image from "next/image";
+import Link from "next/link";
+import {useRouter} from "next/router";
 
 const RelatedProducts = ({products}) => {
-
+  const {sub_category, category} = useRouter().query;
+  // console.log(router)
   return (
     <div>
       <Swiper
@@ -38,13 +41,14 @@ const RelatedProducts = ({products}) => {
         }}
       >
         {
-          products.map((v, i) => (
+          products?.map((v, i) => (
             <SwiperSlide className={"h-full "} key={i}>
-              <div className={'flex flex-col bg-white items-center gap-5 p-5 cursor-pointer'}>
+              <Link href={`/product-categories/${category}/${sub_category}/${v.id}`}
+                    className={'flex flex-col bg-white items-center gap-5 p-5 cursor-pointer'}>
                 <Image alt={'xcv'} src={v.thumbnail} height={2} width={1800}
                        className={"object-contain tablet:h-48 h-36"}/>
                 <h2 className={'inline-block w-full whitespace-nowrap text-ellipsis overflow-hidden'}>{v.name}</h2>
-              </div>
+              </Link>
             </SwiperSlide>
 
           ))}

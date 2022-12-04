@@ -12,7 +12,7 @@ const ProductSlider = (props) => {
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
-          "max-height": "400px",
+          "maxHeight": "400px",
         }}
         loop={true}
         spaceBetween={10}
@@ -25,11 +25,11 @@ const ProductSlider = (props) => {
           !_.isEmpty(props.images) ?
             props.images.map((image, i) => (
               <SwiperSlide key={i}>
-                <Image className={'object-content'} src={image.url} height={100} width={530}/>
+                <Image className={'object-content'} src={image.url} alt={"product_image"} height={100} width={530}/>
               </SwiperSlide>
             )) :
             <SwiperSlide>
-              <Image className={'object-center'} src={''}/>
+              <Image className={'object-center'} src={''} alt={"product_image"}/>
             </SwiperSlide>
 
 
@@ -49,11 +49,11 @@ const ProductSlider = (props) => {
           !_.isEmpty(props.images) ?
             props.images.map((image, i) => (
               <SwiperSlide key={i} className={i === 0 ? "swiper-slide-thumb-active" : ""}>
-                <Image className={'object-center'} src={image.url} height={2} width={100}/>
+                <Image className={'object-center'} src={image.url} alt={"thumbnail"} height={2} width={100}/>
               </SwiperSlide>
             )) :
             <SwiperSlide>
-              <Image className={'object-center'} src={''}/>
+              <Image className={'object-center'} src={''} alt={"thumbnail"}/>
             </SwiperSlide>
         }
       </Swiper>

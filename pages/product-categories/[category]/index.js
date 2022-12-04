@@ -8,7 +8,6 @@ import {
   getRunningQueriesThunk,
   useGetCategoryByNameQuery
 } from "../../../services/product/productApi";
-import error from "../../../public/assets/imgs/404.webp"
 import Loading from "../../../components/Loading/Loading";
 import _ from "lodash"
 import NotFound from "../../../components/NotFound/NotFound";
@@ -16,10 +15,10 @@ import {isEven} from "../../../utils/common";
 import {wrapper} from "../../../services/store";
 
 import ServerError from "../../../components/ServerError/ServerError";
+
 const Index = ({}) => {
   const router = useRouter();
   const {category} = router.query;
-  const subCategory = "sub-category";
   const {data, isLoading, isSuccess, isError, error} = useGetCategoryByNameQuery(category);
   return (
     <div>
@@ -55,7 +54,7 @@ const Index = ({}) => {
 
       </Head>
       {isLoading && <div><Loading/></div>}
-      {isSuccess && (!_.isEmpty(data) ?
+      {isSuccess && (!_.isEmpty(data) && !_.isEmpty(data[0]?.sub_category) ?
           <div className={'bg-gray-100'}>
             <div className={'mobile:w-8/12 mx-auto px-4 text-center text-xl text-black pt-10 '}>
               <h2
@@ -70,14 +69,13 @@ const Index = ({}) => {
                        data-aos-easing="ease-in-sine">
                     <Link href={`${router.asPath}/${v.name}`}>
                       <div className={'mx-4 bg-white h-124 mb-8'}>
-                        <Image src={v.thumbnail} alt={"aa"} height={2} width={1500}
+                        <Image src={v.thumbnail} alt={"aa"} height={2} width={500}
                                className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>
                         <h2 className={'text-center bg-white text-xl  text-black py-4'}>{v.name}</h2>
                       </div>
                     </Link>
 
                   </div>))}
-
             </div>
           </div> : <NotFound/>
       )}

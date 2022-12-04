@@ -28,6 +28,7 @@ const Footer = () => {
   }
   useEffect(() => {
     if (isSuccess) {
+      toast.success("Successfully subscribed");
       setState({
         email: ""
       })
@@ -92,27 +93,27 @@ const Footer = () => {
           </div>
           <hr className={"my-8"}/>
           <Swiper
-            slidesPerView={2}
+            slidesPerView={3}
             spaceBetween={30}
             navigation={true}
             autoplay={{
               delay: 1000, disableOnInteraction: false, pauseOnMouseEnter: true
             }}
             modules={[Autoplay, Navigation]}
-            className="mySwiper" // {data && data.data && data.data[0].facebook}
+            className="footerSwiper" // {data && data.data && data.data[0].facebook}
           >
             {
               // {data && data.data && data.data[0].facebook}
 
               data && data[0]?.footerSlider.map((v, i) => (
                 <SwiperSlide key={i}>
-                  <div className={"h-32 w-32"}>
+                  <Link href={`/product-categories/${v.product_url}`} className={"h-28 w-28"}>
                     <Image src={v.image} alt={'p1'}
                            height={2}
-                           width={1800}
+                           width={500}
                            className={"w-full h-full object-contain"}
                     />
-                  </div>
+                  </Link>
                 </SwiperSlide>
               ))}
 
@@ -203,7 +204,8 @@ const Footer = () => {
 
       {/*  Copyright*/}
       <section className={"w-full flex justify-center items-center py-2  mt-20 bg-green-100"}>
-        <CopyrightOutlined className={'mr-2'}/> 2021 Develop by Waysis-IT Solution
+        <CopyrightOutlined className={'mr-2'}/> CopyRight {new Date().getFullYear()} Biochemical. All Rights Reserved.
+        Develop by <a href="https://iamkoushik.com" target={"_blank"} className={"pl-1 text-blue-600"}> Koushik</a>
       </section>
     </footer>);
 };

@@ -45,7 +45,6 @@ const serviceList = [
 ]
 const Home = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
-  console.log(data)
   const title = 'Biochemical | Home'
   return (
     <div>
@@ -107,10 +106,13 @@ const Home = ({}) => {
               <div className={"tablet:mt-20 w-11/12 mx-auto"}>
                 <Feature/>
               </div>
-              <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
-                <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
-                <AuthorizedChannelPartner slider={data && data[0]?.channelPartner}/>
-              </div>
+              {
+                data && data[0]?.channelPartner &&
+                <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
+                  <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
+                  <AuthorizedChannelPartner slider={data && data[0]?.channelPartner}/>
+                </div>
+              }
             </div>
           </div> : <NotFound/>
       )}

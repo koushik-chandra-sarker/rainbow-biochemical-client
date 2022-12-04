@@ -5,13 +5,11 @@ import Image from "next/image";
 import styles from '../../Product.module.scss'
 import cls from "classnames";
 import Head from "next/head";
-import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
 import {
   getProductsByCategoryName,
   getRunningQueriesThunk,
   useGetProductsByCategoryNameQuery
 } from "../../../../services/product/productApi";
-import error from "../../../../public/assets/imgs/404.webp"
 import Loading from "../../../../components/Loading/Loading";
 import NotFound from "../../../../components/NotFound/NotFound";
 import _ from "lodash"
@@ -21,8 +19,7 @@ import {wrapper} from "../../../../services/store";
 const Index = ({}) => {
   const router = useRouter()
   const {sub_category} = router.query
-  const currentPath = router.pathname
- const {data, isLoading, isSuccess, isError, error} = useGetProductsByCategoryNameQuery(sub_category)
+  const {data, isLoading, isSuccess, isError, error} = useGetProductsByCategoryNameQuery(sub_category)
   return (<div>
     <Head>
       <title>Biochemical | Product Category - {sub_category}</title>
@@ -57,9 +54,9 @@ const Index = ({}) => {
 
     </Head>
     {isLoading && <div><Loading/></div>}
-    {isSuccess && ( !_.isEmpty(data)?
+    {isSuccess && (!_.isEmpty(data) ?
         <div className={'bg-gray-100 py-10'}>
-          <div className={'mobile:w-8/12 mx-auto w-full flex  my-10'}>
+          {/*<div className={'mobile:w-8/12 mx-auto w-full flex  my-10'}>
             <div className={'mobile:w-1/4 w-full px-2'}>
               <input
                 type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
@@ -88,16 +85,19 @@ const Index = ({}) => {
               </button>
             </div>
 
+          </div>*/}
+          <div className={'tablet:w-8/12 w-11/12 mx-auto  text-center text-xl text-black'}>
+            <h2
+              className={'w-full border py-5 tablet:text-3xl text-xl uppercase font-bold text-gray-500 bg-white'}>{sub_category}</h2>
           </div>
-
           <div className={'pb-16'}>
-            <div className={'w-8/12 mx-auto mt-10 flex flex-wrap py-2'}>
+            <div className={'tablet:w-8/12 w-11/12 mx-auto  grid mobile:grid-cols-3 grid-cols-1 py-2 gap-5'}>
               {
                 data && data.map((v, i) => (
-                  <div className={'mobile:w-1/3 w-full mt-8'} key={i}>
+                  <div className={'w-full mt-8 h-full bg-white'} key={i}>
                     <Link href={`${router.asPath}/${v.id}`}
-                          className={cls(styles.product, "cursor-pointer")}>
-                      <div className={'mx-4 bg-white'}>
+                          className={cls(styles.product, "cursor-pointer h-full")}>
+                      <div className={' h-full'}>
                         <Image src={v.thumbnail} alt={"dd"} height={2} width={1700}
                                className={'h-80 object-contain p-8  w-full'}/>
                         <h2 className={'text-center px-8 pb-2 text-gray-500'}>{v.name}</h2>
@@ -112,26 +112,6 @@ const Index = ({}) => {
                   </div>
 
                 ))}
-              {/*{[1, 1, 1, 1, 1, 1].map((v, i) => (*/}
-              {/*    <div className={'mobile:w-1/3 w-full mt-8'} key={i}>*/}
-              {/*      <Link href={`${router.asPath}/${i}`}*/}
-              {/*            className={cls(styles.product, "cursor-pointer")}>*/}
-              {/*        <div className={'mx-4 bg-white'}>*/}
-              {/*          <Image src={img} alt={"dd"} className={'h-80 object-contain p-8  w-full'}/>*/}
-              {/*          <h2 className={'text-center px-8 pb-2 text-gray-500'}>Multi Surface & Odor Eliminator*/}
-              {/*            Concentrated</h2>*/}
-              {/*          <div className={'justify-center flex'}>*/}
-              {/*            <button*/}
-              {/*                className={cls(styles.button, "w-32 uppercase font-semibold align-center items-center flex justify-center  text-gray-500  bg-white py-4 text-sm")}>*/}
-              {/*              Details*/}
-              {/*            </button>*/}
-              {/*          </div>*/}
-              {/*        </div>*/}
-              {/*      </Link>*/}
-              {/*    </div>*/}
-
-              {/*))}*/}
-
             </div>
           </div>
         </div> : <NotFound/>

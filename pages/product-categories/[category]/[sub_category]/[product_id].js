@@ -14,10 +14,6 @@ const Index = () => {
   useEffect(() => {
   }, [product_id])
   const {data, isLoading, isSuccess, isError, error} = useGetProductByIdQuery(product_id)
-  function isEven(n) {
-    return n % 2 === 0;
-  }
-
   return (
     <div>
       <Head>
@@ -63,10 +59,11 @@ const Index = () => {
               <div className={'tablet:w-1/2 w-full px-2 py-8'}>
                 <div className={'py-4 px-8 border-l border-gray-200'}>
                   <h2 className={'text-black text-xl font-semibold pb-2 tracking-wide'}> {data?.name}</h2>
-                  <div className={'mt-4'} dangerouslySetInnerHTML={{__html: data?.description}}/>
+                  <div className={'mt-4 product-des'} dangerouslySetInnerHTML={{__html: data?.description}}/>
                   <div className={'grid grid-cols-2 text-sm mt-8 gap-5'}>
                     {data?.specification.map((spec, index) => (
                       <div
+                        key={index}
                         className="text-sm text-gray-900 capitalize tracking-wide">{spec.name}: <strong>{spec.value}</strong>
                       </div>
                     ))}

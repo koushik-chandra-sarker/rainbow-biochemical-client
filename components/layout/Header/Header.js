@@ -9,12 +9,14 @@ import Search from "../../Search/Search";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
 import {useRouter} from "next/router";
+import {useGetSiteDetailsQuery} from "../../../services/siteDetails/siteDetailsApi";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSideBar, setOpenSideBar] = useState(false);
   const [menuImage, setMenuImage] = useState();
   const dropdownOverlay = useRef();
+  const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
 
   let router = useRouter();
   useEffect(() => {
@@ -96,10 +98,14 @@ const Header = () => {
 
           {/*  whatsapp and search box*/}
           <div className={cls("flex items-center")}>
-            <a href="tel:+8801711-000000" className={cls("flex items-center text-gray-400 mr-16")}>
-              <FaPhoneSquareAlt className={cls("h-5 w-5 mr-2")}/>
-              <span>+8801716067146</span>
-            </a>
+            {
+              data && data[0]?.phone &&
+              <a href={`tel:${data[0]?.phone}`} className={cls("flex items-center text-gray-400 mr-16")}>
+                <FaPhoneSquareAlt className={cls("h-5 w-5 mr-2")}/>
+                <span>{data[0]?.phone}</span>
+              </a>
+            }
+
             <div className={"relative h-full"}>
               <div className={"absolute right-0 -top-5 "}>
                 <Search/>

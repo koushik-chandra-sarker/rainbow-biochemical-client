@@ -21,12 +21,12 @@ function App({Component, pageProps}) {
   const [loading, setLoading] = React.useState(true);
   useEffect(() => {
     AOS.init({ones: false});
+  }, []);
+  useEffect(() => {
     setTimeout(() => {
       if (router.isReady) setLoading(false);
     }, 2000)
-  }, []);
-
-
+  }, [router.isReady]);
   return (
     <>
       {loading && <InitialLoading/>}
