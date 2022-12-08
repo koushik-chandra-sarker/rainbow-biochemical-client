@@ -2,7 +2,7 @@ import styles from './Header.module.scss'
 import cls from 'classnames';
 import {FaPhoneSquareAlt} from "@react-icons/all-files/fa/FaPhoneSquareAlt";
 import {RiArrowDownSLine} from "@react-icons/all-files/ri/RiArrowDownSLine";
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Image from 'next/image'
 import logo from "../../../public/assets/imgs/logo_h.jpg";
 import Search from "../../Search/Search";
@@ -16,8 +16,8 @@ const Header = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
   const [menuImage, setMenuImage] = useState();
   const dropdownOverlay = useRef();
+  const [openModal, setOpenModal] = useState(false);
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
-
   let router = useRouter();
   useEffect(() => {
     handleMenuImage(router.pathname)
@@ -32,6 +32,12 @@ const Header = () => {
       setMenuImage("/assets/imgs/menu-2.jpg")
     } else if (pathname === "/clients") {
       setMenuImage("/assets/imgs/menu-3.jpg")
+    }
+  }
+
+  function handleOpenModal(event) {
+    if (event.key === 'Enter') {
+      console.log('do validate')
     }
   }
 
@@ -108,7 +114,7 @@ const Header = () => {
 
             <div className={"relative h-full"}>
               <div className={"absolute right-0 -top-5 "}>
-                <Search/>
+                <Search onKeyEnter={() => setOpenModal(true)}/>
               </div>
             </div>
           </div>
@@ -150,6 +156,7 @@ const Header = () => {
       </div>
 
     </header>
+
   </>);
 };
 
