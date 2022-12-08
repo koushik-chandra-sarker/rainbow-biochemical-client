@@ -51,7 +51,7 @@ export default function CardSlider(props) {
         <Slider {...settings}>
           {
             props.slider?.map((v, i) => (
-              <Link href={`/product-categories/${v.product_url}`} className={''} key={i}>
+              <Link href={`/product-categories${v.product_url}`} className={''} key={i}>
                 <div className={'mobile:flex shadow-xl rounded-lg bg-white overflow-hidden'}>
                   <div className={'mobile:w-1/2 w-full'}>
                     <Image src={v.image} alt={"card"} height={100} width={500}

@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
-import ProductSlider from "../../components/ProductSlider";
-import RelatedProducts from "../../components/RelatedProducts";
+import ProductSlider from "../../../../components/Slider/ProductSlider";
+import RelatedProducts from "../../../../components/RelatedProducts";
 import {useRouter} from "next/router";
 import Head from "next/head";
-import {useGetProductByIdQuery} from "../../../../services/product/productApi";
+import {getProductById, getRunningQueriesThunk, useGetProductByIdQuery} from "../../../../services/product/productApi";
 import Loading from "../../../../components/Loading/Loading";
 import NotFound from "../../../../components/NotFound/NotFound";
 import ServerError from "../../../../components/ServerError/ServerError";
+import {wrapper} from "../../../../services/store";
 
 const Index = () => {
   const router = useRouter()
@@ -83,5 +84,18 @@ const Index = () => {
       {isError && <div><ServerError errorStatus={error.status} error={error.error}/></div>}
     </div>);
 };
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({dispatch}) => async ({req, res}) => {
+    dispatch(getProductById.initiate());
+    await Promise.all(dispatch(getRunningQueriesThunk()));
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
+    return {
+      props: {},
+    };
+  }
+);
 
 export default Index;

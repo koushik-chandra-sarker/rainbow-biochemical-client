@@ -4,7 +4,6 @@ import Image from "next/image";
 import iconPhone from "../../../public/assets/icons/icon-phone.png";
 import iconMail from "../../../public/assets/icons/icon-mail.png";
 import iconShare from "../../../public/assets/icons/icon-share.png";
-import p1 from "../../../public/assets/imgs/p1.jpg";
 import logo from "../../../public/assets/imgs/logo_h.jpg";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Navigation} from "swiper";
@@ -107,7 +106,7 @@ const Footer = () => {
 
               data && data[0]?.footerSlider.map((v, i) => (
                 <SwiperSlide key={i}>
-                  <Link href={`/product-categories/${v.product_url}`} className={"h-28 w-28"}>
+                  <Link href={`/product-categories${v.product_url}`} className={"h-28 w-28"}>
                     <Image src={v.image} alt={'p1'}
                            height={2}
                            width={500}

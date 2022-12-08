@@ -2,33 +2,10 @@ import React, {useState} from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
-import img1 from '../../public/assets/imgs/prfume_3_generated.jpg'
-import img2 from '../../public/assets/imgs/perfume.jpg'
-import img3 from '../../public/assets/imgs/sanitizer.jpg'
-import img4 from '../../public/assets/imgs/cleaner.jpg'
 import Image from 'next/image';
 import cls from "classnames";
 import Link from "next/link";
 import _ from "lodash";
-
-const sliderContent = [
-  {
-    img: img1,
-    title: 'Perfume',
-  },
-  {
-    img: img2,
-    title: 'Perfume',
-  },
-  {
-    img: img3,
-    title: 'Sanitizer',
-  },
-  {
-    img: img4,
-    title: 'Cleaner',
-  }
-]
 
 export default function Slider(props) {
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
@@ -53,14 +30,14 @@ export default function Slider(props) {
             <SwiperSlide key={i}>
               <div className={"relative  hidden mobile:block "}>
                 <Image src={v.image} alt={v.title ? v.title : 'Home slider'}
-                       height={2}
+                       height={500}
                        width={1800}
                        className={'w-full'}
                 />
                 {
                   !_.isNull(v.product) ?
                     <div className={'absolute top-2/4 left-40 z-20 animate__bounce'}>
-                      <Link href={`/product-categories/${v.product_url}`}
+                      <Link href={`/product-categories${v.product_url}`}
                             className={cls(" bg-blue-600 text-xl text-white rounded-3xl px-12 py-2 animate__animated ", activeSliderIndex === i ? "animate__slideInLeft" : "")}>Details
                       </Link>
                     </div>

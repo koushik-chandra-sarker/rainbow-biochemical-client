@@ -124,9 +124,13 @@ const Index = ({}) => {
   </div>);
 };
 export const getServerSideProps = wrapper.getServerSideProps(
-  ({dispatch}) => async (context) => {
+  ({dispatch}) => async ({req, res}) => {
     dispatch(getProductsByCategoryName.initiate());
     await Promise.all(dispatch(getRunningQueriesThunk()));
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
     return {
       props: {},
     };

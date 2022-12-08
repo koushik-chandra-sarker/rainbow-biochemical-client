@@ -43,7 +43,7 @@ const Header = () => {
         <div className={cls("flex flex-wrap items-center justify-between h-full")}>
           {/*logo*/}
           <div className={cls("flex items-center")}>
-            <Link href="/" className={cls("flex items-center")}>
+            <Link href="/" className={cls("flex items-center")} shallow={true}>
               <Image src={logo} alt="Biochemical logo" className={cls("w-36")}/>
             </Link>
           </div>
@@ -52,11 +52,11 @@ const Header = () => {
             <ul
               className={cls("h-full flex  items-center justify-between uppercase font-semibold text-base space-x-16")}>
               <li className={cls("mr-4 h-full flex items-center")}>
-                <Link href="/product-categories" className={cls("text-gray-600")}>Products</Link>
+                <Link href="/product-categories" shallow={true} className={cls("text-gray-600")}>Products</Link>
               </li>
               <li onMouseOver={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}
                   className={cls(styles.dropdown, "mr-4 h-full flex items-center")}>
-                <Link href="#" className={cls("text-gray-600 flex items-center ")}>
+                <Link href="#" shallow={true} className={cls("text-gray-600 flex items-center ")}>
                   <span>Biochemical</span>
                   <RiArrowDownSLine className={cls(styles.dropdown_icon, "ml-1 w-6 h-6")}/>
                 </Link>
@@ -68,17 +68,17 @@ const Header = () => {
                       <li
                         onMouseOver={() => handleMenuImage('/')}
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        <Link className={"block"} href={"/"}>Home</Link>
+                        <Link shallow={true} className={"block"} href={"/"}>Home</Link>
                       </li>
                       <li
                         onMouseOver={() => handleMenuImage('/about')}
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        <Link className={"block"} href={"/about"}>About</Link>
+                        <Link shallow={true} className={"block"} href={"/about"}>About</Link>
                       </li>
                       <li
                         onMouseOver={() => handleMenuImage('/clients')}
                         className={cls("text-gray-600 hover:text-gray-700 text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-gray-700  p-2 pl-5")}>
-                        <Link className={"block"} href={"/client"}>Clients</Link>
+                        <Link shallow={true} className={"block"} href={"/client"}>Clients</Link>
                       </li>
                     </ul>
 
@@ -90,7 +90,7 @@ const Header = () => {
                 </div>
               </li>
               <li className={cls("mr-4 h-full flex items-center")}>
-                <Link href="/contact" className={cls("text-gray-600")}>Contact</Link>
+                <Link shallow={true} href="/contact" className={cls("text-gray-600")}>Contact</Link>
               </li>
             </ul>
           </div>
@@ -128,7 +128,7 @@ const Header = () => {
             </label>
           </div>
           <div className={cls("flex items-center")}>
-            <Link href="/" className={cls("flex items-center")}>
+            <Link shallow={true} href="/" className={cls("flex items-center")}>
               <Image src={logo} alt="Biochemical logo" className={cls("w-36")}/>
             </Link>
           </div>
