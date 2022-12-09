@@ -96,7 +96,7 @@ const Index = ({}) => {
                   </div>
                 </div>
               ))
-            }
+            }errorPort
           </div> : <NotFound/>
       )}
       {isError && <div><ServerError errorStatus={error.status} error={error.error}/></div>}
