@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
-import ProductSlider from "../../components/ProductSlider";
-import RelatedProducts from "../../components/RelatedProducts";
+import ProductSlider from "../../../../components/Slider/ProductSlider";
+import RelatedProducts from "../../../../components/RelatedProducts";
 import {useRouter} from "next/router";
 import Head from "next/head";
-import {useGetProductByIdQuery} from "../../../../services/product/productApi";
+import {getProductById, getRunningQueriesThunk, useGetProductByIdQuery} from "../../../../services/product/productApi";
 import Loading from "../../../../components/Loading/Loading";
 import NotFound from "../../../../components/NotFound/NotFound";
 import ServerError from "../../../../components/ServerError/ServerError";
+import {wrapper} from "../../../../services/store";
 
 const Index = () => {
   const router = useRouter()
@@ -14,10 +15,6 @@ const Index = () => {
   useEffect(() => {
   }, [product_id])
   const {data, isLoading, isSuccess, isError, error} = useGetProductByIdQuery(product_id)
-  function isEven(n) {
-    return n % 2 === 0;
-  }
-
   return (
     <div>
       <Head>
@@ -63,10 +60,11 @@ const Index = () => {
               <div className={'tablet:w-1/2 w-full px-2 py-8'}>
                 <div className={'py-4 px-8 border-l border-gray-200'}>
                   <h2 className={'text-black text-xl font-semibold pb-2 tracking-wide'}> {data?.name}</h2>
-                  <div className={'mt-4'} dangerouslySetInnerHTML={{__html: data?.description}}/>
+                  <div className={'mt-4 product-des'} dangerouslySetInnerHTML={{__html: data?.description}}/>
                   <div className={'grid grid-cols-2 text-sm mt-8 gap-5'}>
                     {data?.specification.map((spec, index) => (
                       <div
+                        key={index}
                         className="text-sm text-gray-900 capitalize tracking-wide">{spec.name}: <strong>{spec.value}</strong>
                       </div>
                     ))}
@@ -86,5 +84,18 @@ const Index = () => {
       {isError && <div><ServerError errorStatus={error.status} error={error.error}/></div>}
     </div>);
 };
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({dispatch}) => async ({req, res}) => {
+    dispatch(getProductById.initiate());
+    await Promise.all(dispatch(getRunningQueriesThunk()));
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
+    return {
+      props: {},
+    };
+  }
+);
 
 export default Index;

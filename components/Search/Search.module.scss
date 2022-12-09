@@ -82,4 +82,76 @@
       margin: auto;
     }
   }
+
+}
+
+.modal {
+  position: fixed;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.65);
+  transition: all .3s;
+  opacity: 0;
+  visibility: hidden;
+
+  .modal_content {
+    width: 100%;
+    max-width: 600px;
+    max-height: calc(100% - 100px);
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: all .3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    //transform: translateY(-100px);
+    //opacity: 0;
+    //pointer-events: none;
+
+    .modal_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .modal_title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .modal_close {
+        font-size: 20px;
+        color: #333;
+        cursor: pointer;
+      }
+    }
+
+    .modal_body {
+      margin-top: 20px;
+      overflow: hidden scroll;
+
+      .modal_text {
+        font-size: 16px;
+        color: #333;
+      }
+    }
+
+  }
+}
+
+.modal_show {
+  opacity: 1;
+  visibility: visible;
+  //transform: translateY(0px);
+  //opacity: 1;
+  //pointer-events: all;
 }

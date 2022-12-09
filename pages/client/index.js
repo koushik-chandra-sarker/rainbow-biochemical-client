@@ -1,20 +1,20 @@
 import React from 'react';
-
-import ClientSlider from "./ClientSlider";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import {
   getRunningQueriesThunk,
   getSiteDetails,
   useGetSiteDetailsQuery
 } from "../../services/siteDetails/siteDetailsApi";
-import Loading from "../../components/Loading/Loading";
 import _ from "lodash"
 import Image from "next/image"
-import NotFound from "../../components/NotFound/NotFound";
-import ServerError from "../../components/ServerError/ServerError";
 import {wrapper} from "../../services/store";
 import Link from "next/link";
 
+const ClientSlider = dynamic(() => import("../../components/Slider/ClientSlider"))
+const Loading = dynamic(() => import("../../components/Loading/Loading"))
+const NotFound = dynamic(() => import("../../components/NotFound/NotFound"))
+const ServerError = dynamic(() => import("../../components/ServerError/ServerError"))
 const Index = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
   return (
@@ -84,9 +84,13 @@ const Index = ({}) => {
   );
 };
 export const getServerSideProps = wrapper.getServerSideProps(
-  ({dispatch}) => async (context) => {
+  ({dispatch}) => async ({req, res}) => {
     dispatch(getSiteDetails.initiate());
     await Promise.all(dispatch(getRunningQueriesThunk()));
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
     return {
       props: {},
     };

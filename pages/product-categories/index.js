@@ -72,22 +72,6 @@ const Index = ({}) => {
                     </Link>
                   </div>
                 ))}
-              {/*{category.map((v, i) => (*/}
-              {/*    <div className={'mobile:w-1/2 my-10 w-full'} key={i}*/}
-              {/*         data-aos={isEven(i) ? "fade-right" : "fade-left"}*/}
-              {/*         data-aos-offset="100"*/}
-              {/*         data-aos-easing="ease-in-sine"*/}
-              {/*    >*/}
-              {/*      <Link href={`${router.asPath}/${v.name}`}>*/}
-              {/*        <div className={'mx-4 bg-white h-124 mb-8'}>*/}
-              {/*          <Image src={v.image} alt={"aa"}*/}
-              {/*                 className={'h-124 object-contain hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>*/}
-              {/*          <h2 className={'text-center bg-white text-xl  text-black py-4 border-t'}>{v.name}</h2>*/}
-              {/*        </div>*/}
-              {/*      </Link>*/}
-              {/*    </div>*/}
-              {/*))}*/}
-
             </div>
           </div> : <NotFound/>
       )}
@@ -97,9 +81,13 @@ const Index = ({}) => {
   );
 };
 export const getServerSideProps = wrapper.getServerSideProps(
-  ({dispatch}) => async (context) => {
+  ({dispatch}) => async ({req, res}) => {
     dispatch(getProductCategories.initiate());
     await Promise.all(dispatch(getRunningQueriesThunk()));
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
     return {
       props: {},
     };

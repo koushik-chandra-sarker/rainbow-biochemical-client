@@ -1,19 +1,21 @@
 import React from 'react';
 import {HomeOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
-import ContactForm from "./contactForm";
 import Head from "next/head";
 import {
   getRunningQueriesThunk,
   getSiteDetails,
   useGetSiteDetailsQuery
 } from "../../services/siteDetails/siteDetailsApi";
-import Loading from "../../components/Loading/Loading";
-import NotFound from "../../components/NotFound/NotFound";
 import _ from "lodash"
 import cls from 'classnames'
 import {isEven} from "../../utils/common";
-import ServerError from "../../components/ServerError/ServerError";
 import {wrapper} from "../../services/store";
+import dynamic from "next/dynamic";
+
+const ContactForm = dynamic(() => import("../../components/contact/contactForm"))
+const Loading = dynamic(() => import("../../components/Loading/Loading"))
+const NotFound = dynamic(() => import("../../components/NotFound/NotFound"))
+const ServerError = dynamic(() => import("../../components/ServerError/ServerError"))
 
 const Index = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
@@ -50,8 +52,8 @@ const Index = ({}) => {
           <div className={'bg-gray-100 relative border-b border-gray-200'}>
             {
               data[0]?.contact?.map((contact, index) => (
-                <div
-                  className={cls('mobile:w-8/12 w-11/12 mx-auto mobile:flex  pb-20 gap-10', !isEven(index) ? "flex-row-reverse" : "")}>
+                <div key={index}
+                     className={cls('mobile:w-8/12 w-11/12 mx-auto mobile:flex  pb-20 gap-10', !isEven(index) ? "flex-row-reverse" : "")}>
                   <div
                     className={'mobile:w-5/12 w-full mobile:-mt-12 mt-10 border-8 border-white mobile:h-128 h-96  rounded-xl'}>
                     <iframe width="100%" height="100%" frameBorder="0" marginHeight="0" marginWidth="0" title="map"
@@ -105,9 +107,13 @@ const Index = ({}) => {
   );
 };
 export const getServerSideProps = wrapper.getServerSideProps(
-  ({dispatch}) => async (context) => {
+  ({dispatch}) => async ({req, res}) => {
     dispatch(getSiteDetails.initiate());
     await Promise.all(dispatch(getRunningQueriesThunk()));
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
     return {
       props: {},
     };

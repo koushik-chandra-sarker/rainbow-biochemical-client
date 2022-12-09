@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prod": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@mui/material": "^5.10.16",
+    "@mui/material": "^5.10.17",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.9.0",
     "animate.css": "^4.1.1",

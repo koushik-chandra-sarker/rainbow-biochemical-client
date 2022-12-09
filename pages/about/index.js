@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from "next/head";
+import Link from "next/link";
 
 const Index = () => {
   return (
@@ -52,18 +53,18 @@ const Index = () => {
           <div
             className={'mobile:w-3/12 w-full hidden mobile:block mobile:ml-24  mobile:-mt-10 mt-10 bg-white h-72  pl-4 rounded-xl'}>
             <ul className={"flex flex-col ml-4 mt-10 gap-4 border-l-2 cursor-pointer "}>
-              <li
-                className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
+              <Link href={'/'}
+                    className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
                 Home
-              </li>
-              <li
-                className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
-                About us
-              </li>
-              <li
-                className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
+              </Link>
+              <Link href={'/contact'}
+                    className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
+                Contact
+              </Link>
+              <Link href={'/client'}
+                    className={"text-gray-600 hover:text-green-600 uppercase text-gray-400 border-l-2 border-transparent -ml-0.5 hover:border-green-600  p-2 pl-5"}>
                 Clients
-              </li>
+              </Link>
             </ul>
           </div>
           <div className={'mobile:w-9/12 w-full bg-gray-100 text-gray-500 mt-20 h-auto pb-16 mobile:pt-0 pt-10'}>

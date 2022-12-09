@@ -1,17 +1,18 @@
 import Head from 'next/head'
-import Slider from "../components/Slider/Slider";
+import dynamic from "next/dynamic";
 import {CrownOutlined, ExperimentOutlined, HeartOutlined, HomeOutlined} from "@ant-design/icons";
-import CardSlider from "../components/Slider/CardSlider";
-
 import React from "react";
-import Feature from "../components/Feature/Feature";
-import AuthorizedChannelPartner from "../components/Slider/AuthorizedChannelPartner";
 import {getRunningQueriesThunk, getSiteDetails, useGetSiteDetailsQuery} from "../services/siteDetails/siteDetailsApi";
 import {wrapper} from "../services/store";
-import Loading from "../components/Loading/Loading";
 import _ from "lodash";
-import NotFound from "../components/NotFound/NotFound";
-import ServerError from "../components/ServerError/ServerError";
+
+const CardSlider = dynamic(() => import("../components/Slider/CardSlider"))
+const Slider = dynamic(() => import("../components/Slider/Slider"))
+const Feature = dynamic(() => import("../components/Feature/Feature"))
+const AuthorizedChannelPartner = dynamic(() => import("../components/Slider/AuthorizedChannelPartner"))
+const Loading = dynamic(() => import("../components/Loading/Loading"))
+const NotFound = dynamic(() => import("../components/NotFound/NotFound"))
+const ServerError = dynamic(() => import("../components/ServerError/ServerError"))
 
 const serviceList = [
   {
@@ -43,9 +44,9 @@ const serviceList = [
   }
 
 ]
+
 const Home = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
-  console.log(data)
   const title = 'Biochemical | Home'
   return (
     <div>
@@ -107,10 +108,13 @@ const Home = ({}) => {
               <div className={"tablet:mt-20 w-11/12 mx-auto"}>
                 <Feature/>
               </div>
-              <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
-                <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
-                <AuthorizedChannelPartner slider={data && data[0]?.channelPartner}/>
-              </div>
+              {
+                data && data[0]?.channelPartner &&
+                <div className={'desktop:w-11/12 mx-auto w-full mb-20'}>
+                  <h2 className={'text-center text-gray-400 uppercase pb-8'}>Authorized Channel Partner</h2>
+                  <AuthorizedChannelPartner slider={data && data[0]?.channelPartner}/>
+                </div>
+              }
             </div>
           </div> : <NotFound/>
       )}
@@ -119,10 +123,15 @@ const Home = ({}) => {
   )
 
 }
+
 export const getServerSideProps = wrapper.getServerSideProps(
-  ({dispatch}) => async (context) => {
+  ({dispatch,}) => async ({req, res}) => {
     dispatch(getSiteDetails.initiate());
     await Promise.all(dispatch(getRunningQueriesThunk()));
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=10, stale-while-revalidate=59'
+    )
     return {
       props: {},
     };

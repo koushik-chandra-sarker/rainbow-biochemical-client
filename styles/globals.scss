@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 * {
   box-sizing: border-box;
 }
@@ -102,4 +101,15 @@ body {
   .swiper-slide-thumb-active {
     opacity: 1;
   }
+}
+
+.product-des {
+  li {
+    list-style: inside !important;
+    margin-left: 10px;
+  }
+}
+
+.footerSwiper {
+  height: 100px;
 }

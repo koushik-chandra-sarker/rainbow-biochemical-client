@@ -1,7 +1,6 @@
 import '../styles/globals.scss';
 import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import Layout from "../components/layout/Layout";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -14,19 +13,22 @@ import React, {useEffect} from "react";
 import {Slide, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import {useRouter} from "next/router";
-import InitialLoading from "../components/Loading/InitialLoading";
+import dynamic from "next/dynamic";
+
+const Layout = dynamic(() => import("../components/layout/Layout"))
+const InitialLoading = dynamic(() => import("../components/Loading/InitialLoading"))
 
 function App({Component, pageProps}) {
   const router = useRouter();
   const [loading, setLoading] = React.useState(true);
   useEffect(() => {
     AOS.init({ones: false});
+  }, []);
+  useEffect(() => {
     setTimeout(() => {
       if (router.isReady) setLoading(false);
-    }, 2000)
-  }, []);
-
-
+    }, 1000)
+  }, [router.isReady]);
   return (
     <>
       {loading && <InitialLoading/>}
