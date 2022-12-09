@@ -5,18 +5,28 @@ import {IoClose} from "@react-icons/all-files/io5/IoClose";
 import style from './Search.module.scss';
 import product from '../../public/assets/imgs/logo.jpg';
 import Image from "next/image";
+import {useGetProductByNameQuery} from "../../services/product/productApi";
+import Loading from "../Loading/Loading";
+import Link from "next/link";
+import NotFound from "../NotFound/NotFound";
 
-const Search = ({onKeyEnter}) => {
+const Search = () => {
   const [openSearchBox, setOpenSearchBox] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [productName, setProductName] = useState("")
   const model = useRef();
   const content = useRef();
+  const {data, isLoading, isFetching, isSuccess} = useGetProductByNameQuery(productName, {
+    skip: productName === ""
+  });
 
   function handleOnKeyDown(event) {
     if (event.key === 'Enter') {
+      setProductName(event.target.value)
       setOpenModal(true);
     }
   }
+
 
   function handleModalClose(event) {
     if (event.target !== content.current) {
@@ -24,6 +34,9 @@ const Search = ({onKeyEnter}) => {
     } else setOpenModal(true);
   }
 
+  console.log("loading:", isLoading)
+  console.log("success:", isSuccess)
+  console.log("isFetching:", isFetching)
   useEffect(() => {
     if (openModal) {
       model.current.classList.add(style.modal_show)
@@ -54,33 +67,30 @@ const Search = ({onKeyEnter}) => {
       <section className={cls(style.modal)} ref={model} onClick={handleModalClose}>
         <div className={cls(style.modal_content)} ref={content}>
           <div className={cls(style.modal_header)}>
-            <h2>Modal Header</h2>
+            <h2>Search Result</h2>
           </div>
           <div className={cls(style.modal_body)}>
             <div className={'p-3 space-y-3'}>
               {
-                [...Array(10)].map((_, index) => (
-                  <div key={index} className={'flex gap-5 border overflow-hidden pr-3'}>
-                    <Image className={'w-20 h-20 object-cover'} src={product} alt={'product'} width={100}
-                           height={100}/>
-                    <div className={'flex flex-col justify-between'}>
-                      <div className={'grid flex-col mt-2'}>
-                        <h1 className={'text-base font-bold'}>Product Name</h1>
-                        <p className={'w-full text-sm whitespace-nowrap text-ellipsis overflow-hidden'}>Product
-                          Description do
-                          something
-                          with
-                          dialog result do
-                          something with
-                          dialog result do something with dialog result do something with dialog result do something
-                          with
-                          dialog result do something with dialog result do something with dialog resultdo something
-                          with
-                          dialog result</p>
+                (isLoading || isFetching) && <Loading/>
+              }
+              {
+                isSuccess &&
+                !_.isEmpty(data) ?
+                  data?.map((product, index) => (
+                    <Link href={`/product-categories${product.url}`} key={index}
+                          className={'flex gap-5 border overflow-hidden pr-3'}>
+                      <Image className={'w-20 h-20 object-cover'} src={product.thumbnail} alt={'product'} width={100}
+                             height={100}/>
+                      <div className={'flex flex-col justify-between'}>
+                        <div className={'grid flex-col mt-2'}>
+                          <h1 className={'text-base font-bold'}>{product.name}</h1>
+                          {/*<p className={'w-full text-sm whitespace-nowrap text-ellipsis overflow-hidden'}>Product description</p>*/}
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                ))
+                    </Link>
+                  )) :
+                  <NotFound/>
               }
             </div>
           </div>
