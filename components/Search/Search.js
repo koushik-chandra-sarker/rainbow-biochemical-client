@@ -5,12 +5,14 @@ import {IoClose} from "@react-icons/all-files/io5/IoClose";
 import style from './Search.module.scss';
 import product from '../../public/assets/imgs/logo.jpg';
 import Image from "next/image";
+import {useGetProductCategoriesQuery} from "../../services/product/productApi";
 
 const Search = ({onKeyEnter}) => {
   const [openSearchBox, setOpenSearchBox] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const model = useRef();
   const content = useRef();
+  const {data, isLoading, isSuccess, isError, error} = useGetProductCategoriesQuery();
 
   function handleOnKeyDown(event) {
     if (event.key === 'Enter') {
@@ -59,24 +61,20 @@ const Search = ({onKeyEnter}) => {
           <div className={cls(style.modal_body)}>
             <div className={'p-3 space-y-3'}>
               {
-                [...Array(10)].map((_, index) => (
+                // [...Array(10)].map((v, index) => (
+                  data && data.map((v, index) => (
                   <div key={index} className={'flex gap-5 border overflow-hidden pr-3'}>
-                    <Image className={'w-20 h-20 object-cover'} src={product} alt={'product'} width={100}
+                    <Image className={'w-20 h-20 object-cover'} src={v.thumbnail} alt={'product'} width={100}
                            height={100}/>
                     <div className={'flex flex-col justify-between'}>
                       <div className={'grid flex-col mt-2'}>
                         <h1 className={'text-base font-bold'}>Product Name</h1>
-                        <p className={'w-full text-sm whitespace-nowrap text-ellipsis overflow-hidden'}>Product
-                          Description do
-                          something
-                          with
-                          dialog result do
-                          something with
-                          dialog result do something with dialog result do something with dialog result do something
-                          with
-                          dialog result do something with dialog result do something with dialog resultdo something
-                          with
-                          dialog result</p>
+                        <p className={'w-full text-sm whitespace-nowrap text-ellipsis overflow-hidden'}>
+                          {/*Product Description do something with dialog result do something with dialog result do something with dialog result do */}
+                          {/*something with dialog result do something with dialog result do something with dialog result do something with dialog */}
+                          {/*resultdo something with dialog result*/}
+                          {v.name}
+                        </p>
                       </div>
                     </div>
                   </div>
