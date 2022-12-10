@@ -18,20 +18,20 @@ const serviceList = [
   {
     id: 1,
     title: 'Biochemical QUALITY',
-    description: "The most important principle that brought Biochemical to today is the quality.",
+    description: "Quality is the most crucial tenet that gave Biochemical its current state.",
     icon: <CrownOutlined/>,
   },
   {
     id: 2,
     title: 'Biochemical SAFETY',
-    description: "In Biochemical employs right persons having right qualifications in right positions.",
+    description: "The right people with the right qualifications are employed by Biochemical in the appropriate positions.",
     icon: <HeartOutlined/>,
   }
   ,
   {
     id: 3,
     title: 'ENVIRONMENT',
-    description: "We follow a sensitive and environmentally friendly process in the production processes.",
+    description: "In the operations, we adhere to a sensitive and environmentally sustainable procedure.",
     icon: <HomeOutlined/>,
   }
 
@@ -39,7 +39,7 @@ const serviceList = [
   {
     id: 4,
     title: 'R&D',
-    description: "In Biochemical, we operate in a world-class business that recognizes the importance.",
+    description: "Biochemical operates in a world-class business that recognizes its importance.",
     icon: <ExperimentOutlined/>,
   }
 
