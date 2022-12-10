@@ -75,7 +75,7 @@ const Search = () => {
                 (isLoading || isFetching) && <Loading/>
               }
               {
-                isSuccess &&
+                (isSuccess && !isFetching) &&
                 !_.isEmpty(data) ?
                   data?.map((product, index) => (
                     <Link href={`/product-categories${product.url}`} key={index}
@@ -90,7 +90,7 @@ const Search = () => {
                       </div>
                     </Link>
                   )) :
-                  <NotFound/>
+                  !isFetching && <NotFound/>
               }
             </div>
           </div>

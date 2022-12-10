@@ -70,53 +70,13 @@ const Index = () => {
           <div className={'mobile:w-9/12 w-full bg-gray-100 text-gray-500 mt-20 h-auto pb-16 mobile:pt-0 pt-10'}>
             <h2 className={'text-center text-black font-semibold text-xl uppercase'}>About Us</h2>
             <p className={'text-sm px-8 pt-8 text-justify'}>
-              <span className={'font-semibold text-base'}>Miami Associates (BD)</span> is a well-diversified company
-              involved in import, trading, indenting and services.
-              Our core businesses are among the region’s market leaders. Founded in 1990 as trading company, Miami
-              Associates (BD) has since grown from a small trading
-              company into a reputable trading, indenting, supply and service provider company. From local selling, we
-              have expanded to become one of the renowned trading companies
-              that supply its high quality products in Bangladesh. Miami Associates (BD) has established successful
-              co-operations in Dhaka,
-              Chittagong and Cox’s Bazar. Today, our businesses are increasing at a rapid pace.<br/><br/>
-              With its good relationship and distribution with Diversey (India & UK), Sysco and factories worldwide it
-              has find ground to be
-              capable to supply wide product ranging from Cleaning Chemicals, Mops & Tools, Machines, Hot-Melt Adhesive,
-              Doctor Blade, Hotel Amenities,
-              Poultry Feed Ingredients and various types industrial products on demand.
+              Biochemical is a well-diversified company involved in import, trading, indenting, and services. Our
+              mission is to protect and care for people through leading hygiene, infection prevention, and cleaning
+              solutions. We have a wide product range of Cleaning Chemicals, Mops & Tools, Machines, Hot-Melt adhesives,
+              Doctor blades, Hotel Amenities, and various types of industrial products on demand.
               <br/><br/>
-              Over the years, we have built a reputation of trust to buyer worldwide in terms of good, efficient, and
-              prompt supply of goods
-              upon payment made. Miami Associates (BD) with its efficient management team and strong financial strength
-              are ready to take up
-              any new challenges the world has to offer.
-            </p>
-            <p className={'text-sm px-8 pt-8 text-justify'}>
-              <span className={'font-semibold text-base pr-2'}>Mission :</span>
-              To offer end to end cleaning & hygiene solutions to any organizations/residential houses. To provide all
-              sorts of commodities to any organizations on demand.
-            </p>
-            <p className={'text-sm px-8 pt-8 text-justify'}>
-              <span className={'font-semibold text-base pr-2'}>vision :</span>
-              To become and remain a leading manufacturer, importer, supplier & service provider in the country in terms
-              of Reliability Turnaround product & service Continue to excel industry standards
-            </p>
-            <p className={'text-sm px-8 pt-8 text-justify'}>
-              <span className={'font-semibold text-base pr-2'}>Channel Partner :</span>
-              Miami Associates (BD) is the authorized distributor of Diversey India PVT. LTD. and fully equipped to
-              offer complete commercial cleaning & hygiene solutions in any types of organizations by providing quality
-              products, machineries and support services. Diversey is one of the world leading manufacturer & supplier
-              of commercial cleaning and hygiene solutions.
-            </p>
-            <p className={'text-sm px-8 pt-8 text-justify'}>
-              <span className={'font-semibold text-base pr-2'}>We are also authorized distributor & channel partner of the following Company :</span>
-              Sysco(Hotel Amenities), Nanpao & Selic (Manufacturer Hot-Melt Adhesive), Arron & Convertec (Doctor Blade).
-
-            </p>
-            <p className={'text-sm px-8 pt-8 text-justify'}>
-              <span className={'font-semibold text-base pr-2 pb-4'}>Membership : Miami Associates (BD) is Member of the Following Organization<br/></span><br/>
-              <span>1. Dhaka Chamber of Commrece.<br/></span>
-              <span>2. AHCAB (Animal Health Companies Association of Bangladesh).</span>
+              Our goal is to give complete cleaning and hygiene solutions to any industry or residential property, as
+              well as to supply any organization with any type of commodity on demand.
             </p>
           </div>
         </div>

@@ -47,12 +47,11 @@ const Footer = () => {
             <div className={cls("w-18 h-18 border-2 rounded-full text-3xl p-4   flex justify-center items-center")}>
               <Image src={iconPhone} alt="Phone Icon"/>
             </div>
-            <h3 className={cls("font-bold text-xl")}>FREE CONSUMER HELPLINE</h3>
+            <h3 className={cls("font-bold text-xl")}>CONSUMER HELPLINE</h3>
           </div>
           <hr className={"desktop:my-8 my-3"}/>
           <p className={cls("text-gray-500 text-base")}>
-            Whenever you wish, Any complain, suggestion or thanks for Miami Associates (BD),you can forward it to us via
-            the Free Consumer Helpline.
+            You can contact us at any time with a complaint, a suggestion, or thanks by calling the consumer helpline.
           </p>
         </div>
 
@@ -129,8 +128,7 @@ const Footer = () => {
           <Image src={logo} alt={"Brand Logo"} className={"w-40 tablet:border-r-2 pr-4"}/>
           <div className={"tablet:ml-4 flex items-center"}>
             <p className={cls("text-gray-500 text-base")}>
-              Biochemical has been manufacturing<br/>
-              innovative products in the field of industrial and retail.
+              Biochemical has been providing innovative<br/> products in the field of industrial and retail.
             </p>
           </div>
         </section>
@@ -202,9 +200,11 @@ const Footer = () => {
       </section>
 
       {/*  Copyright*/}
-      <section className={"w-full flex justify-center items-center py-2  mt-20 bg-green-100"}>
-        <CopyrightOutlined className={'mr-2'}/> CopyRight {new Date().getFullYear()} Biochemical. All Rights Reserved.
-        Develop by <a href="https://iamkoushik.com" target={"_blank"} className={"pl-1 text-blue-600"}> Koushik</a>
+      <section className={"w-full flex justify-center mobile:items-center py-2  mt-20 bg-green-100"}>
+        <CopyrightOutlined
+          className={'mr-2 mt-1 mobile:mt-0'}/> <span>Copyright {new Date().getFullYear()} Biochemical. All Rights Reserved.
+        Develop by <a href="https://iamkoushik.com" target={"_blank"}
+                      className={"pl-1 text-blue-600"}> Koushik</a></span>
       </section>
     </footer>);
 };
