@@ -10,3 +10,4 @@ export const API = {
   subscriber: "/biochemical/subscribers/",
   messages: "/biochemical/messages/",
 }
+

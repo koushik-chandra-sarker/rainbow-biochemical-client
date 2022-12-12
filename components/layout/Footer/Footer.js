@@ -16,7 +16,7 @@ import Link from "next/link";
 
 const Footer = () => {
   const {data} = useGetSiteDetailsQuery();
-  const [createEmail, {data1, isSuccess, isError, error}] = useCreateSubscriberMutation();
+  const [createEmail, {isSuccess, isError, error}] = useCreateSubscriberMutation();
   const [state, setState] = useState({
     email: ""
   })
@@ -145,9 +145,9 @@ const Footer = () => {
             <h3 className={cls("font-bold text-base")}>Biochemical</h3>
             <hr className={"my-5 w-full"}/>
             <ul className={cls("text-gray-500 text-sm tablet:block flex gap-5")}>
-              <li className={"mb-2"}>Home</li>
-              <li className={"mb-2"}>About Us</li>
-              <li className={"mb-2"}>Client</li>
+              <li><Link href={'/'} className={"mb-2"}>Home</Link></li>
+              <li><Link href={"/about"} className={"mb-2"}>About Us</Link></li>
+              <li><Link href={"/client"} className={"mb-2"}>Client</Link></li>
             </ul>
           </section>
           <section className={"tablet:block flex flex-col justify-center items-center tablet:text-left"}>
@@ -160,8 +160,10 @@ const Footer = () => {
                   <div
                     className={" tablet:block flex flex-col justify-center items-center text-center tablet:text-left"}>
                     <p>{data[0]?.contact[0]?.address}<br/>
-                      <b>Phone: </b> {data[0]?.contact[0]?.phone}<br/>
-                      <b>Email: </b> {data[0]?.contact[0]?.email}
+                      <b>Mobile: </b>
+                      <a href={`tel:${data[0]?.contact[0]?.mobile}`}>
+                        {data[0]?.contact[0]?.mobile}</a><br/>
+                      <b>Email: </b> <a href={`mailto:${data[0]?.contact[0]?.email}`}>{data[0]?.contact[0]?.email}</a>
                     </p>
                   </div>
                   <Link href={"/contact"} className={"flex justify-center mt-3 text-blue-500"}>
@@ -177,19 +179,22 @@ const Footer = () => {
             <hr className={"my-5 w-full"}/>
             <ul className={cls("text-gray-500 text-sm tablet:block flex gap-3")}>
               <li className={"mb-2 hover:text-indigo-500"}>
-                <a href={"#"} className={"flex items-center gap-2"}>
+                <a target={"_blank"} href={data && data[0]?.facebook}
+                   className={"flex items-center gap-2 cursor-pointer"}>
                   <FacebookFilled className={"text-2xl"}/>
                   <span>Facebook</span>
                 </a>
               </li>
               <li className={"mb-2 hover:text-pink-600"}>
-                <a href={"#"} className={"flex items-center gap-2"}>
+                <a target={"_blank"} href={data && data[0]?.instagram}
+                   className={"flex items-center gap-2 cursor-pointer"}>
                   <InstagramFilled className={"text-2xl"}/>
                   <span>Instagram</span>
                 </a>
               </li>
               <li className={"mb-2 hover:text-blue-400"}>
-                <a href={"#"} className={"flex items-center gap-2"}>
+                <a target={"_blank"} href={data && data[0]?.twitter}
+                   className={"flex items-center gap-2 cursor-pointer"}>
                   <TwitterSquareFilled className={"text-2xl"}/>
                   <span>Twitter</span>
                 </a>

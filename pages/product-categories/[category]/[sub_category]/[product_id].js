@@ -60,6 +60,8 @@ const Index = () => {
               <div className={'tablet:w-1/2 w-full px-2 py-8'}>
                 <div className={'py-4 px-8 border-l border-gray-200'}>
                   <h2 className={'text-black text-xl font-semibold pb-2 tracking-wide'}> {data?.name}</h2>
+                  {data?.catalog && <a href={data?.catalog} className={'text-blue-500 text-base pb-2 tracking-wide'}>View
+                    Product Catalog</a>}
                   <div className={'mt-4 product-des'} dangerouslySetInnerHTML={{__html: data?.description}}/>
                   <div className={'grid grid-cols-2 text-sm mt-8 gap-5'}>
                     {data?.specification.map((spec, index) => (

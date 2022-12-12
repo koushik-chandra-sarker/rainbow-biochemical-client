@@ -11,6 +11,7 @@ import cls from 'classnames'
 import {isEven} from "../../utils/common";
 import {wrapper} from "../../services/store";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const ContactForm = dynamic(() => import("../../components/contact/contactForm"))
 const Loading = dynamic(() => import("../../components/Loading/Loading"))
@@ -19,6 +20,7 @@ const ServerError = dynamic(() => import("../../components/ServerError/ServerErr
 
 const Index = ({}) => {
   const {data, isLoading, isSuccess, isError, error} = useGetSiteDetailsQuery();
+
 
   return (
     <div>
@@ -63,7 +65,7 @@ const Index = ({}) => {
                   </div>
                   <div
                     className={'mobile:w-7/12 w-full bg-gray-100 text-gray-600 mobile:pl-8 mobile:p-0 p-2 mt-16 h-auto pb-16'}>
-                    <h2 className={'text-xl text-black pb-2'}>DHAKA OFFICE</h2>
+                    <h2 className={'text-xl text-black pb-2'}>{contact?.office_name}</h2>
                     <div className={'flex pb-4 items-center'}>
                       <div className={'pr-4 text-2xl text-gray-500'}>
                         <HomeOutlined/>
@@ -90,10 +92,11 @@ const Index = ({}) => {
                       </div>
                     </div>
                     <div className={'pt-16'}>
-                      <button
-                        className="w-full font-semibold  mx-auto text-white rounded-3xl flex justify-center  text-white  bg-blue-600 py-4   text-sm">
-                        See on navigation
-                      </button>
+                      <Link href={"/contact/mapView/?link=" + contact?.map_url}
+                            className="w-full font-semibold mx-auto text-white rounded-3xl flex justify-center text-white
+                        bg-blue-600 py-4 text-sm">
+                        See Larger Map
+                      </Link>
                     </div>
                   </div>
                 </div>

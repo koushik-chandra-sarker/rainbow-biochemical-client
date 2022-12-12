@@ -73,10 +73,21 @@ const Index = () => {
               Biochemical is a well-diversified company involved in import, trading, indenting, and services. Our
               mission is to protect and care for people through leading hygiene, infection prevention, and cleaning
               solutions. We have a wide product range of Cleaning Chemicals, Mops & Tools, Machines, Hot-Melt adhesives,
-              Doctor blades, Hotel Amenities, and various types of industrial products on demand.
-              <br/><br/>
-              Our goal is to give complete cleaning and hygiene solutions to any industry or residential property, as
-              well as to supply any organization with any type of commodity on demand.
+              Hotel Amenities, and various types of industrial products on demand.
+            </p>
+            <p className={'text-sm px-8 pt-6 text-justify'}>
+              <span className={'font-semibold text-base pr-2'}>Mission :</span>
+              To give complete cleaning and hygiene solutions to any industry or residential property and supply any
+              organization with any type of commodity on demand.
+            </p>
+            <p className={'text-sm px-8 pt-6 text-justify'}>
+              <span className={'font-semibold text-base pr-2'}>Vision :</span>
+              To develop in the sector and continue to be a leading producer, importer, supplier, and service provider
+              in the nation in terms of dependability turnaround product & service.
+            </p>
+            <p className={'text-sm px-8 pt-6 text-justify'}>
+              <span className={'font-semibold text-base pr-2'}>Channel Partner :</span>
+              Bio Chemical is an authorized distributor of Diversey, One World Infinite, Seba, and Ecolab.
             </p>
           </div>
         </div>

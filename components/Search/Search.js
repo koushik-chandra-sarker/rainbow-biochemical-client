@@ -34,9 +34,6 @@ const Search = () => {
     } else setOpenModal(true);
   }
 
-  console.log("loading:", isLoading)
-  console.log("success:", isSuccess)
-  console.log("isFetching:", isFetching)
   useEffect(() => {
     if (openModal) {
       model.current.classList.add(style.modal_show)
