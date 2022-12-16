@@ -19,7 +19,7 @@ const Search = () => {
   const {data, isLoading, isFetching, isSuccess} = useGetProductByNameQuery(productName, {
     skip: productName === ""
   });
-console.log(data)
+
   function handleOnKeyDown(event) {
     if (event.key === 'Enter') {
       setProductName(event.target.value)

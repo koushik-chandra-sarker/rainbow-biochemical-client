@@ -7,7 +7,6 @@ import {useRouter} from "next/router";
 
 const RelatedProducts = ({products}) => {
   const {sub_category, category} = useRouter().query;
-  // console.log(router)
   return (
     <div>
       <Swiper

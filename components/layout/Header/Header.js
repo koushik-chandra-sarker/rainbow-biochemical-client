@@ -37,7 +37,6 @@ const Header = () => {
 
   function handleOpenModal(event) {
     if (event.key === 'Enter') {
-      console.log('do validate')
     }
   }
 
