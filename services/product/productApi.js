@@ -38,14 +38,8 @@ export const productApi = createApi({
       })
     }),
     getProductsByCategory: builder.query({
-      query: (category) => ({
-        url: API.products + "category/" + category,
-        method: "GET"
-      })
-    }),
-    getProductsByCategoryName: builder.query({
-      query: (name) => ({
-        url: API.products + "?category=" + name,
+      query: (id) => ({
+        url: API.products + "?category=" + id,
         method: "GET"
       })
     }),
@@ -60,7 +54,7 @@ export const productApi = createApi({
 export const {
   useGetProductCategoriesQuery,
   useGetProductByIdQuery,
-  useGetProductsByCategoryNameQuery,
+  useGetProductsByCategoryQuery,
   useGetCategoryByNameQuery,
   useGetProductByNameQuery,
   util: {getRunningQueriesThunk},
@@ -69,7 +63,7 @@ export const {
 export const {
   getProductCategories,
   getProductById,
-  getProductsByCategoryName,
+  getProductsByCategory,
   getCategoryByName,
   getProductByName
 } = productApi.endpoints;

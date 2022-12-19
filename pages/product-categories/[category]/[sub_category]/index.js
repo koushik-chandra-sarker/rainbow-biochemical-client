@@ -6,9 +6,9 @@ import styles from '../../Product.module.scss'
 import cls from "classnames";
 import Head from "next/head";
 import {
-  getProductsByCategoryName,
+  getProductsByCategory,
   getRunningQueriesThunk,
-  useGetProductsByCategoryNameQuery
+  useGetProductsByCategoryQuery
 } from "../../../../services/product/productApi";
 import Loading from "../../../../components/Loading/Loading";
 import NotFound from "../../../../components/NotFound/NotFound";
@@ -18,8 +18,9 @@ import {wrapper} from "../../../../services/store";
 
 const Index = ({}) => {
   const router = useRouter()
-  const {sub_category} = router.query
-  const {data, isLoading, isSuccess, isError, error} = useGetProductsByCategoryNameQuery(sub_category)
+  const {category, sub_category, id} = router.query
+  console.log(router)
+  const {data, isLoading, isSuccess, isError, error} = useGetProductsByCategoryQuery(id)
   return (<div>
     <Head>
       <title>Biochemical | Product Category - {sub_category}</title>
@@ -56,46 +57,16 @@ const Index = ({}) => {
     {isLoading && <div><Loading/></div>}
     {isSuccess && (!_.isEmpty(data) ?
         <div className={'bg-gray-100 py-10'}>
-          {/*<div className={'mobile:w-8/12 mx-auto w-full flex  my-10'}>
-            <div className={'mobile:w-1/4 w-full px-2'}>
-              <input
-                type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-                className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-white py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-            </div>
-            <div className={'mobile:w-1/4 w-full px-2'}>
-              <input
-                type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-                data-dropdown-toggle="dropdownDefaultCheckbox"
-                className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-white py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-            </div>
-            <div className={'mobile:w-1/4 w-full px-2'}>
-              <input
-                type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-                className="w-full text-sm mb-4 text-gray-400  placeholder-gray-400  pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-white py-2 px-3 leading-8 transit  console.log(router.asPath)
-                          ion-colors duration-200 ease-in-out"/>
-            </div>
-            <div className={'mobile:w-1/4 w-full px-2'}>
-              <button
-                type="text" name="phone" placeholder={'RELEVANT DEPARTMENT'}
-                className="w-full text-sm mb-4 text-white  bg-red-600 pl-8 rounded-md border border-gray-300  focus:border-black
-                          outline-none bg-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">Search
-              </button>
-            </div>
-
-          </div>*/}
           <div className={'tablet:w-8/12 w-11/12 mx-auto  text-center text-xl text-black'}>
             <h2
-              className={'w-full border py-5 tablet:text-3xl text-xl uppercase font-bold text-gray-500 bg-white'}>{sub_category}</h2>
+              className={'w-full border py-5 tablet:text-3xl text-sm uppercase font-bold text-gray-500 bg-white'}>{category} - {sub_category}</h2>
           </div>
           <div className={'pb-16'}>
             <div className={'tablet:w-8/12 w-11/12 mx-auto  grid mobile:grid-cols-3 grid-cols-1 py-2 gap-5'}>
               {
                 data && data.map((v, i) => (
                   <div className={'w-full mt-8 h-full bg-white'} key={i}>
-                    <Link href={`${router.asPath}/${v.id}`}
+                    <Link href={`/product-categories/${category}/${sub_category}/${v.id}`}
                           className={cls(styles.product, "cursor-pointer h-full")}>
                       <div className={' h-full'}>
                         <Image src={v.thumbnail} alt={"dd"} height={2} width={1700}
@@ -125,7 +96,7 @@ const Index = ({}) => {
 };
 export const getServerSideProps = wrapper.getServerSideProps(
   ({dispatch}) => async ({req, res}) => {
-    dispatch(getProductsByCategoryName.initiate());
+    dispatch(getProductsByCategory.initiate());
     await Promise.all(dispatch(getRunningQueriesThunk()));
     res.setHeader(
       'Cache-Control',

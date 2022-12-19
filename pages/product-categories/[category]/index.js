@@ -67,7 +67,7 @@ const Index = ({}) => {
                        data-aos={isEven(i) ? "fade-right" : "fade-left"}
                        data-aos-offset="100"
                        data-aos-easing="ease-in-sine">
-                    <Link href={`${router.asPath}/${v.name}`}>
+                    <Link href={`${router.asPath}/${v.name}?id=${v.id}`}>
                       <div className={'mx-4 bg-white h-124 mb-8'}>
                         <Image src={v.thumbnail} alt={"aa"} height={2} width={500}
                                className={'h-124 object-cover hover:border-4 border-white w-full transition-all ease-linear duration-100'}/>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import ProductSlider from "../../../../components/Slider/ProductSlider";
 import RelatedProducts from "../../../../components/RelatedProducts";
 import {useRouter} from "next/router";
@@ -12,8 +12,7 @@ import {wrapper} from "../../../../services/store";
 const Index = () => {
   const router = useRouter()
   const {product_id} = router.query
-  useEffect(() => {
-  }, [product_id])
+  console.log(product_id)
   const {data, isLoading, isSuccess, isError, error} = useGetProductByIdQuery(product_id)
   return (
     <div>
