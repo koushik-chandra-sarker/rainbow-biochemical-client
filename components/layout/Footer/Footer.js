@@ -205,7 +205,8 @@ const Footer = () => {
       </section>
 
       {/*  Copyright*/}
-      <section className={"w-full flex justify-center mobile:items-center py-2  mt-20 bg-green-100"}>
+      <section className={"w-full flex justify-center mobile:items-center py-2 px-4 mt-20 bg-green-100"}>
+        
         <CopyrightOutlined
           className={'mr-2 mt-1 mobile:mt-0'}/> <span>Copyright {new Date().getFullYear()} Biochemical. All Rights Reserved.
         Develop by <a href="https://iamkoushik.com" target={"_blank"}

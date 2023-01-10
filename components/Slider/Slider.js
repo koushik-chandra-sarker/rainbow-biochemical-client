@@ -48,15 +48,19 @@ export default function Slider(props) {
               </div>
               <div className={"relative block mobile:hidden"}>
                 <Image src={v.image_mobile} alt={v.title ? v.title : 'Home Slider'}
-                       height={2}
-                       width={500}
+                       height={500}
+                       width={1000}
                        className={'w-full tablet:hidden block'}
                 />
-                <div className={'absolute top-2/4 left-40 z-20 animate__bounce'}>
-                  <button
-                    className={cls(" bg-blue-600 text-xl text-white rounded-3xl px-12 py-2 animate__animated ", activeSliderIndex === i ? "animate__slideInLeft" : "")}>Details
-                  </button>
-                </div>
+                {
+                  !_.isNull(v.product) &&
+                  <div className={'absolute top-2/4 left-40 z-20 animate__bounce'}>
+                    <button
+                      className={cls(" bg-blue-600 text-xl text-white rounded-3xl px-12 py-2 animate__animated ", activeSliderIndex === i ? "animate__slideInLeft" : "")}>Details
+                    </button>
+                  </div>
+                }
+
               </div>
             </SwiperSlide>
           ))
