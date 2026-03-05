@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'file.rainbowgroup-bd.com',
+        hostname: 'file.biochemicalbd.com',
         pathname: '/**',
       },
     ],
